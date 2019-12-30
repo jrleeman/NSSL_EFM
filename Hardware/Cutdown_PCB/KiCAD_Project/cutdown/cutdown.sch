@@ -2113,12 +2113,6 @@ F 5 "0" H 6025 7050 50  0001 C CNN "Populated"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5825 7150 5775 7150
-Wire Wire Line
-	5775 7150 5775 6950
-Wire Wire Line
-	5775 6950 5825 6950
-Wire Wire Line
 	5825 7050 5725 7050
 Wire Wire Line
 	5725 7050 5725 7250
@@ -2152,9 +2146,6 @@ Wire Wire Line
 Connection ~ 5725 7250
 Text GLabel 5450 3300 0    50   Output ~ 0
 PIEZO_ELEMENT
-Wire Wire Line
-	5675 6950 5775 6950
-Connection ~ 5775 6950
 $Comp
 L lib_sch:Particle U1
 U 1 1 5DCA1CC6
@@ -2198,7 +2189,7 @@ F 1 "10k" V 3400 6800 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 6875 50  0001 C CNN
 F 3 "~" H 3400 6875 50  0001 C CNN
 F 4 "1-0000010" H 3400 6875 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 6875 50  0001 C CNN "Populated"
+F 5 "1" H 3400 6875 50  0001 C CNN "Populated"
 	1    3400 6875
 	0    1    1    0   
 $EndComp
@@ -2211,7 +2202,7 @@ F 1 "10k" V 3400 6900 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 6975 50  0001 C CNN
 F 3 "~" H 3400 6975 50  0001 C CNN
 F 4 "1-0000010" H 3400 6975 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 6975 50  0001 C CNN "Populated"
+F 5 "1" H 3400 6975 50  0001 C CNN "Populated"
 	1    3400 6975
 	0    1    1    0   
 $EndComp
@@ -2224,7 +2215,7 @@ F 1 "10k" V 3400 7000 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7075 50  0001 C CNN
 F 3 "~" H 3400 7075 50  0001 C CNN
 F 4 "1-0000010" H 3400 7075 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 7075 50  0001 C CNN "Populated"
+F 5 "1" H 3400 7075 50  0001 C CNN "Populated"
 	1    3400 7075
 	0    1    1    0   
 $EndComp
@@ -2237,7 +2228,7 @@ F 1 "10k" V 3400 7100 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7175 50  0001 C CNN
 F 3 "~" H 3400 7175 50  0001 C CNN
 F 4 "1-0000010" H 3400 7175 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 7175 50  0001 C CNN "Populated"
+F 5 "1" H 3400 7175 50  0001 C CNN "Populated"
 	1    3400 7175
 	0    1    1    0   
 $EndComp
@@ -2250,7 +2241,7 @@ F 1 "10k" V 3400 7200 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7275 50  0001 C CNN
 F 3 "~" H 3400 7275 50  0001 C CNN
 F 4 "1-0000010" H 3400 7275 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 7275 50  0001 C CNN "Populated"
+F 5 "1" H 3400 7275 50  0001 C CNN "Populated"
 	1    3400 7275
 	0    1    1    0   
 $EndComp
@@ -2297,7 +2288,7 @@ F 1 "10k" V 3400 7300 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7375 50  0001 C CNN
 F 3 "~" H 3400 7375 50  0001 C CNN
 F 4 "1-0000010" H 3400 7375 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3400 7375 50  0001 C CNN "Populated"
+F 5 "1" H 3400 7375 50  0001 C CNN "Populated"
 	1    3400 7375
 	0    1    1    0   
 $EndComp
@@ -2336,4 +2327,12 @@ Wire Wire Line
 	3550 7475 3675 7475
 Wire Wire Line
 	3675 7475 3675 7525
+Text GLabel 5375 7150 0    50   Input ~ 0
+EXT_CUTDOWN
+Wire Wire Line
+	5675 6950 5825 6950
+Wire Wire Line
+	5375 7150 5825 7150
+Text Notes 5300 2250 0    50   ~ 0
+Socket Particle with Header #1-0000295
 $EndSCHEMATC

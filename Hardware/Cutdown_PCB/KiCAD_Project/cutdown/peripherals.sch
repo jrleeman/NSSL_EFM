@@ -148,7 +148,7 @@ P 2825 2400
 AR Path="/5DE9BB83" Ref="R?"  Part="1" 
 AR Path="/5DE92E14/5DE9BB83" Ref="R9"  Part="1" 
 F 0 "R9" V 2725 2350 50  0000 L CNN
-F 1 "10k" V 2825 2325 50  0000 L CNN
+F 1 "NP" V 2825 2350 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 2755 2400 50  0001 C CNN
 F 3 "~" H 2825 2400 50  0001 C CNN
 F 4 "1-0000010" H 2825 2400 50  0001 C CNN "Internal Part Number"
@@ -2509,7 +2509,7 @@ F 1 "10k" V 4725 2175 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 4655 2250 50  0001 C CNN
 F 3 "~" H 4725 2250 50  0001 C CNN
 F 4 "1-0000010" H 4725 2250 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 4725 2250 50  0001 C CNN "Populated"
+F 5 "1" H 4725 2250 50  0001 C CNN "Populated"
 	1    4725 2250
 	1    0    0    -1  
 $EndComp
