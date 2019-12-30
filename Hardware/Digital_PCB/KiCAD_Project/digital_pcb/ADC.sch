@@ -2500,10 +2500,6 @@ Wire Wire Line
 Connection ~ 6150 3500
 Wire Wire Line
 	6150 3500 6150 3375
-Text GLabel 3525 2575 0    50   Input ~ 0
-AMP_OUT
-Wire Wire Line
-	3525 2575 3650 2575
 $Comp
 L power:GND #PWR032
 U 1 1 5E0FF166
@@ -2523,4 +2519,50 @@ NoConn ~ 5200 2575
 NoConn ~ 5200 2875
 NoConn ~ 5200 2975
 NoConn ~ 5200 3075
+Text GLabel 3000 2225 1    50   Input ~ 0
+AMP_OUT
+$Comp
+L Device:R R26
+U 1 1 5E0DD24D
+P 3000 2375
+F 0 "R26" V 2925 2375 50  0000 C CNN
+F 1 "10k" V 3000 2375 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 2930 2375 50  0001 C CNN
+F 3 "~" H 3000 2375 50  0001 C CNN
+F 4 "1-0000010" H 3000 2375 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 3000 2375 50  0001 C CNN "Populated"
+	1    3000 2375
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R27
+U 1 1 5E0DD73A
+P 3000 2775
+F 0 "R27" V 2925 2775 50  0000 C CNN
+F 1 "10k" V 3000 2775 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 2930 2775 50  0001 C CNN
+F 3 "~" H 3000 2775 50  0001 C CNN
+F 4 "1-0000010" H 3000 2775 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 3000 2775 50  0001 C CNN "Populated"
+	1    3000 2775
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3000 2525 3000 2575
+$Comp
+L power:GND #PWR082
+U 1 1 5E0DF9DE
+P 3000 2925
+F 0 "#PWR082" H 3000 2675 50  0001 C CNN
+F 1 "GND" H 2850 2850 50  0000 C CNN
+F 2 "" H 3000 2925 50  0001 C CNN
+F 3 "" H 3000 2925 50  0001 C CNN
+	1    3000 2925
+	1    0    0    -1  
+$EndComp
+Connection ~ 3000 2575
+Wire Wire Line
+	3000 2575 3000 2625
+Wire Wire Line
+	3000 2575 3650 2575
 $EndSCHEMATC
