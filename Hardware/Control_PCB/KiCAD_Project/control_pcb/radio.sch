@@ -200,7 +200,7 @@ F 0 "C9" V 8150 1875 50  0000 C CNN
 F 1 "10u" V 8225 1925 50  0000 C CNN
 F 2 "Capacitors_SMD:C_0603_HandSoldering" H 8313 1900 50  0001 C CNN
 F 3 "~" H 8275 2050 50  0001 C CNN
-F 4 "1-0000075" H 8275 2050 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000005" H 8275 2050 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 8275 2050 50  0001 C CNN "Populated"
 	1    8275 2050
 	0    1    1    0   

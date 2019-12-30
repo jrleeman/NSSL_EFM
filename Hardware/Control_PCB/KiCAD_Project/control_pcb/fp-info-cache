@@ -1,4 +1,4 @@
-53570376383045
+55191714061820
 Capacitors_SMD
 CP_Elec_3x5.3
 
@@ -22854,6 +22854,13 @@ IF-D96F
 0
 3
 3
+lib_fp
+KAE03TGGR
+
+
+0
+6
+6
 lib_fp
 RGEF250
 

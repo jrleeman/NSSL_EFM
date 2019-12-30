@@ -61,7 +61,7 @@ F 0 "C16" H 4965 3746 50  0000 L CNN
 F 1 "10u" H 4965 3655 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603_HandSoldering" H 4888 3550 50  0001 C CNN
 F 3 "~" H 4850 3700 50  0001 C CNN
-F 4 "1-0000075" H 4850 3700 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000005" H 4850 3700 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 4850 3700 50  0001 C CNN "Populated"
 	1    4850 3700
 	1    0    0    -1  
@@ -160,7 +160,7 @@ F 0 "C19" H 6965 3746 50  0000 L CNN
 F 1 "10u" H 6965 3655 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603_HandSoldering" H 6888 3550 50  0001 C CNN
 F 3 "~" H 6850 3700 50  0001 C CNN
-F 4 "1-0000075" H 6850 3700 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000005" H 6850 3700 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 6850 3700 50  0001 C CNN "Populated"
 	1    6850 3700
 	1    0    0    -1  
