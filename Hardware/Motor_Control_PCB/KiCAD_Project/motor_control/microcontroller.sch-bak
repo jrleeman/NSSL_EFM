@@ -348,15 +348,15 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J6
 U 1 1 5DE05300
-P 9200 3750
-F 0 "J6" H 9280 3742 50  0000 L CNN
-F 1 "UART1" H 9280 3651 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 9200 3750 50  0001 C CNN
-F 3 "~" H 9200 3750 50  0001 C CNN
-F 4 "0-0000000" H 9200 3750 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 9200 3750 50  0001 C CNN "Populated"
-	1    9200 3750
-	1    0    0    -1  
+P 9200 3850
+F 0 "J6" H 9280 3842 50  0000 L CNN
+F 1 "UART1" H 9280 3751 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm" H 9200 3850 50  0001 C CNN
+F 3 "~" H 9200 3850 50  0001 C CNN
+F 4 "0-0000000" H 9200 3850 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 9200 3850 50  0001 C CNN "Populated"
+	1    9200 3850
+	1    0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x04 J3

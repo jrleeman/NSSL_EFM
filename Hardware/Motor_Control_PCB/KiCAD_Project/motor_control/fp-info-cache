@@ -1,4 +1,4 @@
-44113044201093
+58169459720838
 Capacitors_SMD
 CP_Elec_3x5.3
 
@@ -22841,23 +22841,86 @@ SolderWirePad_single_SMD_5x10mm
 0
 0
 lib_fp
-KAE02LGGR
+4-SOJ
 
 
 0
 4
 4
 lib_fp
-PS1240P02BT
+8-TLGA
+
+
+0
+8
+8
+lib_fp
+47ufCap
 
 
 0
 2
 2
 lib_fp
-RGEF250
+1632_Battery
 
 
 0
 2
 2
+lib_fp
+DM3AT
+
+
+0
+14
+14
+lib_fp
+DO-214AB_P1Anode
+
+
+0
+2
+2
+lib_fp
+DO-214AB_P1Cath
+
+
+0
+2
+2
+lib_fp
+HC-49S
+
+
+0
+2
+2
+lib_fp
+PAM-7Q
+
+
+0
+8
+8
+lib_fp
+S8411-45R
+
+
+0
+2
+2
+lib_fp
+XBee
+Through hole straight pin header, 2x10, 2.00mm pitch, double rows
+Through hole pin header THT 2x10 2.00mm double row
+0
+20
+20
+lib_fp
+fiducial_liteplacer
+
+
+0
+1
+1
