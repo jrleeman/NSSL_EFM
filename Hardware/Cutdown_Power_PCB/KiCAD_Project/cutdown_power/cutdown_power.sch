@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Cutdown Power Switch - NSSL EFM"
-Date "2019-12-03"
-Rev "1.0"
+Date "2019-12-31"
+Rev "1.1"
 Comp "Leeman Geophyscial LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -41,7 +41,7 @@ F 5 "1" H 5700 4000 50  0001 C CNN "Populated"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:IRF6613 Q1
+L lib_sch:FQP30N06L Q1
 U 1 1 5DD6A8BA
 P 5975 3775
 F 0 "Q1" H 6181 3821 50  0000 L CNN
