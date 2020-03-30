@@ -6,4 +6,10 @@ K MOSFET Output Photorelay 1-Form-A
 F https://docs.broadcom.com/docs/AV02-0173EN
 $ENDCMP
 #
+$CMP ublox_SAM-M8Q
+D GPS ublox M8 variant
+K gps module with antenna
+F https://www.u-blox.com/sites/default/files/SAM-M8Q_DataSheet_%28UBX-16012619%29.pdf
+$ENDCMP
+#
 #End Doc Library

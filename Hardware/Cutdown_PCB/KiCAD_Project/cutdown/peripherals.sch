@@ -1,13 +1,12 @@
 EESchema Schematic File Version 4
-LIBS:cutdown-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 2
 Title "Cutdown Module - NSSL EFM"
-Date "2019-12-03"
-Rev "1.0"
+Date "2020-03-30"
+Rev "2.0"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -149,7 +148,7 @@ AR Path="/5DE9BB83" Ref="R?"  Part="1"
 AR Path="/5DE92E14/5DE9BB83" Ref="R9"  Part="1" 
 F 0 "R9" V 2725 2350 50  0000 L CNN
 F 1 "NP" V 2825 2350 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2755 2400 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2755 2400 50  0001 C CNN
 F 3 "~" H 2825 2400 50  0001 C CNN
 F 4 "1-0000010" H 2825 2400 50  0001 C CNN "Internal Part Number"
 F 5 "0" H 2825 2400 50  0001 C CNN "Populated"
@@ -162,7 +161,7 @@ U 1 1 5DE9BB8B
 P 2825 2800
 F 0 "R10" V 2725 2750 50  0000 L CNN
 F 1 "10k" V 2825 2725 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2755 2800 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2755 2800 50  0001 C CNN
 F 3 "~" H 2825 2800 50  0001 C CNN
 F 4 "1-0000010" H 2825 2800 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 2825 2800 50  0001 C CNN "Populated"
@@ -201,7 +200,7 @@ $EndComp
 Text GLabel 7700 2325 2    50   Output ~ 0
 GPS_TX
 $Comp
-L cutdown-rescue:ublox_SAM-M8Q-RF_GPS U3
+L lib_sch:ublox_SAM-M8Q U3
 U 1 1 5DE9BBA4
 P 7200 2425
 F 0 "U3" H 7325 1900 50  0000 C CNN
@@ -429,7 +428,7 @@ AR Path="/5DE9EB88" Ref="R?"  Part="1"
 AR Path="/5DE92E14/5DE9EB88" Ref="R12"  Part="1" 
 F 0 "R12" V 5700 4550 50  0000 L CNN
 F 1 "1k" V 5775 4550 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5705 4600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5705 4600 50  0001 C CNN
 F 3 "~" H 5775 4600 50  0001 C CNN
 F 4 "1-0000013" H 5775 4600 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 5775 4600 50  0001 C CNN "Populated"
@@ -444,7 +443,7 @@ AR Path="/5DE9EB8E" Ref="R?"  Part="1"
 AR Path="/5DE92E14/5DE9EB8E" Ref="R11"  Part="1" 
 F 0 "R11" V 5250 5000 50  0000 L CNN
 F 1 "1k" V 5325 5000 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5255 5050 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5255 5050 50  0001 C CNN
 F 3 "~" H 5325 5050 50  0001 C CNN
 F 4 "1-0000013" H 5325 5050 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 5325 5050 50  0001 C CNN "Populated"
@@ -2506,7 +2505,7 @@ AR Path="/5DE7F4ED" Ref="R?"  Part="1"
 AR Path="/5DE92E14/5DE7F4ED" Ref="R13"  Part="1" 
 F 0 "R13" V 4625 2200 50  0000 L CNN
 F 1 "10k" V 4725 2175 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 4655 2250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4655 2250 50  0001 C CNN
 F 3 "~" H 4725 2250 50  0001 C CNN
 F 4 "1-0000010" H 4725 2250 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 4725 2250 50  0001 C CNN "Populated"

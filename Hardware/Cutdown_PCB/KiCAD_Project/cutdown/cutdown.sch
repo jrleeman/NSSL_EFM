@@ -1,13 +1,12 @@
 EESchema Schematic File Version 4
-LIBS:cutdown-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 2
 Title "Cutdown Module - NSSL EFM"
-Date "2019-12-03"
-Rev "1.0"
+Date "2020-03-30"
+Rev "2.0"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -2076,7 +2075,7 @@ U 1 1 5DCA968E
 P 5525 6950
 F 0 "R3" V 5450 6950 50  0000 C CNN
 F 1 "0R0" V 5525 6950 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5455 6950 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5455 6950 50  0001 C CNN
 F 3 "~" H 5525 6950 50  0001 C CNN
 F 4 "1-0000006" H 5525 6950 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 5525 6950 50  0001 C CNN "Populated"
@@ -2095,9 +2094,9 @@ Text GLabel 6850 3800 2    50   Output ~ 0
 SDA
 Text GLabel 6850 3500 2    50   Input ~ 0
 BMP388_INT
-Text GLabel 6850 3600 2    50   Input ~ 0
+Text GLabel 5050 4100 0    50   Input ~ 0
 GPS_RX
-Text GLabel 6850 3700 2    50   Output ~ 0
+Text GLabel 5050 4000 0    50   Output ~ 0
 GPS_TX
 $Comp
 L Connector_Generic:Conn_01x04 J1
@@ -2123,8 +2122,6 @@ GPS_PPS
 NoConn ~ 6850 4000
 NoConn ~ 6850 4100
 NoConn ~ 6850 4200
-NoConn ~ 5450 4100
-NoConn ~ 5450 4000
 NoConn ~ 5450 3400
 NoConn ~ 5450 3500
 NoConn ~ 5450 3600
@@ -2186,7 +2183,7 @@ U 1 1 5DE89ED3
 P 3400 6875
 F 0 "R1" V 3350 7000 50  0000 L CNN
 F 1 "10k" V 3400 6800 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 6875 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 6875 50  0001 C CNN
 F 3 "~" H 3400 6875 50  0001 C CNN
 F 4 "1-0000010" H 3400 6875 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 6875 50  0001 C CNN "Populated"
@@ -2199,7 +2196,7 @@ U 1 1 5DE8AF5D
 P 3400 6975
 F 0 "R2" V 3350 7100 50  0000 L CNN
 F 1 "10k" V 3400 6900 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 6975 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 6975 50  0001 C CNN
 F 3 "~" H 3400 6975 50  0001 C CNN
 F 4 "1-0000010" H 3400 6975 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 6975 50  0001 C CNN "Populated"
@@ -2212,7 +2209,7 @@ U 1 1 5DE8B206
 P 3400 7075
 F 0 "R4" V 3350 7200 50  0000 L CNN
 F 1 "10k" V 3400 7000 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7075 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 7075 50  0001 C CNN
 F 3 "~" H 3400 7075 50  0001 C CNN
 F 4 "1-0000010" H 3400 7075 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 7075 50  0001 C CNN "Populated"
@@ -2225,7 +2222,7 @@ U 1 1 5DE8B4DA
 P 3400 7175
 F 0 "R5" V 3350 7300 50  0000 L CNN
 F 1 "10k" V 3400 7100 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7175 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 7175 50  0001 C CNN
 F 3 "~" H 3400 7175 50  0001 C CNN
 F 4 "1-0000010" H 3400 7175 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 7175 50  0001 C CNN "Populated"
@@ -2238,7 +2235,7 @@ U 1 1 5DE8B753
 P 3400 7275
 F 0 "R6" V 3350 7400 50  0000 L CNN
 F 1 "10k" V 3400 7200 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7275 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 7275 50  0001 C CNN
 F 3 "~" H 3400 7275 50  0001 C CNN
 F 4 "1-0000010" H 3400 7275 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 7275 50  0001 C CNN "Populated"
@@ -2285,7 +2282,7 @@ U 1 1 5DED1438
 P 3400 7375
 F 0 "R7" V 3350 7500 50  0000 L CNN
 F 1 "10k" V 3400 7300 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7375 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 7375 50  0001 C CNN
 F 3 "~" H 3400 7375 50  0001 C CNN
 F 4 "1-0000010" H 3400 7375 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 3400 7375 50  0001 C CNN "Populated"
@@ -2305,7 +2302,7 @@ U 1 1 5DED1B07
 P 3400 7475
 F 0 "R8" V 3350 7600 50  0000 L CNN
 F 1 "NP" V 3400 7425 50  0000 L CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3330 7475 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3330 7475 50  0001 C CNN
 F 3 "~" H 3400 7475 50  0001 C CNN
 F 4 "1-0000010" H 3400 7475 50  0001 C CNN "Internal Part Number"
 F 5 "0" H 3400 7475 50  0001 C CNN "Populated"
@@ -2335,4 +2332,36 @@ Wire Wire Line
 	5375 7150 5825 7150
 Text Notes 5300 2250 0    50   ~ 0
 Socket Particle with Header #1-0000295
+$Comp
+L Device:R R14
+U 1 1 5E82303F
+P 5300 4000
+F 0 "R14" V 5225 3825 50  0000 C CNN
+F 1 "0R0" V 5300 4000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5230 4000 50  0001 C CNN
+F 3 "~" H 5300 4000 50  0001 C CNN
+F 4 "1-0000006" H 5300 4000 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 5300 4000 50  0001 C CNN "Populated"
+	1    5300 4000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5E823B07
+P 5300 4100
+F 0 "R15" V 5250 3925 50  0000 C CNN
+F 1 "0R0" V 5300 4100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 5230 4100 50  0001 C CNN
+F 3 "~" H 5300 4100 50  0001 C CNN
+F 4 "1-0000006" H 5300 4100 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 5300 4100 50  0001 C CNN "Populated"
+	1    5300 4100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5150 4000 5050 4000
+Wire Wire Line
+	5050 4100 5150 4100
+NoConn ~ 6850 3600
+NoConn ~ 6850 3700
 $EndSCHEMATC
