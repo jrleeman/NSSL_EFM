@@ -1,4 +1,4 @@
-55191714061820
+48907965971876
 Capacitors_SMD
 CP_Elec_3x5.3
 
@@ -22841,26 +22841,26 @@ SolderWirePad_single_SMD_5x10mm
 0
 0
 lib_fp
-HRS_DM3CS-SF
+IF_E96E
 
 
 0
-13
-13
+2
+2
 lib_fp
-IF-D96F
+KC2520B-C2
 
 
 0
-3
-3
+4
+4
 lib_fp
-KAE03TGGR
+LGA28R50P4X10_380X520X100
 
 
 0
-6
-6
+28
+28
 lib_fp
 RGEF250
 
@@ -22869,44 +22869,16 @@ RGEF250
 2
 2
 lib_fp
-S8411-45R
+SON100P300X300X90-7N
 
 
 0
-2
-2
+7
+7
 lib_fp
-SMA
+TEC2
 
 
 0
-5
-2
-lib_fp
-SN74LVC1G18DCKR
-
-
-0
-6
-6
-lib_fp
-SOT753
-
-
-0
-5
-5
-lib_fp
-TX2M
-
-
-0
-15
-15
-lib_fp
-XCVR_MAX-M8C-0-10
-
-
-0
-18
-18
+7
+7
