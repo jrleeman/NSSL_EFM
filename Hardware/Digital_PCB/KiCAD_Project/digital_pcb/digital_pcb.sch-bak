@@ -2753,6 +2753,8 @@ F 0 "H1" H 6700 6900 50  0000 L CNN
 F 1 "MountingHole" H 6700 6855 50  0001 L CNN
 F 2 "Mounting_Holes:MountingHole_3.2mm_M3_ISO7380" H 6600 6900 50  0001 C CNN
 F 3 "~" H 6600 6900 50  0001 C CNN
+F 4 "0-0000000" H 6600 6900 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6600 6900 50  0001 C CNN "Populated"
 	1    6600 6900
 	1    0    0    -1  
 $EndComp
@@ -2764,6 +2766,8 @@ F 0 "H2" H 6700 7075 50  0000 L CNN
 F 1 "MountingHole" H 6700 7030 50  0001 L CNN
 F 2 "Mounting_Holes:MountingHole_3.2mm_M3_ISO7380" H 6600 7075 50  0001 C CNN
 F 3 "~" H 6600 7075 50  0001 C CNN
+F 4 "0-0000000" H 6600 7075 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6600 7075 50  0001 C CNN "Populated"
 	1    6600 7075
 	1    0    0    -1  
 $EndComp
@@ -2775,6 +2779,8 @@ F 0 "FID1" H 6260 6900 50  0000 L CNN
 F 1 "Fiducial" H 6260 6855 50  0001 L CNN
 F 2 "Fiducials:Fiducial_1mm_Dia_2mm_Outer" H 6175 6900 50  0001 C CNN
 F 3 "~" H 6175 6900 50  0001 C CNN
+F 4 "0-0000000" H 6175 6900 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6175 6900 50  0001 C CNN "Populated"
 	1    6175 6900
 	1    0    0    -1  
 $EndComp
@@ -2786,6 +2792,8 @@ F 0 "FID2" H 6260 7075 50  0000 L CNN
 F 1 "Fiducial" H 6260 7030 50  0001 L CNN
 F 2 "Fiducials:Fiducial_1mm_Dia_2mm_Outer" H 6175 7075 50  0001 C CNN
 F 3 "~" H 6175 7075 50  0001 C CNN
+F 4 "0-0000000" H 6175 7075 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6175 7075 50  0001 C CNN "Populated"
 	1    6175 7075
 	1    0    0    -1  
 $EndComp
@@ -2797,6 +2805,8 @@ F 0 "FID3" H 6260 7250 50  0000 L CNN
 F 1 "Fiducial" H 6260 7205 50  0001 L CNN
 F 2 "Fiducials:Fiducial_1mm_Dia_2mm_Outer" H 6175 7250 50  0001 C CNN
 F 3 "~" H 6175 7250 50  0001 C CNN
+F 4 "0-0000000" H 6175 7250 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6175 7250 50  0001 C CNN "Populated"
 	1    6175 7250
 	1    0    0    -1  
 $EndComp
@@ -2808,6 +2818,8 @@ F 0 "FID4" H 6260 7425 50  0000 L CNN
 F 1 "Fiducial" H 6260 7380 50  0001 L CNN
 F 2 "Fiducials:Fiducial_1mm_Dia_2mm_Outer" H 6175 7425 50  0001 C CNN
 F 3 "~" H 6175 7425 50  0001 C CNN
+F 4 "0-0000000" H 6175 7425 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6175 7425 50  0001 C CNN "Populated"
 	1    6175 7425
 	1    0    0    -1  
 $EndComp
