@@ -61,12 +61,18 @@ void setup()
 }
 
 
+void serialWriteFloat(float val)
+{
+  // Write a floating point value out as binary
+  byte * b = (byte *) &val;
+  Serial.write(b, 4);
+}
+
 void readandsend()
 {
   static uint8_t loop_counter = 0;
   static uint16_t temperature_degC = 0;
   static uint16_t relative_humidity = 0;
-  //static char data_counter = 0; // try to wait a cycle in between conversion and reading see if that helps
 
   while (!adc.isDataReady()){} // Spin until we have new data
 
@@ -93,56 +99,41 @@ void readandsend()
   // Read the temperature or humidity
   if (loop_counter == 0)
   {
-    //htu.startTemperatureConversion();
+    htu.startTemperatureConversion();
   }
   if (loop_counter == 50)
   { 
-    //htu.startHumidityConversion();
+    htu.startHumidityConversion();
   }
 
   if (loop_counter == 25)
   {
-    //temperature_degC = htu.readTemperature();
+    temperature_degC = htu.readTemperature();
   }
   if (loop_counter == 75)
   {  
-    //relative_humidity = htu.readHumidity();
+    relative_humidity = htu.readHumidity();
   }
  
   
-  //delay(1); // Without the delay we don't have populated things for sending
+  delay(1); // Without the delay we don't have populated things for sending
   
   // Send the data (use write for binary)
-  Serial.println("HI");
-  debugSerial.print(adc_ready_time);
-  debugSerial.print(",");
-  debugSerial.print(adc_reading);
-  debugSerial.print(",");
-  debugSerial.print(temperature_degC);
-  //debugSerial.print("22");
-  debugSerial.print(",");
-  debugSerial.println(relative_humidity);
-  /*
-  //debugSerial.print("45");
-  debugSerial.print(",");
-  debugSerial.print(accelerometer_data.acceleration.x);
-  debugSerial.print(",");
-  debugSerial.print(accelerometer_data.acceleration.y);
-  debugSerial.print(",");
-  debugSerial.print(accelerometer_data.acceleration.z);
-  debugSerial.print(",");
-  debugSerial.print(magnetometer_data.magnetic.x);
-  debugSerial.print(",");
-  debugSerial.print(magnetometer_data.magnetic.y);
-  debugSerial.print(",");
-  debugSerial.print(magnetometer_data.magnetic.z);
-  debugSerial.print(",");
-  debugSerial.print(gyroscope_data.gyro.x);
-  debugSerial.print(",");
-  debugSerial.print(gyroscope_data.gyro.y);
-  debugSerial.print(",");
-  debugSerial.println(gyroscope_data.gyro.z);
-  */
+  Serial.write(0xBE);
+  Serial.write(adc_ready_time);
+  Serial.write(adc_reading);
+  Serial.write(temperature_degC);
+  Serial.write(relative_humidity);
+  serialWriteFloat(accelerometer_data.acceleration.x);
+  serialWriteFloat(accelerometer_data.acceleration.y);
+  serialWriteFloat(accelerometer_data.acceleration.z);
+  serialWriteFloat(magnetometer_data.magnetic.x);
+  serialWriteFloat(magnetometer_data.magnetic.y);
+  serialWriteFloat(magnetometer_data.magnetic.z);
+  serialWriteFloat(gyroscope_data.gyro.x);
+  serialWriteFloat(gyroscope_data.gyro.y);
+  serialWriteFloat(gyroscope_data.gyro.z);
+  Serial.write(0xEF);
 
   loop_counter += 1;
   if (loop_counter == 100)
