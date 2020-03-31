@@ -1,4 +1,4 @@
-16953688851139578
+16948960444844715
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -75257,26 +75257,33 @@ varistor SIOV
 2
 2
 lib_fp
-HRS_DM3CS-SF
+4-SOJ
 
 
 0
-13
-13
+4
+4
 lib_fp
-IF-D96F
+IF_E96E
 
 
 0
-3
-3
+2
+2
 lib_fp
-KAE03TGGR
+KC2520B-C2
 
 
 0
-6
-6
+4
+4
+lib_fp
+LGA28R50P4X10_380X520X100
+
+
+0
+28
+28
 lib_fp
 RGEF250
 
@@ -75285,44 +75292,16 @@ RGEF250
 2
 2
 lib_fp
-S8411-45R
+SON100P300X300X90-7N
 
 
 0
-2
-2
+7
+7
 lib_fp
-SMA
+TEC2
 
 
 0
-5
-2
-lib_fp
-SN74LVC1G18DCKR
-
-
-0
-6
-6
-lib_fp
-SOT753
-
-
-0
-5
-5
-lib_fp
-TX2M
-
-
-0
-15
-15
-lib_fp
-XCVR_MAX-M8C-0-10
-
-
-0
-18
-18
+7
+7
