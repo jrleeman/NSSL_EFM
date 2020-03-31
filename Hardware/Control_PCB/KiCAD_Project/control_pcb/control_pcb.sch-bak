@@ -3046,4 +3046,14 @@ Wire Wire Line
 	4100 4625 5325 4625
 Wire Wire Line
 	4250 4725 5325 4725
+Text Label 12225 3775 0    50   ~ 0
+Unused_Fiber_Ser_TX
+Text Label 12225 3900 0    50   ~ 0
+Unused_Radio_Ser_RX
+Wire Wire Line
+	12225 3775 12150 3775
+Wire Wire Line
+	12225 3900 12150 3900
+NoConn ~ 12150 3900
+NoConn ~ 12150 3775
 $EndSCHEMATC
