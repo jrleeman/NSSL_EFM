@@ -97,7 +97,6 @@ Connection ~ 8425 4475
 Wire Wire Line
 	8425 4475 8525 4475
 NoConn ~ 9475 3325
-NoConn ~ 9475 3425
 NoConn ~ 9475 3625
 $Comp
 L Device:Antenna_Shield AE1
@@ -2486,4 +2485,34 @@ Wire Wire Line
 Wire Wire Line
 	9675 2800 9675 3025
 NoConn ~ 7575 3025
+$Comp
+L Device:R R30
+U 1 1 5E86BFF6
+P 9625 3425
+F 0 "R30" V 9525 3425 50  0000 C CNN
+F 1 "NP" V 9625 3425 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 9555 3425 50  0001 C CNN
+F 3 "~" H 9625 3425 50  0001 C CNN
+F 4 "1-0000010" H 9625 3425 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 9625 3425 50  0001 C CNN "Populated"
+	1    9625 3425
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR050
+U 1 1 5E86BFFC
+P 9850 3500
+F 0 "#PWR050" H 9850 3250 50  0001 C CNN
+F 1 "GND" H 9850 3350 50  0000 C CNN
+F 2 "" H 9850 3500 50  0001 C CNN
+F 3 "" H 9850 3500 50  0001 C CNN
+	1    9850 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9850 3500 9850 3425
+Wire Wire Line
+	9775 3425 9850 3425
+Text Notes 9875 3525 0    50   ~ 0
+Populate for continous\ntransmission (test only).
 $EndSCHEMATC
