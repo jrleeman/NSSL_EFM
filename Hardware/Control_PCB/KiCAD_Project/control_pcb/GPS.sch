@@ -1,13 +1,12 @@
 EESchema Schematic File Version 4
-LIBS:control_pcb-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Control Paddle Electronics - NSSL EFM"
-Date "2019-12-04"
-Rev "1.0"
+Date "2020-03-31"
+Rev "2.0"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
