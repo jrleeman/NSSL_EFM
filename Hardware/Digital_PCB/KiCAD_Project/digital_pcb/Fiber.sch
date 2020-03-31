@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:digital_pcb-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -2149,7 +2148,7 @@ U 1 1 5DED4330
 P 6600 2975
 F 0 "R32" V 6525 2975 50  0000 C CNN
 F 1 "165" V 6600 2975 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6530 2975 50  0001 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6530 2975 50  0001 C CNN
 F 3 "~" H 6600 2975 50  0001 C CNN
 F 4 "1-0000469" H 6600 2975 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 6600 2975 50  0001 C CNN "Populated"
@@ -2232,7 +2231,7 @@ AR Path="/5DED7F60" Ref="C?"  Part="1"
 AR Path="/5DE670A6/5DED7F60" Ref="C22"  Part="1" 
 F 0 "C22" V 6225 2600 50  0000 C CNN
 F 1 "10u" V 6300 2625 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 6413 2600 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6413 2600 50  0001 C CNN
 F 3 "~" H 6375 2750 50  0001 C CNN
 F 4 "1-0000075" H 6375 2750 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 6375 2750 50  0001 C CNN "Populated"

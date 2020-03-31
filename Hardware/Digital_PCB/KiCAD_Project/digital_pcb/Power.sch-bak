@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:digital_pcb-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -2145,16 +2144,16 @@ Wire Wire Line
 Wire Wire Line
 	5925 1950 6150 1950
 Wire Wire Line
-	6250 1950 6675 1950
+	6250 1950 6625 1950
 $Comp
 L power:+BATT #PWR076
 U 1 1 5DE986D1
-P 6675 1950
-F 0 "#PWR076" H 6675 1800 50  0001 C CNN
-F 1 "+BATT" H 6690 2123 50  0000 C CNN
-F 2 "" H 6675 1950 50  0001 C CNN
-F 3 "" H 6675 1950 50  0001 C CNN
-	1    6675 1950
+P 8850 2350
+F 0 "#PWR076" H 8850 2200 50  0001 C CNN
+F 1 "+BATT" H 8865 2523 50  0000 C CNN
+F 2 "" H 8850 2350 50  0001 C CNN
+F 3 "" H 8850 2350 50  0001 C CNN
+	1    8850 2350
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -2667,4 +2666,170 @@ F 5 "0" H 5200 2125 50  0001 C CNN "Populated"
 $EndComp
 Wire Wire Line
 	5400 1950 5400 2025
+$Comp
+L Device:R R33
+U 1 1 5E84B29F
+P 6825 1950
+F 0 "R33" V 6750 1950 50  0000 C CNN
+F 1 "0R0" V 6825 1950 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6755 1950 50  0001 C CNN
+F 3 "~" H 6825 1950 50  0001 C CNN
+F 4 "1-0000006" H 6825 1950 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6825 1950 50  0001 C CNN "Populated"
+	1    6825 1950
+	0    1    1    0   
+$EndComp
+Text Notes 6775 2000 0    50   ~ 0
+NP
+Text Notes 5250 1500 0    50   ~ 0
+Populate 0R0 and not debounce protection if desired.
+$Comp
+L Device:R R34
+U 1 1 5E84C312
+P 6825 2250
+F 0 "R34" V 6750 2250 50  0000 C CNN
+F 1 "470k" V 6825 2250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6755 2250 50  0001 C CNN
+F 3 "~" H 6825 2250 50  0001 C CNN
+F 4 "1-0000068" H 6825 2250 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 6825 2250 50  0001 C CNN "Populated"
+	1    6825 2250
+	0    1    1    0   
+$EndComp
+Connection ~ 6625 1950
+Wire Wire Line
+	6625 1950 6675 1950
+$Comp
+L lib_sch:TPS1H000 U11
+U 1 1 5E84F128
+P 8200 2400
+F 0 "U11" H 8550 2775 50  0000 L CNN
+F 1 "TPS1H000" H 8325 2000 50  0000 L CNN
+F 2 "Package_SO:MSOP-8-1EP_3x3mm_P0.65mm_EP1.95x2.15mm" H 8150 2550 50  0001 C CNN
+F 3 "" H 8150 2550 50  0001 C CNN
+F 4 "1-0000576" H 8200 2400 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 8200 2400 50  0001 C CNN "Populated"
+	1    8200 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8850 2350 8750 2350
+$Comp
+L power:+BATT #PWR089
+U 1 1 5E8529F1
+P 6975 1950
+F 0 "#PWR089" H 6975 1800 50  0001 C CNN
+F 1 "+BATT" H 6990 2123 50  0000 C CNN
+F 2 "" H 6975 1950 50  0001 C CNN
+F 3 "" H 6975 1950 50  0001 C CNN
+	1    6975 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 2000 7675 2000
+$Comp
+L power:GND #PWR093
+U 1 1 5E854618
+P 8150 2950
+F 0 "#PWR093" H 8150 2700 50  0001 C CNN
+F 1 "GND" H 8155 2777 50  0000 C CNN
+F 2 "" H 8150 2950 50  0001 C CNN
+F 3 "" H 8150 2950 50  0001 C CNN
+	1    8150 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8050 2900 8150 2900
+Wire Wire Line
+	8250 2900 8250 2850
+Wire Wire Line
+	8050 2850 8050 2900
+Wire Wire Line
+	8150 2850 8150 2900
+Connection ~ 8150 2900
+Wire Wire Line
+	8150 2900 8250 2900
+Wire Wire Line
+	8150 2950 8150 2900
+$Comp
+L power:GND #PWR092
+U 1 1 5E858921
+P 7650 2550
+F 0 "#PWR092" H 7650 2300 50  0001 C CNN
+F 1 "GND" H 7655 2377 50  0000 C CNN
+F 2 "" H 7650 2550 50  0001 C CNN
+F 3 "" H 7650 2550 50  0001 C CNN
+	1    7650 2550
+	1    0    0    -1  
+$EndComp
+NoConn ~ 7650 2450
+NoConn ~ 9775 3175
+$Comp
+L Device:R R35
+U 1 1 5E85A986
+P 7500 2350
+F 0 "R35" V 7450 2175 50  0000 C CNN
+F 1 "10k" V 7500 2350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 7430 2350 50  0001 C CNN
+F 3 "~" H 7500 2350 50  0001 C CNN
+F 4 "1-0000010" H 7500 2350 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7500 2350 50  0001 C CNN "Populated"
+	1    7500 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR091
+U 1 1 5E85AE19
+P 7350 2350
+F 0 "#PWR091" H 7350 2100 50  0001 C CNN
+F 1 "GND" H 7355 2177 50  0000 C CNN
+F 2 "" H 7350 2350 50  0001 C CNN
+F 3 "" H 7350 2350 50  0001 C CNN
+	1    7350 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6975 2250 7025 2250
+Wire Wire Line
+	7025 2250 7025 2300
+$Comp
+L power:GND #PWR090
+U 1 1 5E85F585
+P 7025 2600
+F 0 "#PWR090" H 7025 2350 50  0001 C CNN
+F 1 "GND" H 7030 2427 50  0000 C CNN
+F 2 "" H 7025 2600 50  0001 C CNN
+F 3 "" H 7025 2600 50  0001 C CNN
+	1    7025 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7025 2250 7650 2250
+Connection ~ 7025 2250
+Wire Wire Line
+	6675 2250 6625 2250
+Wire Wire Line
+	6625 1950 6625 2100
+Wire Wire Line
+	6625 2100 7675 2100
+Wire Wire Line
+	7675 2100 7675 2000
+Connection ~ 6625 2100
+Wire Wire Line
+	6625 2100 6625 2250
+Text Notes 7300 1925 0    50   ~ 0
+Delays turn on for approx 1 sec after\npower is applied to help with any\nswitch bounce/activation issues.
+$Comp
+L Device:C C35
+U 1 1 5E86633E
+P 7025 2450
+F 0 "C35" H 6800 2450 50  0000 L CNN
+F 1 "10u" H 6800 2350 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7063 2300 50  0001 C CNN
+F 3 "~" H 7025 2450 50  0001 C CNN
+F 4 "1-0000075" H 7025 2450 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7025 2450 50  0001 C CNN "Populated"
+	1    7025 2450
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
