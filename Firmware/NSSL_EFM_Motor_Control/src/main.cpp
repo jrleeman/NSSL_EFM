@@ -29,7 +29,7 @@ double pwm_output = 175; // Output from the PID
 double pid_kp=0.2;
 double pid_ki=0.05;
 double pid_kd=0.0;
-uint16_t motor_current_limit = 70; // mA limit before motor cutoff
+uint16_t motor_current_limit = 71; // mA limit before motor cutoff
 
 // Instances
 FIR<float, 4> fir;  // Since we are shooting for about 120 RPM this is a 10 second average.
@@ -214,9 +214,9 @@ void setup()
   // Motor Controller Setup
   digitalWrite(PIN_MOTOR_DIRECTION, LOW);
   analogWrite(PIN_MOTOR_PWM, 175); // Start the motor
-  delay(200);
+  delay(2000);
 
-  // Make sure the current is okay
+  // Make sure the current is okay after spinup
   CurrentSafetyCheck(motor_current_limit);
 
   // Turn on the PID
