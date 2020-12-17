@@ -1,5 +1,20 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ATmega328P-AU
+D 20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, TQFP-32
+K AVR 8bit Microcontroller MegaAVR PicoPower
+$ENDCMP
+#
+$CMP ATmega48PV-10AU
+D 10MHz, 4kB Flash, 512B SRAM, 256B EEPROM, TQFP-32
+K AVR 8bit Microcontroller MegaAVR
+$ENDCMP
+#
+$CMP FQP30N06L
+K N-Channel MOSFET
+F https://www.infineon.com/dgdl/Infineon-BSF450NE7NH3-DS-v02_02-EN.pdf?fileId=db3a30433a047ba0013a687e2ae403da
+$ENDCMP
+#
 $CMP VO14642
 D Form A, Solid State Relay (Photo MOSFET) 60V, 0.2A, 10Ohm, SO-4
 K MOSFET Output Photorelay 1-Form-A
