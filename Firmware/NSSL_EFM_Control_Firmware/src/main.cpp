@@ -50,7 +50,7 @@ uint8_t current_state = S_READ_FIBER_DATA;
 TinyGPSPlus gps;
 SdFat SD;
 File logFile;
-CircularBuffer<DataPacket, 20> DataPacketBuffer;
+CircularBuffer<char, 2000> DataPacketBuffer;
 char log_file_name[] = "EFM00.BIN";
 
 void setLogFileName(void)
@@ -92,14 +92,58 @@ uint8_t readFiberData(void)
 {
   /*
    * Read the data from the fiber-optic cable.
+   * 
+   * Operation:
+   * - Read until we get a 0xBE (start packet) throwing awaying everything until then
+   * - Read the next 49 bytes
+   * - If we got 50 bytes total, ending in 0xEF, we'll assume it's a good packet and
+   *   add it to the buffer of packets to write to card
+   * - If it is a packet to be transmitted, add it to that buffer as well
    */
+
+  // If there's nothing here - go back with the intention of checking again!
+  if (!FiberSer.available() > 40)
+  {
+    return S_READ_FIBER_DATA;
+  }
+
   byte buffer[55];
-  uint8_t serial_buffer_length = FiberSer.readBytes(buffer, 54);
-  //DataPacket rx_data_packet = *buffer;
-  DataPacket rx_data_packet;
-  DataPacketBuffer.push(rx_data_packet);
+
+  // Start reading and looking for 0xBE
+  char c = FiberSer.read();
   
-  
+  uint8_t buffer_idx = 0;
+  if (c == 0xBE)
+  {
+    digitalWrite(PB6, HIGH);
+    // We hit the start of the packet, write it to buffer and read the next 49 bytes or until
+    // we find an EF.
+    buffer[buffer_idx] = c;
+    buffer_idx +=1;
+
+    // Read the next 49 bytes or break when we hit end of packet
+    for (uint8_t i=0; i<55; i++)
+    {
+      c = FiberSer.read();
+      buffer[buffer_idx] = c;
+      buffer_idx += 1;
+      if (c == 0xEF)
+      {
+        digitalWrite(PB6, LOW);
+        break;
+      }
+    }
+    //digitalWrite(PB6, LOW);
+    // Check if we've got a full packet that appears valid, if so add it to the buffer
+    //if (buffer_idx == 49)
+    //{
+      for (int i=0; i<buffer_idx; i++)
+      {
+        DataPacketBuffer.push(buffer[i]);
+        // Send it via radio while we are here?
+      } // for
+    //}  // if 
+  }  // if
   return S_LOG_DATA; // Go to the log state
 }
 
@@ -108,33 +152,42 @@ uint8_t logData(void)
   /*
    * Log the data to the SD card
    */
+  //return S_READ_FIBER_DATA; 
   static uint8_t tx_data_counter = 0; // Counts how many packets to decimate the transmit
   uint8_t tx_decimate_factor = 20;
-  
-  
 
+  static uint8_t flush_counter = 0; // Counts how many times we've entered this func without flushing
+  
+  flush_counter += 1;
+  //logFile = SD.open(log_file_name, FILE_WRITE);
   // Write the packet
-  while (DataPacketBuffer.available() > 0)
+  while (!DataPacketBuffer.isEmpty())
   {
-    DataPacket pp;
-    char buffer[55];
-    logFile.write(buffer, 55);
+    logFile.write(DataPacketBuffer.pop());
   }
+  //logFile.write(0xBE);
+  //logFile.write(0xEF);
+  //logFile.write(DataPacketBuffer.pop());
 
+  if (flush_counter > 200)
+  {
+    logFile.flush();
+    flush_counter = 0;
+  }
 
   // Close the log file - only if necessary to prevent corruption
-  // logFile.close()
+  //logFile.close();
 
   // If it's time to transmit, we go there, otherwise go get more data
-  if (tx_data_counter%tx_decimate_factor == 0)
-  {
-    tx_data_counter = 0;
-    return S_TX_DATA;
-  }
-  else
-  {
+  //if (tx_data_counter%tx_decimate_factor == 0)
+  //{
+  //  tx_data_counter = 0;
+  //  return S_TX_DATA;
+  //}
+  //else
+  //{
     return S_READ_FIBER_DATA; 
-  }
+  //}
 }
 
 uint8_t transmitData(void)
@@ -163,6 +216,12 @@ void setup()
   // Get a file name for writing and open
   setLogFileName();
   logFile = SD.open(log_file_name, FILE_WRITE);
+
+  // Test to blink a light
+  pinMode(PB6, OUTPUT);
+  digitalWrite(PB6, HIGH);
+  delay(1000);
+  digitalWrite(PB6, LOW);
 }
 
 void loop()
