@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "NSSL_EFM_Control_Firmware"
+		},
+		{
+			"path": "NSSL_EFM_Motor_Control"
+		},
+		{
+			"path": "NSSL_EFM_Rotating_Firmware"
+		}
+	],
+	"settings": {}
+}
