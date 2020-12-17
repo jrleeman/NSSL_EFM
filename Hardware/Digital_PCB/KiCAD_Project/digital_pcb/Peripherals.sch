@@ -333,66 +333,7 @@ F 3 "" H 3000 4000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3000 4000 3150 4000
-Text Label 3150 4100 2    50   ~ 0
-BNO_ADDR
-Text Label 3525 5775 2    50   ~ 0
-BNO_ADDR
-$Comp
-L Device:R R17
-U 1 1 5DFE72AD
-P 3600 5975
-F 0 "R17" V 3525 5975 50  0000 C CNN
-F 1 "10k" V 3600 5975 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3530 5975 50  0001 C CNN
-F 3 "~" H 3600 5975 50  0001 C CNN
-F 4 "1-0000010" H 3600 5975 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 3600 5975 50  0001 C CNN "Populated"
-	1    3600 5975
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:R R16
-U 1 1 5DFE79BC
-P 3600 5575
-F 0 "R16" V 3525 5575 50  0000 C CNN
-F 1 "NP" V 3600 5575 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3530 5575 50  0001 C CNN
-F 3 "~" H 3600 5575 50  0001 C CNN
-F 4 "1-0000010" H 3600 5575 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3600 5575 50  0001 C CNN "Populated"
-	1    3600 5575
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	3525 5775 3600 5775
-Wire Wire Line
-	3600 5775 3600 5725
-Wire Wire Line
-	3600 5825 3600 5775
-Connection ~ 3600 5775
-$Comp
-L power:GND #PWR029
-U 1 1 5DFE8EC2
-P 3600 6125
-F 0 "#PWR029" H 3600 5875 50  0001 C CNN
-F 1 "GND" H 3605 5952 50  0000 C CNN
-F 2 "" H 3600 6125 50  0001 C CNN
-F 3 "" H 3600 6125 50  0001 C CNN
-	1    3600 6125
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR028
-U 1 1 5DFE9212
-P 3600 5425
-F 0 "#PWR028" H 3600 5275 50  0001 C CNN
-F 1 "+3V3" H 3615 5598 50  0000 C CNN
-F 2 "" H 3600 5425 50  0001 C CNN
-F 3 "" H 3600 5425 50  0001 C CNN
-	1    3600 5425
-	1    0    0    -1  
-$EndComp
+	3000 4000 3075 4000
 Text GLabel 3150 3300 0    50   Output ~ 0
 IMU_INT
 Text GLabel 3150 3800 0    50   BiDi ~ 0
@@ -400,81 +341,8 @@ I2C_SDA
 Text GLabel 3150 3900 0    50   BiDi ~ 0
 I2C_SCL
 NoConn ~ 3150 3100
-$Comp
-L lib_sch:HTU21D U3
-U 1 1 5DDD8919
-P 7975 3275
-F 0 "U3" H 8253 3321 50  0000 L CNN
-F 1 "HTU21D" H 8253 3230 50  0000 L CNN
-F 2 "lib_fp:SON100P300X300X90-7N" H 6875 3275 50  0001 C CNN
-F 3 "" H 6875 3275 50  0001 C CNN
-F 4 "1-0000471" H 7975 3275 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 7975 3275 50  0001 C CNN "Populated"
-	1    7975 3275
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5DDD9BB8
-P 7775 2675
-AR Path="/5DDD9BB8" Ref="C?"  Part="1" 
-AR Path="/5DFD7345/5DDD9BB8" Ref="C13"  Part="1" 
-F 0 "C13" V 7625 2525 50  0000 C CNN
-F 1 "0.1u" V 7700 2550 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0603_HandSoldering" H 7813 2525 50  0001 C CNN
-F 3 "~" H 7775 2675 50  0001 C CNN
-F 4 "1-0000007" H 7775 2675 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 7775 2675 50  0001 C CNN "Populated"
-	1    7775 2675
-	0    1    1    0   
-$EndComp
-$Comp
-L power:GND #PWR038
-U 1 1 5DDD9BBE
-P 7625 2675
-F 0 "#PWR038" H 7625 2425 50  0001 C CNN
-F 1 "GND" H 7630 2502 50  0000 C CNN
-F 2 "" H 7625 2675 50  0001 C CNN
-F 3 "" H 7625 2675 50  0001 C CNN
-	1    7625 2675
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+3V3 #PWR039
-U 1 1 5DDDA1F7
-P 7975 2625
-F 0 "#PWR039" H 7975 2475 50  0001 C CNN
-F 1 "+3V3" H 7990 2798 50  0000 C CNN
-F 2 "" H 7975 2625 50  0001 C CNN
-F 3 "" H 7975 2625 50  0001 C CNN
-	1    7975 2625
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7975 2625 7975 2675
-Wire Wire Line
-	7925 2675 7975 2675
-Connection ~ 7975 2675
-Wire Wire Line
-	7975 2675 7975 2725
-Text GLabel 7525 3225 0    50   BiDi ~ 0
-I2C_SDA
-Text GLabel 7525 3325 0    50   BiDi ~ 0
-I2C_SCL
-$Comp
-L power:GND #PWR040
-U 1 1 5DDDD282
-P 8025 3825
-F 0 "#PWR040" H 8025 3575 50  0001 C CNN
-F 1 "GND" H 8030 3652 50  0000 C CNN
-F 2 "" H 8025 3825 50  0001 C CNN
-F 3 "" H 8025 3825 50  0001 C CNN
-	1    8025 3825
-	1    0    0    -1  
-$EndComp
-NoConn ~ 7925 3825
-Text Notes 6775 2075 0    100  ~ 0
-Temperature/Humidity Sensor
+Text Notes 6800 2200 0    100  ~ 0
+Temperature/Humidity/Pressure\nSensor
 Text Notes 3625 2075 0    100  ~ 0
 IMU
 $Bitmap
@@ -2536,4 +2404,158 @@ F 5 "0" H 4500 5775 50  0001 C CNN "Populated"
 $EndComp
 Text GLabel 4350 5775 0    50   Output ~ 0
 IMU_INT
+$Comp
+L Sensor:BME280 U?
+U 1 1 5FDBCAD6
+P 7825 3575
+F 0 "U?" H 8175 4050 50  0000 R CNN
+F 1 "BME280" H 7950 3575 50  0000 R CNN
+F 2 "Package_LGA:Bosch_LGA-8_2.5x2.5mm_P0.65mm_ClockwisePinNumbering" H 9325 3125 50  0001 C CNN
+F 3 "https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280-DS002.pdf" H 7825 3375 50  0001 C CNN
+F 4 "1-0000052" H 7825 3575 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7825 3575 50  0001 C CNN "Populated"
+	1    7825 3575
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C?
+U 1 1 5FDBD897
+P 7525 2725
+AR Path="/5FDBD897" Ref="C?"  Part="1" 
+AR Path="/5DFD7345/5FDBD897" Ref="C?"  Part="1" 
+F 0 "C?" V 7375 2575 50  0000 C CNN
+F 1 "0.1u" V 7450 2600 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 7563 2575 50  0001 C CNN
+F 3 "~" H 7525 2725 50  0001 C CNN
+F 4 "1-0000007" H 7525 2725 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7525 2725 50  0001 C CNN "Populated"
+	1    7525 2725
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FDBD89D
+P 7375 2725
+F 0 "#PWR?" H 7375 2475 50  0001 C CNN
+F 1 "GND" H 7380 2552 50  0000 C CNN
+F 2 "" H 7375 2725 50  0001 C CNN
+F 3 "" H 7375 2725 50  0001 C CNN
+	1    7375 2725
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5FDBD8A3
+P 7825 2650
+F 0 "#PWR?" H 7825 2500 50  0001 C CNN
+F 1 "+3V3" H 7840 2823 50  0000 C CNN
+F 2 "" H 7825 2650 50  0001 C CNN
+F 3 "" H 7825 2650 50  0001 C CNN
+	1    7825 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7675 2725 7725 2725
+Connection ~ 7725 2725
+$Comp
+L Device:C C?
+U 1 1 5FDC0A1A
+P 8125 2725
+AR Path="/5FDC0A1A" Ref="C?"  Part="1" 
+AR Path="/5DFD7345/5FDC0A1A" Ref="C?"  Part="1" 
+F 0 "C?" V 7975 2575 50  0000 C CNN
+F 1 "0.1u" V 8050 2600 50  0000 C CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 8163 2575 50  0001 C CNN
+F 3 "~" H 8125 2725 50  0001 C CNN
+F 4 "1-0000007" H 8125 2725 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 8125 2725 50  0001 C CNN "Populated"
+	1    8125 2725
+	0    -1   1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FDC0A20
+P 8275 2725
+F 0 "#PWR?" H 8275 2475 50  0001 C CNN
+F 1 "GND" H 8280 2552 50  0000 C CNN
+F 2 "" H 8275 2725 50  0001 C CNN
+F 3 "" H 8275 2725 50  0001 C CNN
+	1    8275 2725
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	7975 2725 7925 2725
+Connection ~ 7925 2725
+Wire Wire Line
+	7725 2650 7825 2650
+Wire Wire Line
+	7725 2650 7725 2725
+Wire Wire Line
+	7825 2650 7925 2650
+Wire Wire Line
+	7925 2650 7925 2725
+Connection ~ 7825 2650
+Wire Wire Line
+	7925 2725 7925 2975
+Wire Wire Line
+	7725 2725 7725 2975
+$Comp
+L power:+3V3 #PWR?
+U 1 1 5FDC656D
+P 8425 3875
+F 0 "#PWR?" H 8425 3725 50  0001 C CNN
+F 1 "+3V3" H 8440 4048 50  0000 C CNN
+F 2 "" H 8425 3875 50  0001 C CNN
+F 3 "" H 8425 3875 50  0001 C CNN
+	1    8425 3875
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FDC75ED
+P 8425 3275
+F 0 "#PWR?" H 8425 3025 50  0001 C CNN
+F 1 "GND" H 8430 3102 50  0000 C CNN
+F 2 "" H 8425 3275 50  0001 C CNN
+F 3 "" H 8425 3275 50  0001 C CNN
+	1    8425 3275
+	0    -1   1    0   
+$EndComp
+Text GLabel 8425 3475 2    50   BiDi ~ 0
+I2C_SCL
+Text GLabel 8425 3675 2    50   BiDi ~ 0
+I2C_SDA
+$Comp
+L power:GND #PWR?
+U 1 1 5FDC7CCA
+P 7725 4175
+F 0 "#PWR?" H 7725 3925 50  0001 C CNN
+F 1 "GND" H 7730 4002 50  0000 C CNN
+F 2 "" H 7725 4175 50  0001 C CNN
+F 3 "" H 7725 4175 50  0001 C CNN
+	1    7725 4175
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5FDC8367
+P 7925 4175
+F 0 "#PWR?" H 7925 3925 50  0001 C CNN
+F 1 "GND" H 7930 4002 50  0000 C CNN
+F 2 "" H 7925 4175 50  0001 C CNN
+F 3 "" H 7925 4175 50  0001 C CNN
+	1    7925 4175
+	-1   0    0    -1  
+$EndComp
+Text Notes 8125 4150 0    50   ~ 0
+Address: 0x76
+Wire Wire Line
+	3150 4100 3075 4100
+Wire Wire Line
+	3075 4100 3075 4000
+Connection ~ 3075 4000
+Wire Wire Line
+	3075 4000 3150 4000
+Text Notes 2900 4325 0    50   ~ 0
+Address: 0x28
 $EndSCHEMATC
