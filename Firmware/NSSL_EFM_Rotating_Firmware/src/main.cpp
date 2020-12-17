@@ -28,16 +28,18 @@ void setup()
   Serial.begin(115200);
   debugSerial.begin(19200);
 
+  debugSerial.println("NSSL Rotating Electronics");
+
   // Setup the IMU
   if(!bno.begin())
   {
-    Serial.print("Error starting BNO055 IMU.");
+    debugSerial.println("Error starting BNO055 IMU.");
   }
 
   // Setup the Temperature/Humidity sensor
   if(!htu.begin())
   {
-    Serial.print("Error starting HTU21D sensor.");
+    debugSerial.println("Error starting HTU21D sensor.");
   }
 
   // Setup the ADC
@@ -68,6 +70,24 @@ void serialWriteFloat(float val)
   Serial.write(b, 4);
 }
 
+void serialWrite32(uint32_t data)
+{
+  byte buf[4];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  buf[2] = (data >> 16) & 255;
+  buf[3] = (data >> 24) & 255;
+  Serial.write(buf, sizeof(buf));
+}
+
+void serialWrite16(uint16_t data)
+{
+  byte buf[2];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  Serial.write(buf, sizeof(buf));
+}
+
 void readandsend()
 {
   static uint8_t loop_counter = 0;
@@ -96,7 +116,8 @@ void readandsend()
   // Read the ADC
   uint32_t adc_reading = adc.readADC();
 
-  // Read the temperature or humidity
+  // Read the temperature or humidity - this is a very primitive scheduler that keeps things
+  // fast enough that we can sample as fast as we want.
   if (loop_counter == 0)
   {
     htu.startTemperatureConversion();
@@ -118,22 +139,23 @@ void readandsend()
   
   delay(1); // Without the delay we don't have populated things for sending
   
-  // Send the data (use write for binary)
-  Serial.write(0xBE);
-  Serial.write(adc_ready_time);
-  Serial.write(adc_reading);
-  Serial.write(temperature_degC);
-  Serial.write(relative_humidity);
-  serialWriteFloat(accelerometer_data.acceleration.x);
-  serialWriteFloat(accelerometer_data.acceleration.y);
-  serialWriteFloat(accelerometer_data.acceleration.z);
-  serialWriteFloat(magnetometer_data.magnetic.x);
-  serialWriteFloat(magnetometer_data.magnetic.y);
-  serialWriteFloat(magnetometer_data.magnetic.z);
-  serialWriteFloat(gyroscope_data.gyro.x);
-  serialWriteFloat(gyroscope_data.gyro.y);
-  serialWriteFloat(gyroscope_data.gyro.z);
-  Serial.write(0xEF);
+  // Send the data (use write for binary) total of 50 bytes
+  debugSerial.println("Sending new packet");
+  Serial.write(0xBE);  // Packet Byte 0
+  serialWrite32(adc_ready_time);  // Packet Byte 1-4
+  serialWrite32(adc_reading);  // Packet Byte 5-8
+  serialWrite16(temperature_degC);  // Packet Byte 9-10
+  serialWrite16(relative_humidity); // Packet Byte 11-12
+  serialWriteFloat(accelerometer_data.acceleration.x); // Packet Byte 13-16
+  serialWriteFloat(accelerometer_data.acceleration.y); // Packet Byte 17-20
+  serialWriteFloat(accelerometer_data.acceleration.z); // Packet Byte 21-24
+  serialWriteFloat(magnetometer_data.magnetic.x); // Packet Byte 25-28
+  serialWriteFloat(magnetometer_data.magnetic.y); // Packet Byte 29-32
+  serialWriteFloat(magnetometer_data.magnetic.z); // Packet Byte 33-36
+  serialWriteFloat(gyroscope_data.gyro.x); // Packet Byte 37-40
+  serialWriteFloat(gyroscope_data.gyro.y); // Packet Byte 41-44
+  serialWriteFloat(gyroscope_data.gyro.z); // Packet Byte 45-48
+  Serial.write(0xEF); // Packet Byte 49
 
   loop_counter += 1;
   if (loop_counter == 100)
