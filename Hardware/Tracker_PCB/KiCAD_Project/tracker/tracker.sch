@@ -238,33 +238,6 @@ F 5 "1" H 1475 6050 50  0001 C CNN "Populated"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J3
-U 1 1 5FFB5D23
-P 1425 5500
-F 0 "J3" V 1389 5312 50  0000 R CNN
-F 1 "Switch" V 1298 5312 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1425 5500 50  0001 C CNN
-F 3 "~" H 1425 5500 50  0001 C CNN
-F 4 "0-0000000" H 1425 5500 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 1425 5500 50  0001 C CNN "Populated"
-	1    1425 5500
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1125 6050 1200 6050
-Wire Wire Line
-	1425 5700 1200 5700
-Wire Wire Line
-	1200 5700 1200 6050
-Wire Wire Line
-	1200 6050 1275 6050
-Wire Wire Line
-	1525 5700 1750 5700
-Wire Wire Line
-	1750 5700 1750 6050
-Wire Wire Line
-	1750 6050 1675 6050
-$Comp
 L power:GND #PWR031
 U 1 1 5FFB8FA4
 P 2725 6450
@@ -345,7 +318,6 @@ F 5 "1" H 2150 6050 50  0001 C CNN "Populated"
 	1    2150 6050
 	0    1    1    0   
 $EndComp
-Connection ~ 1200 6050
 $Comp
 L capacitors_0603:1-0000007 C10
 U 1 1 5FFC0FB1
@@ -362,9 +334,6 @@ F 6 "1" H 1875 6275 50  0001 C CNN "Populated"
 $EndComp
 Wire Wire Line
 	1875 6125 1875 6050
-Wire Wire Line
-	1875 6050 1750 6050
-Connection ~ 1750 6050
 Wire Wire Line
 	1875 6050 2000 6050
 Connection ~ 1875 6050
@@ -4251,4 +4220,8 @@ F 5 "1" H 7225 6150 50  0001 C CNN "Populated"
 	1    7225 6150
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1125 6050 1275 6050
+Wire Wire Line
+	1675 6050 1875 6050
 $EndSCHEMATC
