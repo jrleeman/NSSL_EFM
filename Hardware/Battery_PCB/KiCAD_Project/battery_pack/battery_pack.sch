@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:battery_pack-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -2172,6 +2171,19 @@ F 3 "~" H 6225 7450 50  0001 C CNN
 F 4 "0-0000000" H 6225 7450 50  0001 C CNN "Internal Part Number"
 F 5 "0" H 6225 7450 50  0001 C CNN "Populated"
 	1    6225 7450
+	1    0    0    -1  
+$EndComp
+$Comp
+L lib_sch:barepcb PCB1
+U 1 1 5FDCC3D1
+P 7250 6375
+F 0 "PCB1" H 7478 6421 50  0000 L CNN
+F 1 "barepcb" H 7100 6375 50  0000 L CNN
+F 2 "lib_fp:barepcb" H 7250 6375 50  0001 C CNN
+F 3 "" H 7250 6375 50  0001 C CNN
+F 4 "3-0000020" H 7250 6375 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7250 6375 50  0001 C CNN "Populated"
+	1    7250 6375
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
