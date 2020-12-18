@@ -3065,4 +3065,17 @@ Wire Wire Line
 	9725 6325 10875 6325
 Wire Wire Line
 	10875 6325 10875 5675
+$Comp
+L lib_sch:barepcb PCB1
+U 1 1 5FE2D163
+P 7225 6400
+F 0 "PCB1" H 7453 6446 50  0000 L CNN
+F 1 "barepcb" H 7075 6425 50  0000 L CNN
+F 2 "lib_fp:barepcb" H 7225 6400 50  0001 C CNN
+F 3 "" H 7225 6400 50  0001 C CNN
+F 4 "3-0000069" H 7225 6400 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7225 6400 50  0001 C CNN "Populated"
+	1    7225 6400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
