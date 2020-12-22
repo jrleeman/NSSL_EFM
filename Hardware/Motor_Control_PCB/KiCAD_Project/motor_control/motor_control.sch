@@ -2713,4 +2713,17 @@ Text Notes 4250 2125 0    50   ~ 0
 FG (Green)
 Text Notes 4250 2025 0    50   ~ 0
 Power (Red)
+$Comp
+L lib_sch:barepcb PCB1
+U 1 1 5FDCD5DA
+P 7175 6400
+F 0 "PCB1" H 7403 6446 50  0000 L CNN
+F 1 "barepcb" H 7025 6400 50  0000 L CNN
+F 2 "lib_fp:barepcb" H 7175 6400 50  0001 C CNN
+F 3 "" H 7175 6400 50  0001 C CNN
+F 4 "3-0000021" H 7175 6400 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7175 6400 50  0001 C CNN "Populated"
+	1    7175 6400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
