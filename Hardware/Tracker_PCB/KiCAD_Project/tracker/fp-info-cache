@@ -1,4 +1,4 @@
-19162981669683997
+19158156435693364
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -82796,13 +82796,6 @@ connectors
 3
 3
 lib_fp
-1-0000526
-
-
-0
-5
-5
-lib_fp
 1-0000782
 
 
@@ -82817,26 +82810,12 @@ lib_fp
 2
 2
 lib_fp
-1-0000793
-
-
-0
-5
-5
-lib_fp
 1632_Battery
 
 
 0
 2
 2
-lib_fp
-JST_S2B-PH-SM4-TB(LF)(SN)
-
-
-0
-4
-4
 lib_fp
 MiniUSB
 

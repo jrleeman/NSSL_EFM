@@ -230,28 +230,14 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x02 J2
 U 1 1 5FFB5D23
-P 1425 5500
-F 0 "J2" V 1389 5312 50  0000 R CNN
-F 1 "Switch" V 1298 5312 50  0000 R CNN
-F 2 "" H 1425 5500 50  0001 C CNN
-F 3 "~" H 1425 5500 50  0001 C CNN
-	1    1425 5500
+P 2675 5300
+F 0 "J2" V 2639 5112 50  0000 R CNN
+F 1 "Regulator Bypass" V 2775 5550 50  0000 R CNN
+F 2 "" H 2675 5300 50  0001 C CNN
+F 3 "~" H 2675 5300 50  0001 C CNN
+	1    2675 5300
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	1125 6050 1200 6050
-Wire Wire Line
-	1425 5700 1200 5700
-Wire Wire Line
-	1200 5700 1200 6050
-Wire Wire Line
-	1200 6050 1275 6050
-Wire Wire Line
-	1525 5700 1750 5700
-Wire Wire Line
-	1750 5700 1750 6050
-Wire Wire Line
-	1750 6050 1675 6050
 $Comp
 L power:GND #PWR028
 U 1 1 5FFB8FA4
@@ -332,7 +318,6 @@ F 4 "1-0000002" H 2150 6050 50  0001 C CNN "Internal Part Number"
 	1    2150 6050
 	0    1    1    0   
 $EndComp
-Connection ~ 1200 6050
 $Comp
 L capacitors_0603:1-0000007 C10
 U 1 1 5FFC0FB1
@@ -349,9 +334,6 @@ F 6 "0.1uF" H 1990 6230 50  0000 L CNN "PValue"
 $EndComp
 Wire Wire Line
 	1875 6125 1875 6050
-Wire Wire Line
-	1875 6050 1750 6050
-Connection ~ 1750 6050
 Wire Wire Line
 	1875 6050 2000 6050
 Connection ~ 1875 6050
@@ -4128,11 +4110,11 @@ L power:PWR_FLAG #FLG0102
 U 1 1 5FE33ABE
 P 2325 6050
 F 0 "#FLG0102" H 2325 6125 50  0001 C CNN
-F 1 "PWR_FLAG" V 2325 5825 50  0000 C CNN
+F 1 "PWR_FLAG" V 2325 6350 50  0000 C CNN
 F 2 "" H 2325 6050 50  0001 C CNN
 F 3 "~" H 2325 6050 50  0001 C CNN
 	1    2325 6050
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Connection ~ 2325 6050
 Wire Wire Line
@@ -4203,4 +4185,25 @@ F 3 "~" H 6200 7575 50  0001 C CNN
 	1    6200 7575
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	1125 6050 1275 6050
+Wire Wire Line
+	1675 6050 1875 6050
+$Comp
+L power:+5V #PWR?
+U 1 1 5FDF517E
+P 3300 5500
+F 0 "#PWR?" H 3300 5350 50  0001 C CNN
+F 1 "+5V" H 3315 5673 50  0000 C CNN
+F 2 "" H 3300 5500 50  0001 C CNN
+F 3 "" H 3300 5500 50  0001 C CNN
+	1    3300 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 5500 2775 5500
+Wire Wire Line
+	2675 5500 2325 5500
+Wire Wire Line
+	2325 5500 2325 6050
 $EndSCHEMATC
