@@ -1,4 +1,4 @@
-19188648793374350
+19190258130368598
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -83012,6 +83012,13 @@ XTend
 0
 38
 38
+lib_fp
+barepcb
+
+
+0
+0
+0
 resistors_0603
 1-0000006
 Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
