@@ -238,6 +238,10 @@ void setup()
 
   // Setup the GPS receiver interrupt
   attachInterrupt(digitalPinToInterrupt(PIN_GPS_PPS), GPSReadISR, FALLING);
+
+  // Pin setup
+  pinMode(PIN_LED_RUN, OUTPUT);
+  pinMode(PIN_LED_ERROR, OUTPUT);
 }
 
 void loop()
