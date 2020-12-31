@@ -1,0 +1,1690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Tracker_PCB\KiCAD_Project\tracker\tracker.sch</source>
+    <date>12/17/2020 5:16:44 PM</date>
+    <tool>Eeschema (5.1.7)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Balloon Sat Tracker</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2020-12-17</date>
+        <source>tracker.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>RockBlock9603</value>
+      <footprint>lib_fp:picoblade</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000790</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x10" description="Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FF9F909</tstamp>
+    </comp>
+    <comp ref="U5">
+      <value>ublox_SAM-M8Q</value>
+      <footprint>RF_GPS:ublox_SAM-M8Q</footprint>
+      <datasheet>https://www.u-blox.com/sites/default/files/SAM-M8Q_DataSheet_%28UBX-16012619%29.pdf</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000446</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="RF_GPS" part="ublox_SAM-M8Q" description="GPS ublox M8 variant"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFA0E04</tstamp>
+    </comp>
+    <comp ref="BT1">
+      <value>CR1220</value>
+      <footprint>lib_fp:S8411-45R</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000246</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFA5EB2</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFA8CA1</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFA96AC</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>XBee</value>
+      <footprint>lib_fp:XBee</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000785</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="XBee" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFAB4BC</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>TSR2</value>
+      <footprint>lib_fp:TSR 2-2450</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000748</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="TSR2" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFB4D5E</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>Battery</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFB52DC</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_SPST</value>
+      <footprint>lib_fp:SW_GF-123-0054</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000786</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Switch" part="SW_SPST" description="Single Pole Single Throw (SPST) switch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFB5870</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>Switch</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFB5D23</tstamp>
+    </comp>
+    <comp ref="U6">
+      <value>MIC5219-3.3YM5</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23-5</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/MIC5219-500mA-Peak-Output-LDO-Regulator-DS20006021A.pdf</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000658</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Regulator_Linear" part="MIC5219-3.3YM5" description="500mA low dropout linear regulator, fixed 3.3V output, SOT-23-5"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBAB9F</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>Polyfuse</value>
+      <footprint>Fuse:Fuse_1812_4532Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000002</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFBEC46</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFC0FB1</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFC9532</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>ICSP</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_02x03_Counter_Clockwise" description="Generic connector, double row, 02x03, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFDF96F</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>1-0000018</value>
+      <footprint>capacitors_0603:1-0000018</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000018</field>
+        <field name="PValue">1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000018" description="1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFE66F5</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFE8159</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>ATmega328P-AU</value>
+      <footprint>Package_QFP:TQFP-32_7x7mm_P0.8mm</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000566</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="ATmega328P-AU" description="20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, TQFP-32"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFF99AE</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FFFE74E</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>16MHz</value>
+      <footprint>lib_fp:Resonator</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000569</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Resonator_Small" description="Three pin ceramic resonator, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60002E21</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>1-0000010</value>
+      <footprint>resistors_0603:1-0000010</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="PValue">10k</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000010" description="10k Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60008B65</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6000BE48</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6000C7CB</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6000CAE0</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600240D6</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600253D4</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600257F3</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60025B42</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60025DF9</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">0R0</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60026100</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>1-0000008</value>
+      <footprint>resistors_0603:1-0000008</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000008</field>
+        <field name="PValue">150</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000008" description="150 Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60039C1E</tstamp>
+    </comp>
+    <comp ref="D2">
+      <value>Blue</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000599</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6003D4B5</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>1-0000008</value>
+      <footprint>resistors_0603:1-0000008</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000008</field>
+        <field name="PValue">150</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000008" description="150 Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60044721</tstamp>
+    </comp>
+    <comp ref="D3">
+      <value>Yellow</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000601</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60044729</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>1-0000006</value>
+      <footprint>resistors_0603:1-0000006</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="PValue">NP</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000006" description="0 Ohm Resistor 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600468F6</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>1-0000007</value>
+      <footprint>capacitors_0603:1-0000007</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="PValue">0.1uF</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="capacitors_0603" part="1-0000007" description="0.1uF 10% X7R 25V 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60047811</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>1-0000010</value>
+      <footprint>resistors_0603:1-0000010</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="PValue">NP</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000010" description="10k Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>60066237</tstamp>
+    </comp>
+    <comp ref="R18">
+      <value>1-0000010</value>
+      <footprint>resistors_0603:1-0000010</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="PValue">NP</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000010" description="10k Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600742A3</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>1-0000008</value>
+      <footprint>resistors_0603:1-0000008</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000008</field>
+        <field name="PValue">150</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000008" description="150 Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600966DF</tstamp>
+    </comp>
+    <comp ref="D4">
+      <value>Green</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000598</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>600966E7</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>1-0000008</value>
+      <footprint>resistors_0603:1-0000008</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000008</field>
+        <field name="PValue">150</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000008" description="150 Ohm Resistor 0603 1%"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6009B7E5</tstamp>
+    </comp>
+    <comp ref="D1">
+      <value>Blue</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000599</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="LED_ALT" description="Light emitting diode, filled shape"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6009B7ED</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>BSS138</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/BSS138-D.PDF</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000340</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS138" description="50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDC9C5C</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1-0000013</value>
+      <footprint>resistors_0603:1-0000013</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="PValue">1k</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000013" description="Resistor 1k 1% 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDCB3A7</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>1-0000013</value>
+      <footprint>resistors_0603:1-0000013</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="PValue">1k</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000013" description="Resistor 1k 1% 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDCCD81</tstamp>
+    </comp>
+    <comp ref="Q2">
+      <value>BSS138</value>
+      <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
+      <datasheet>https://www.onsemi.com/pub/Collateral/BSS138-D.PDF</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000340</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Transistor_FET" part="BSS138" description="50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDEA256</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1-0000013</value>
+      <footprint>resistors_0603:1-0000013</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="PValue">1k</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000013" description="Resistor 1k 1% 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDEA25F</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>1-0000013</value>
+      <footprint>resistors_0603:1-0000013</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="PValue">1k</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="resistors_0603" part="1-0000013" description="Resistor 1k 1% 0603"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDEA268</tstamp>
+    </comp>
+    <comp ref="U4">
+      <value>RockBlockMechanical</value>
+      <footprint>lib_fp:RockBlock_Mechanical</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000789</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="RockBlockMechanical" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE24AF2</tstamp>
+    </comp>
+    <comp ref="FID1">
+      <value>Fiducial</value>
+      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3BD02</tstamp>
+    </comp>
+    <comp ref="FID2">
+      <value>Fiducial</value>
+      <footprint>Fiducial:Fiducial_1mm_Mask2mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3CA56</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_DIN965</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3CF3B</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_DIN965</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3D902</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_DIN965</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3DB79</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>MountingHole:MountingHole_3.2mm_M3_DIN965</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FE3DDA2</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>1-0000075</value>
+      <footprint>capacitors_0805:1-0000075</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000075</field>
+        <field name="PValue">10uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0805" part="1-0000075" description="10uF 10% X5R 25V 0805"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDC4D28</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>1-0000075</value>
+      <footprint>capacitors_0805:1-0000075</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000075</field>
+        <field name="PValue">10uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0805" part="1-0000075" description="10uF 10% X5R 25V 0805"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDC6415</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>1-0000075</value>
+      <footprint>capacitors_0805:1-0000075</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000075</field>
+        <field name="PValue">10uF</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="capacitors_0805" part="1-0000075" description="10uF 10% X5R 25V 0805"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDC6A96</tstamp>
+    </comp>
+    <comp ref="PCB1">
+      <value>barepcb</value>
+      <footprint>lib_fp:BarePCB</footprint>
+      <fields>
+        <field name="Internal Part Number">3-0000068</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="barepcb" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDCF535</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x10">
+      <description>Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x10</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+        <pin num="7" name="Pin_7" type="passive"/>
+        <pin num="8" name="Pin_8" type="passive"/>
+        <pin num="9" name="Pin_9" type="passive"/>
+        <pin num="10" name="Pin_10" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_02x03_Counter_Clockwise">
+      <description>Generic connector, double row, 02x03, counter clockwise pin numbering scheme (similar to DIP packge numbering), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_2x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_02x03_Counter_Clockwise</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+        <pin num="6" name="Pin_6" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Battery_Cell">
+      <description>Single-cell battery</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">Battery_Cell</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="LED_ALT">
+      <description>Light emitting diode, filled shape</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>LED*</fp>
+        <fp>LED_SMD:*</fp>
+        <fp>LED_THT:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">LED_ALT</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Polyfuse">
+      <description>Resettable fuse, polymeric positive temperature coefficient</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*polyfuse*</fp>
+        <fp>*PTC*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Polyfuse</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Resonator_Small">
+      <description>Three pin ceramic resonator, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Filter*</fp>
+        <fp>Resonator*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Resonator_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="Fiducial">
+      <description>Fiducial Marker</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Fiducial*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">FID</field>
+        <field name="Value">Fiducial</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="RF_GPS" part="ublox_SAM-M8Q">
+      <description>GPS ublox M8 variant</description>
+      <docs>https://www.u-blox.com/sites/default/files/SAM-M8Q_DataSheet_%28UBX-16012619%29.pdf</docs>
+      <footprints>
+        <fp>ublox*SAM?M8Q*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ublox_SAM-M8Q</field>
+        <field name="Footprint">RF_GPS:ublox_SAM-M8Q</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="power_in"/>
+        <pin num="2" name="VCC_IO" type="power_in"/>
+        <pin num="3" name="V_BCKP" type="power_in"/>
+        <pin num="4" name="GND" type="passive"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="GND" type="passive"/>
+        <pin num="7" name="TIMEPULSE" type="output"/>
+        <pin num="8" name="~SAFEBOOT" type="input"/>
+        <pin num="9" name="SDA" type="BiDi"/>
+        <pin num="10" name="GND" type="passive"/>
+        <pin num="11" name="GND" type="passive"/>
+        <pin num="12" name="SCL" type="input"/>
+        <pin num="13" name="TXD" type="output"/>
+        <pin num="14" name="RXD" type="input"/>
+        <pin num="15" name="GND" type="passive"/>
+        <pin num="16" name="GND" type="passive"/>
+        <pin num="17" name="VCC" type="power_in"/>
+        <pin num="18" name="~RESET" type="input"/>
+        <pin num="19" name="EXTINT" type="input"/>
+        <pin num="20" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Regulator_Linear" part="AP131-15">
+      <aliases>
+        <alias>AP131-18</alias>
+        <alias>AP131-20</alias>
+        <alias>AP131-25</alias>
+        <alias>AP131-28</alias>
+        <alias>AP131-29</alias>
+        <alias>AP131-30</alias>
+        <alias>AP131-33</alias>
+        <alias>AP131-35</alias>
+        <alias>MIC5205-2.5YM5</alias>
+        <alias>MIC5205-2.7YM5</alias>
+        <alias>MIC5205-2.8YM5</alias>
+        <alias>MIC5205-2.85YM5</alias>
+        <alias>MIC5205-2.9YM5</alias>
+        <alias>MIC5205-3.0YM5</alias>
+        <alias>MIC5205-3.1YM5</alias>
+        <alias>MIC5205-3.2YM5</alias>
+        <alias>MIC5205-3.3YM5</alias>
+        <alias>MIC5205-3.6YM5</alias>
+        <alias>MIC5205-3.8YM5</alias>
+        <alias>MIC5205-4.0YM5</alias>
+        <alias>MIC5205-5.0YM5</alias>
+        <alias>MIC5219-2.5YM5</alias>
+        <alias>MIC5219-2.6YM5</alias>
+        <alias>MIC5219-2.7YM5</alias>
+        <alias>MIC5219-2.8YM5</alias>
+        <alias>MIC5219-2.85YM5</alias>
+        <alias>MIC5219-2.9YM5</alias>
+        <alias>MIC5219-3.0YM5</alias>
+        <alias>MIC5219-3.1YM5</alias>
+        <alias>MIC5219-3.3YM5</alias>
+        <alias>MIC5219-3.6YM5</alias>
+        <alias>MIC5219-5.0YM5</alias>
+        <alias>SPX3819M5-L-1-2</alias>
+        <alias>SPX3819M5-L-1-5</alias>
+        <alias>SPX3819M5-L-1-8</alias>
+        <alias>SPX3819M5-L-2-5</alias>
+        <alias>SPX3819M5-L-3-0</alias>
+        <alias>SPX3819M5-L-3-3</alias>
+        <alias>SPX3819M5-L-5-0</alias>
+      </aliases>
+      <description>300mA low dropout linear regulator, shutdown pin, 1.5V fixed positive output, SOT-23-5</description>
+      <docs>http://www.diodes.com/_files/datasheets/AP131.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">AP131-15</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="EN" type="input"/>
+        <pin num="4" name="BP" type="input"/>
+        <pin num="5" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="Switch" part="SW_SPST">
+      <description>Single Pole Single Throw (SPST) switch</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_SPST</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A" type="passive"/>
+        <pin num="2" name="B" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="BSS138">
+      <aliases>
+        <alias>2N7002</alias>
+        <alias>2N7002E</alias>
+        <alias>2N7002H</alias>
+        <alias>2N7002K</alias>
+        <alias>BS170F</alias>
+        <alias>BS870</alias>
+        <alias>BSN20</alias>
+        <alias>BSS123</alias>
+        <alias>BSS127S</alias>
+        <alias>DMG2302U</alias>
+        <alias>DMG3402L</alias>
+        <alias>DMG3404L</alias>
+        <alias>DMG3406L</alias>
+        <alias>DMG3414U</alias>
+        <alias>DMG3418L</alias>
+        <alias>DMN10H220L</alias>
+        <alias>DMN10H700S</alias>
+        <alias>DMN13H750S</alias>
+        <alias>DMN2041L</alias>
+        <alias>DMN2050L</alias>
+        <alias>DMN2056U</alias>
+        <alias>DMN2058U</alias>
+        <alias>DMN2075U</alias>
+        <alias>DMN2230U</alias>
+        <alias>DMN24H11DS</alias>
+        <alias>DMN24H3D5L</alias>
+        <alias>DMN3042L</alias>
+        <alias>DMN3051L</alias>
+        <alias>DMN30H4D0L</alias>
+        <alias>DMN3110S</alias>
+        <alias>DMN3150L</alias>
+        <alias>DMN3300U</alias>
+        <alias>DMN3404L</alias>
+        <alias>DMN6075S</alias>
+        <alias>DMN6140L</alias>
+        <alias>DMN67D7L</alias>
+        <alias>DMN67D8L</alias>
+        <alias>MMBF170</alias>
+        <alias>VN10LF</alias>
+        <alias>ZVN3306F</alias>
+        <alias>ZVN3310F</alias>
+        <alias>ZVN3320F</alias>
+        <alias>ZVN4106F</alias>
+        <alias>ZXM61N02F</alias>
+        <alias>ZXM61N03F</alias>
+        <alias>ZXMN10A07F</alias>
+        <alias>ZXMN2A01F</alias>
+        <alias>ZXMN2A14F</alias>
+        <alias>ZXMN2B01F</alias>
+        <alias>ZXMN2B14FH</alias>
+        <alias>ZXMN2F30FH</alias>
+        <alias>ZXMN2F34FH</alias>
+        <alias>ZXMN3A01F</alias>
+        <alias>ZXMN3A14F</alias>
+        <alias>ZXMN3B01F</alias>
+        <alias>ZXMN3B14F</alias>
+        <alias>ZXMN3F30FH</alias>
+        <alias>ZXMN6A07F</alias>
+        <alias>IRLML0030</alias>
+        <alias>IRLML2060</alias>
+        <alias>TSM2302CX</alias>
+        <alias>AO3400A</alias>
+      </aliases>
+      <description>50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23</description>
+      <docs>https://www.onsemi.com/pub/Collateral/BSS138-D.PDF</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BSS138</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="capacitors_0603" part="1-0000007">
+      <description>0.1uF 10% X7R 25V 0603</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">1-0000007</field>
+        <field name="Footprint">capacitors_0603:1-0000007</field>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+        <field name="PValue">0.1uF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="capacitors_0603" part="1-0000018">
+      <description>1uF 10% X7R 25V 0603</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">1-0000018</field>
+        <field name="Footprint">capacitors_0603:1-0000018</field>
+        <field name="Internal Part Number">1-0000018</field>
+        <field name="Population">1</field>
+        <field name="PValue">1uF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="capacitors_0805" part="1-0000075">
+      <description>10uF 10% X5R 25V 0805</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">1-0000075</field>
+        <field name="Footprint">capacitors_0805:1-0000075</field>
+        <field name="Internal Part Number">1-0000075</field>
+        <field name="Populated">1</field>
+        <field name="PValue">10uF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="ATmega48PV-10AU">
+      <aliases>
+        <alias>ATmega328P-AU</alias>
+      </aliases>
+      <description>10MHz, 4kB Flash, 512B SRAM, 256B EEPROM, TQFP-32</description>
+      <footprints>
+        <fp>TQFP*7x7mm*P0.8mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATmega48PV-10AU</field>
+        <field name="Footprint">Package_QFP:TQFP-32_7x7mm_P0.8mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PD3" type="BiDi"/>
+        <pin num="2" name="PD4" type="BiDi"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="power_in"/>
+        <pin num="6" name="VCC" type="power_in"/>
+        <pin num="7" name="XTAL1/PB6" type="BiDi"/>
+        <pin num="8" name="XTAL2/PB7" type="BiDi"/>
+        <pin num="9" name="PD5" type="BiDi"/>
+        <pin num="10" name="PD6" type="BiDi"/>
+        <pin num="11" name="PD7" type="BiDi"/>
+        <pin num="12" name="PB0" type="BiDi"/>
+        <pin num="13" name="PB1" type="BiDi"/>
+        <pin num="14" name="PB2" type="BiDi"/>
+        <pin num="15" name="PB3" type="BiDi"/>
+        <pin num="16" name="PB4" type="BiDi"/>
+        <pin num="17" name="PB5" type="BiDi"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="ADC6" type="input"/>
+        <pin num="20" name="AREF" type="passive"/>
+        <pin num="21" name="GND" type="power_in"/>
+        <pin num="22" name="ADC7" type="input"/>
+        <pin num="23" name="PC0" type="BiDi"/>
+        <pin num="24" name="PC1" type="BiDi"/>
+        <pin num="25" name="PC2" type="BiDi"/>
+        <pin num="26" name="PC3" type="BiDi"/>
+        <pin num="27" name="PC4" type="BiDi"/>
+        <pin num="28" name="PC5" type="BiDi"/>
+        <pin num="29" name="~RESET~/PC6" type="BiDi"/>
+        <pin num="30" name="PD0" type="BiDi"/>
+        <pin num="31" name="PD1" type="BiDi"/>
+        <pin num="32" name="PD2" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="RockBlockMechanical">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">RockBlockMechanical</field>
+      </fields>
+    </libpart>
+    <libpart lib="lib_sch" part="TSR2">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TSR2</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VIN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="VOUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="XBee">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">XBee</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VCC" type="power_in"/>
+        <pin num="2" name="DOUT/DIO13" type="BiDi"/>
+        <pin num="3" name="DIN/DIO13" type="BiDi"/>
+        <pin num="4" name="DIO12/MISO" type="BiDi"/>
+        <pin num="5" name="nRESET" type="input"/>
+        <pin num="6" name="~DIO10/PWM0" type="BiDi"/>
+        <pin num="7" name="DIO11/PWM1" type="BiDi"/>
+        <pin num="8" name="RSVD" type="NotConnected"/>
+        <pin num="9" name="nDTR/DIO8" type="BiDi"/>
+        <pin num="10" name="GND" type="power_in"/>
+        <pin num="11" name="DIO3/MOSI" type="power_in"/>
+        <pin num="12" name="nCTS/DIO7" type="power_in"/>
+        <pin num="13" name="nSLEEP/DIO9" type="output"/>
+        <pin num="14" name="VREF" type="input"/>
+        <pin num="15" name="Assoc/DIO5" type="BiDi"/>
+        <pin num="16" name="nRTS/DIO6" type="BiDi"/>
+        <pin num="17" name="AD3/DIO3/nSSEL" type="BiDi"/>
+        <pin num="18" name="AD2/DIO2/CLK" type="BiDi"/>
+        <pin num="19" name="AD1/DIO1/ATTN" type="BiDi"/>
+        <pin num="20" name="AD0/DIO0" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="barepcb">
+      <fields>
+        <field name="Reference">PCB</field>
+        <field name="Value">barepcb</field>
+      </fields>
+    </libpart>
+    <libpart lib="resistors_0603" part="1-0000006">
+      <description>0 Ohm Resistor 0603</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">1-0000006</field>
+        <field name="Footprint">resistors_0603:1-0000006</field>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="Populated">1</field>
+        <field name="PValue">0R0</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="resistors_0603" part="1-0000008">
+      <description>150 Ohm Resistor 0603 1%</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">1-0000008</field>
+        <field name="Footprint">resistors_0603:1-0000008</field>
+        <field name="Internal Part Number">1-0000008</field>
+        <field name="Populated">1</field>
+        <field name="PValue">150</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="resistors_0603" part="1-0000010">
+      <description>10k Ohm Resistor 0603 1%</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">1-0000010</field>
+        <field name="Footprint">resistors_0603:1-0000010</field>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+        <field name="PValue">10k</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="resistors_0603" part="1-0000013">
+      <description>Resistor 1k 1% 0603</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">1-0000013</field>
+        <field name="Footprint">resistors_0603:1-0000013</field>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="Populated">1</field>
+        <field name="PValue">1k</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="RF_GPS">
+      <uri>C:\Program Files\KiCad\share\kicad\library/RF_GPS.lib</uri>
+    </library>
+    <library logical="Regulator_Linear">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Regulator_Linear.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Switch.lib</uri>
+    </library>
+    <library logical="Transistor_FET">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Transistor_FET.lib</uri>
+    </library>
+    <library logical="capacitors_0603">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/capacitors_0603.lib</uri>
+    </library>
+    <library logical="capacitors_0805">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/capacitors_0805.lib</uri>
+    </library>
+    <library logical="lib_sch">
+      <uri>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Tracker_PCB\KiCAD_Project\tracker/lib_sch.lib</uri>
+    </library>
+    <library logical="resistors_0603">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/resistors_0603.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(R15-Pad2)">
+      <node ref="R15" pin="2"/>
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="2" name="RESET">
+      <node ref="U2" pin="29"/>
+      <node ref="R5" pin="2"/>
+      <node ref="J2" pin="3"/>
+      <node ref="C8" pin="1"/>
+    </net>
+    <net code="3" name="GPS_TX">
+      <node ref="R13" pin="1"/>
+      <node ref="U5" pin="13"/>
+    </net>
+    <net code="4" name="GPS_RX">
+      <node ref="U5" pin="14"/>
+      <node ref="R12" pin="1"/>
+    </net>
+    <net code="5" name="RB_TXO_3V3">
+      <node ref="R1" pin="2"/>
+      <node ref="Q1" pin="2"/>
+      <node ref="R10" pin="1"/>
+    </net>
+    <net code="6" name="RB_RXI_3V3">
+      <node ref="R3" pin="2"/>
+      <node ref="Q2" pin="2"/>
+      <node ref="R11" pin="1"/>
+    </net>
+    <net code="7" name="Net-(R8-Pad1)">
+      <node ref="R8" pin="1"/>
+      <node ref="U1" pin="6"/>
+    </net>
+    <net code="8" name="Net-(R14-Pad2)">
+      <node ref="U2" pin="2"/>
+      <node ref="R14" pin="2"/>
+    </net>
+    <net code="9" name="Net-(R13-Pad2)">
+      <node ref="R13" pin="2"/>
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="10" name="Net-(R12-Pad2)">
+      <node ref="R12" pin="2"/>
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="11" name="Net-(R11-Pad2)">
+      <node ref="R11" pin="2"/>
+      <node ref="U2" pin="31"/>
+    </net>
+    <net code="12" name="Net-(R10-Pad2)">
+      <node ref="R10" pin="2"/>
+      <node ref="U2" pin="30"/>
+    </net>
+    <net code="13" name="RB_GND">
+      <node ref="U3" pin="2"/>
+      <node ref="J4" pin="1"/>
+      <node ref="J1" pin="10"/>
+      <node ref="U5" pin="16"/>
+      <node ref="U2" pin="21"/>
+      <node ref="U5" pin="1"/>
+      <node ref="U5" pin="10"/>
+      <node ref="U5" pin="11"/>
+      <node ref="U5" pin="15"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="5"/>
+      <node ref="U5" pin="20"/>
+      <node ref="C4" pin="2"/>
+      <node ref="C12" pin="2"/>
+      <node ref="C13" pin="2"/>
+      <node ref="C9" pin="2"/>
+      <node ref="U5" pin="5"/>
+      <node ref="D4" pin="1"/>
+      <node ref="U1" pin="10"/>
+      <node ref="U5" pin="4"/>
+      <node ref="U6" pin="2"/>
+      <node ref="U5" pin="6"/>
+      <node ref="BT1" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="D1" pin="1"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C14" pin="2"/>
+      <node ref="D2" pin="1"/>
+      <node ref="C7" pin="2"/>
+      <node ref="Y1" pin="2"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="D3" pin="1"/>
+      <node ref="C1" pin="2"/>
+      <node ref="J2" pin="4"/>
+    </net>
+    <net code="14" name="Net-(C8-Pad2)">
+      <node ref="R7" pin="1"/>
+      <node ref="C8" pin="2"/>
+    </net>
+    <net code="15" name="Net-(R7-Pad2)">
+      <node ref="R7" pin="2"/>
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="16" name="Net-(D3-Pad2)">
+      <node ref="R9" pin="2"/>
+      <node ref="D3" pin="2"/>
+    </net>
+    <net code="17" name="Net-(R9-Pad1)">
+      <node ref="R9" pin="1"/>
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="18" name="Net-(D2-Pad2)">
+      <node ref="R8" pin="2"/>
+      <node ref="D2" pin="2"/>
+    </net>
+    <net code="19" name="Net-(U2-Pad8)">
+      <node ref="Y1" pin="3"/>
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="20" name="Net-(U2-Pad7)">
+      <node ref="U2" pin="7"/>
+      <node ref="Y1" pin="1"/>
+    </net>
+    <net code="21" name="Net-(U2-Pad22)">
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="22" name="Net-(U2-Pad19)">
+      <node ref="U2" pin="19"/>
+    </net>
+    <net code="23" name="Net-(C6-Pad1)">
+      <node ref="C6" pin="1"/>
+      <node ref="U2" pin="20"/>
+    </net>
+    <net code="24" name="RB_RXI">
+      <node ref="R4" pin="2"/>
+      <node ref="J1" pin="6"/>
+      <node ref="Q2" pin="3"/>
+    </net>
+    <net code="25" name="RB_5V">
+      <node ref="J1" pin="8"/>
+      <node ref="U6" pin="3"/>
+      <node ref="R4" pin="1"/>
+      <node ref="C12" pin="1"/>
+      <node ref="U6" pin="1"/>
+      <node ref="R2" pin="1"/>
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="26" name="RB_TXO">
+      <node ref="J1" pin="1"/>
+      <node ref="R2" pin="2"/>
+      <node ref="Q1" pin="3"/>
+    </net>
+    <net code="27" name="Net-(F1-Pad1)">
+      <node ref="U3" pin="1"/>
+      <node ref="F1" pin="1"/>
+    </net>
+    <net code="28" name="Net-(BT1-Pad1)">
+      <node ref="BT1" pin="1"/>
+      <node ref="U5" pin="3"/>
+    </net>
+    <net code="29" name="RB_LiIon">
+      <node ref="J1" pin="9"/>
+    </net>
+    <net code="30" name="Net-(U2-Pad12)">
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="31" name="Net-(U2-Pad28)">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="32" name="Net-(U2-Pad27)">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="33" name="Net-(U2-Pad26)">
+      <node ref="U2" pin="26"/>
+    </net>
+    <net code="34" name="Net-(U2-Pad25)">
+      <node ref="U2" pin="25"/>
+    </net>
+    <net code="35" name="Net-(U2-Pad24)">
+      <node ref="U2" pin="24"/>
+    </net>
+    <net code="36" name="Net-(U2-Pad23)">
+      <node ref="U2" pin="23"/>
+    </net>
+    <net code="37" name="Net-(U2-Pad13)">
+      <node ref="U2" pin="13"/>
+    </net>
+    <net code="38" name="RB_Sleep">
+      <node ref="J1" pin="7"/>
+    </net>
+    <net code="39" name="~RB_RI">
+      <node ref="J1" pin="5"/>
+    </net>
+    <net code="40" name="RB_RTS">
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="41" name="RB_CTS">
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="42" name="GPS_PPS">
+      <node ref="U5" pin="7"/>
+      <node ref="U2" pin="10"/>
+      <node ref="R16" pin="2"/>
+    </net>
+    <net code="43" name="SCK">
+      <node ref="R6" pin="1"/>
+      <node ref="U2" pin="17"/>
+      <node ref="J2" pin="2"/>
+    </net>
+    <net code="44" name="Net-(D1-Pad2)">
+      <node ref="R6" pin="2"/>
+      <node ref="D1" pin="2"/>
+    </net>
+    <net code="45" name="Net-(D4-Pad2)">
+      <node ref="D4" pin="2"/>
+      <node ref="R17" pin="2"/>
+    </net>
+    <net code="46" name="Net-(U2-Pad14)">
+      <node ref="U2" pin="14"/>
+    </net>
+    <net code="47" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="48" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="49" name="XBee_from_Uc">
+      <node ref="U1" pin="3"/>
+      <node ref="R15" pin="1"/>
+    </net>
+    <net code="50" name="Net-(U1-Pad20)">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="51" name="XBee_to_Uc">
+      <node ref="U1" pin="2"/>
+      <node ref="R14" pin="1"/>
+    </net>
+    <net code="52" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="53" name="Net-(U1-Pad18)">
+      <node ref="U1" pin="18"/>
+    </net>
+    <net code="54" name="Net-(U1-Pad16)">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="55" name="Net-(U1-Pad14)">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="56" name="Net-(U1-Pad13)">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="57" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="58" name="Net-(U1-Pad11)">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="59" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
+    </net>
+    <net code="60" name="+3V3">
+      <node ref="Q2" pin="1"/>
+      <node ref="U2" pin="6"/>
+      <node ref="U2" pin="4"/>
+      <node ref="C3" pin="1"/>
+      <node ref="R3" pin="1"/>
+      <node ref="U2" pin="18"/>
+      <node ref="C2" pin="1"/>
+      <node ref="J2" pin="6"/>
+      <node ref="C7" pin="1"/>
+      <node ref="C5" pin="1"/>
+      <node ref="C14" pin="1"/>
+      <node ref="C1" pin="1"/>
+      <node ref="R5" pin="1"/>
+      <node ref="U6" pin="5"/>
+      <node ref="R17" pin="1"/>
+      <node ref="U1" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="C9" pin="1"/>
+      <node ref="U5" pin="2"/>
+      <node ref="U5" pin="17"/>
+      <node ref="R16" pin="1"/>
+      <node ref="R18" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="C13" pin="1"/>
+      <node ref="Q1" pin="1"/>
+      <node ref="C4" pin="1"/>
+    </net>
+    <net code="61" name="Net-(U6-Pad4)">
+      <node ref="U6" pin="4"/>
+    </net>
+    <net code="62" name="Net-(J3-Pad1)">
+      <node ref="SW1" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="J4" pin="2"/>
+    </net>
+    <net code="63" name="Net-(U1-Pad9)">
+      <node ref="U1" pin="9"/>
+    </net>
+    <net code="64" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
+    </net>
+    <net code="65" name="Net-(U5-Pad19)">
+      <node ref="U5" pin="19"/>
+    </net>
+    <net code="66" name="Net-(U5-Pad18)">
+      <node ref="U5" pin="18"/>
+    </net>
+    <net code="67" name="Net-(U5-Pad12)">
+      <node ref="U5" pin="12"/>
+    </net>
+    <net code="68" name="Net-(U5-Pad8)">
+      <node ref="U5" pin="8"/>
+    </net>
+    <net code="69" name="Net-(U5-Pad9)">
+      <node ref="U5" pin="9"/>
+    </net>
+    <net code="70" name="RB_NetAv">
+      <node ref="U2" pin="11"/>
+      <node ref="J1" pin="4"/>
+      <node ref="R18" pin="2"/>
+    </net>
+    <net code="71" name="MISO">
+      <node ref="U2" pin="16"/>
+      <node ref="J2" pin="1"/>
+    </net>
+    <net code="72" name="MOSI">
+      <node ref="J2" pin="5"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="73" name="Net-(C10-Pad1)">
+      <node ref="C10" pin="1"/>
+      <node ref="F1" pin="2"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="J3" pin="2"/>
+    </net>
+  </nets>
+</export>

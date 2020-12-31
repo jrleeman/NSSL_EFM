@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Battery_PCB\KiCAD_Project\battery_pack\battery_pack.sch</source>
+    <date>12/18/2020 8:52:19 AM</date>
+    <tool>Eeschema (5.1.7)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Battery Pack - NSSL EFM</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2019-12-03</date>
+        <source>battery_pack.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="BT4">
+      <value>CR2</value>
+      <footprint>lib_fp:BH-CR2-PC</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000451</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA2F96</tstamp>
+    </comp>
+    <comp ref="BT3">
+      <value>CR2</value>
+      <footprint>lib_fp:BH-CR2-PC</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000451</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA3982</tstamp>
+    </comp>
+    <comp ref="BT1">
+      <value>CR2</value>
+      <footprint>lib_fp:BH-CR2-PC</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000451</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA5142</tstamp>
+    </comp>
+    <comp ref="BT2">
+      <value>CR2</value>
+      <footprint>lib_fp:BH-CR2-PC</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000451</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Battery_Cell" description="Single-cell battery"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA3E58</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>Conn_01x02</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA6E85</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA9DBE</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAA833</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAB149</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAB151</tstamp>
+    </comp>
+    <comp ref="PCB1">
+      <value>barepcb</value>
+      <footprint>lib_fp:barepcb</footprint>
+      <fields>
+        <field name="Internal Part Number">3-0000020</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="barepcb" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDCC3D1</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Battery_Cell">
+      <description>Single-cell battery</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">Battery_Cell</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="lib_sch" part="barepcb">
+      <fields>
+        <field name="Reference">PCB</field>
+        <field name="Value">barepcb</field>
+      </fields>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="lib_sch">
+      <uri>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Battery_PCB\KiCAD_Project\battery_pack/lib_sch.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(BT1-Pad2)">
+      <node ref="BT1" pin="2"/>
+      <node ref="BT2" pin="1"/>
+    </net>
+    <net code="2" name="Net-(BT1-Pad1)">
+      <node ref="BT1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="3" name="Net-(BT4-Pad2)">
+      <node ref="BT4" pin="2"/>
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="4" name="Net-(BT3-Pad2)">
+      <node ref="BT4" pin="1"/>
+      <node ref="BT3" pin="2"/>
+    </net>
+    <net code="5" name="Net-(BT2-Pad2)">
+      <node ref="BT2" pin="2"/>
+      <node ref="BT3" pin="1"/>
+    </net>
+  </nets>
+</export>

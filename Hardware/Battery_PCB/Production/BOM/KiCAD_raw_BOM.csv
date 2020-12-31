@@ -1,0 +1,11 @@
+Reference, Value, Footprint, Datasheet, Internal Part Number, Populated
+"BT4","CR2","lib_fp:BH-CR2-PC","~","1-0000451","1"
+"BT3","CR2","lib_fp:BH-CR2-PC","~","1-0000451","1"
+"BT1","CR2","lib_fp:BH-CR2-PC","~","1-0000451","1"
+"BT2","CR2","lib_fp:BH-CR2-PC","~","1-0000451","1"
+"J1","Conn_01x02","Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm","~","0-0000000","0"
+"H1","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
+"H2","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
+"H3","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
+"H4","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
+"PCB1","barepcb","lib_fp:barepcb","","3-0000020","1"
