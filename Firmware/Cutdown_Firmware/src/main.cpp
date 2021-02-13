@@ -8,13 +8,18 @@
  * - The XBee receives a valid cutdown message with this unit number identified
  */ 
 
+// Uncomment the next line to send all messages out via XBee for debugging/testing
+//#define ENABLE_DEBUG
+
+// Uncomment the next line to simulate ascent after boot to arm the system for testing
+//#define FORCE_ARM
+
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 #include <Wire.h>
 #include "pins.h"
 #include "Cmd.h"
 #include <EEPROM.h>
-#include <Adafruit_SleepyDog.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BMP3XX.h>
 
@@ -89,6 +94,7 @@ enum flight_states {FLIGHT_START, FLIGHT_ASCENDING, FLIGHT_COMPLETE};
 // Globals
 uint16_t flight_duration_seconds = 0;
 float starting_pressure = 0;
+float lowest_pressure = 9000;
 uint8_t current_flight_state = FLIGHT_START;
 float current_pressure = 0;
 
@@ -183,18 +189,22 @@ uint16_t GetArm()
 
 void Show(int arg_cnt, char **args)
 {
-  Serial.println(F("Cutdown Settings"));
+  Serial.print(F("Firmware Version: "));
+  Serial.print(device_settings.firmware_major_version);
+  Serial.print(F("."));
+  Serial.println(device_settings.firmware_minor_version);
+  Serial.println(F("\nCutdown Settings"));
   Serial.println(F("--------------------------"));
   Serial.print(F("Cutdown ID: "));
-  Serial.print(GetId());
+  Serial.println(GetId());
   Serial.print(F("Cutdown Pressure (hPa): "));
-  Serial.print(GetPressure());
+  Serial.println(GetPressure());
   Serial.print(F("Cutdown Arming (hPa): "));
-  Serial.print(GetArm());
+  Serial.println(GetArm());
   Serial.print(F("Cutdown Time (minutes): "));
-  Serial.print(GetTime());
+  Serial.println(GetTime());
   Serial.print(F("Cutdown Duration (seconds): "));
-  Serial.print(GetDuration());
+  Serial.println(GetDuration());
   Serial.print(F("System Boot Value: "));
   Serial.println(device_settings.system_first_boot);
 
@@ -207,10 +217,11 @@ uint8_t xbee_cutdown()
   // buffer on a newline since it's the start of a new packet.
 
   char target_chars[50];
+  memset(&target_chars[0], 0, sizeof(target_chars));
   sprintf(target_chars, "NSSL CUTDOWN%d", GetId());
-
   char rx_chars[150];
-  static uint8_t rx_idx = 0;
+  memset(&rx_chars[0], 0, sizeof(rx_chars));
+  uint8_t rx_idx = 0;
   uint8_t strcmp_res = 1;
   while(xbeeSerial.available())
   {
@@ -224,6 +235,7 @@ uint8_t xbee_cutdown()
     else
     {
       rx_chars[rx_idx] = c;
+      rx_idx += 1;
     }    
   }
   // If the strings match (result from strcmp of 0), return 1 to do the cutdown
@@ -245,6 +257,7 @@ uint8_t external_cutdown()
     if (digitalRead(PIN_EXT_CUTDOWN) == LOW)
     {
       low_counter += 1;
+      delay(5);
     }
   }
 
@@ -266,25 +279,39 @@ uint8_t check_conditions()
   // * Returns 0 if we don't need to cutdown, positive value otherwise
   uint8_t do_cutdown = 0;
 
-  // Read pressure and see if flight is complete
+  // Read pressure and see if flight is complete add some pressure for hystersis!
   float pressure = GetPressureReading();
-  if (pressure > current_pressure)
+  if (pressure < lowest_pressure)
   {
+    lowest_pressure = pressure;
+  }
+  if (lowest_pressure < (current_pressure - GetArm() * 2))
+  {
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("FLIGHT NATURALLY TERMINATED");
+    #endif
+    Serial.println("FLIGHT NATURALLY TERMINATED");
     current_flight_state = FLIGHT_COMPLETE;
   }
   current_pressure = pressure;
 
   // Check if the time limit is reached
-  if ((flight_duration_seconds / 60) > GetDuration())
+  if ((flight_duration_seconds / 60) >= GetTime())
   {
     Serial.println("Flight Duration Limit Reached");
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("Flight Duration Limit Reached");
+    #endif
     do_cutdown += 1;
   }
 
   // Check if the pressure limit is reached
-  if (current_pressure < current_pressure)
+  if (current_pressure < GetPressure())
   {
     Serial.println("Flight Pressure Limit Reached");
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("Flight Pressure Limit Reached");
+    #endif
     do_cutdown += 1;
   }
 
@@ -292,6 +319,9 @@ uint8_t check_conditions()
   if (xbee_cutdown())
   {
     Serial.println("XBee Cutdown Received");
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("XBee Cutdown Received");
+    #endif
     do_cutdown += 1;
   }
 
@@ -299,6 +329,9 @@ uint8_t check_conditions()
   if (external_cutdown())
   {
     Serial.println("External Cutdown Received");
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("External Cutdown Received");
+    #endif
     do_cutdown += 1;
   }
 
@@ -307,8 +340,13 @@ uint8_t check_conditions()
 
 void setup()
 {
-  // Start up the watchdog
-  Watchdog.enable(10000);
+  // Serial
+  Serial.begin(9600);
+  xbeeSerial.begin(9600);
+
+  // Show the greeting
+  Serial.println(F("Cutdown Module"));
+  Serial.println(F("Leeman Geophysical LLC"));
 
   // Reads the settings from the EEPROM into our structure
   EEPROM.get(EEPROM_BASE_ADDRESS, device_settings);
@@ -325,19 +363,11 @@ void setup()
   pinMode(PIN_EXT_CUTDOWN, INPUT);
   pinMode(PIN_HOTWIRE, OUTPUT);
 
-  // Serial
-  Serial.begin(9600);
-  xbeeSerial.begin(115200);
-
   // Pressure sensor
   bmp.begin_I2C(0x76);
   bmp.setTemperatureOversampling(BMP3_OVERSAMPLING_8X);
   bmp.setPressureOversampling(BMP3_OVERSAMPLING_4X);
   bmp.setIIRFilterCoeff(BMP3_IIR_FILTER_COEFF_3);
-
-  // Show the greeting
-  Serial.println(F("Cutdown Module"));
-  Serial.println(F("Leeman Geophysical LLC"));
   
   // Setup the command structure
   cmdInit(&Serial);
@@ -348,6 +378,23 @@ void setup()
   cmdAdd("SETARM", SetArm);
   cmdAdd("HELP", Help);
   cmdAdd("SHOW", Show);
+
+  // Get the startup pressure
+  for (int i=0; i<10; i++)
+  {
+    starting_pressure += GetPressureReading();
+  }
+  starting_pressure /= 10;
+  current_pressure = starting_pressure;
+  
+  #ifdef FORCE_ARM
+  Serial.println("TESTING PRESSURE OFFSET APPLIED - NOT FOR FLIGHT!");
+  starting_pressure += 12 + GetArm();
+  #endif
+  
+
+  Serial.print("Starting pressure (hPa): ");
+  Serial.println(starting_pressure);
 }
 
 void execute_cutdown()
@@ -356,6 +403,9 @@ void execute_cutdown()
   digitalWrite(PIN_HOTWIRE, HIGH);
   delay(GetDuration() * 1000);
   digitalWrite(PIN_HOTWIRE, LOW);
+
+  // Set the flight state to complete
+  current_flight_state = FLIGHT_COMPLETE;
 }
 
 void serial_update()
@@ -364,32 +414,60 @@ void serial_update()
   {
     case FLIGHT_START:
       Serial.print("DISARMED");
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.print("DISARMED");
+      #endif
       break;
     case FLIGHT_ASCENDING:
       Serial.print("ARMED");
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.print("ARMED");
+      #endif
       break;
     case FLIGHT_COMPLETE:
       Serial.print("COMPLETE");
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.print("COMPLETE");
+      #endif
       break;
     default:
       Serial.print("ERROR");
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.print("ERROR");
+      #endif
       break;
   }
   Serial.print("\t");
   Serial.print(flight_duration_seconds);
   Serial.print("\t");
-  Serial.println(current_pressure);
+  Serial.println(GetPressureReading());
+
+  #ifdef ENABLE_DEBUG
+  xbeeSerial.print("\t");
+  xbeeSerial.print(flight_duration_seconds);
+  xbeeSerial.print("\t");
+  xbeeSerial.println(GetPressureReading());
+  #endif
 }
 
 void loop()
 {
-  static uint32_t last_check_millis = 0;
-  static uint32_t last_serial_millis = 0;
+
+  static uint32_t last_check_millis = millis();
+  static uint32_t last_serial_millis = millis();
 
   // Send the serial status of the device and update flight duration every 10 seconds
-  if ((millis() - last_serial_millis) > 10000)
+  if ((millis() - last_serial_millis) > 5000)
   {
     flight_duration_seconds += (millis() - last_serial_millis) / 1000;
+
+    // If the state is not armed (start of flight only) then we keep duration at zero
+    // We keep the clock running when armed (in flight) and through the descent and landing.
+    if (current_flight_state == FLIGHT_START)
+    {
+      flight_duration_seconds = 0;
+    }
+
     last_serial_millis = millis();
     serial_update();
   }
@@ -427,7 +505,12 @@ void loop()
       }
       break;
   
-    // If the flight has been terminated then we are just along for the ride
+    // If the flight has been terminated then we are just along for the ride - turn on the
+    // error so we are not accidently relaunched!
+    case FLIGHT_COMPLETE:
+      digitalWrite(PIN_LED_ERROR, HIGH);
+      break;
+
     default:
       break;
   }
