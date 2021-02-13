@@ -342,7 +342,7 @@ F1 "capacitors_0603_1-0000018" 25 -100 50 H I L CNN
 F2 "capacitors_0603:1-0000018" 38 -150 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 F4 "1-0000018" 0 0 50 H I C CNN "Internal Part Number"
-F5 "1" 0 0 50 H I C CNN "Population"
+F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "1uF" 0 0 50 H V C CNN "PValue"
 $FPLIST
  C_*

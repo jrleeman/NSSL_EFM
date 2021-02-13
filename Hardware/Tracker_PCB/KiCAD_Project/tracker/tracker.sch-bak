@@ -5,7 +5,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Balloon Sat Tracker"
-Date "2020-12-17"
+Date "2020-12-22"
 Rev "1.0"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
@@ -4224,4 +4224,6 @@ Wire Wire Line
 	1125 6050 1275 6050
 Wire Wire Line
 	1675 6050 1875 6050
+Text Notes 10400 1375 0    50   ~ 0
+Cable 1-0000791
 $EndSCHEMATC
