@@ -661,8 +661,7 @@ F 0 "J1" H 793 7067 50  0000 C CNN
 F 1 "Board to Board" H 793 6976 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 875 6450 50  0001 C CNN
 F 3 "~" H 875 6450 50  0001 C CNN
-F 4 "1-0000455" H 875 6450 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 875 6450 50  0001 C CNN "Populated"
+F 4 "1" H 875 6450 50  0001 C CNN "Populated"
 	1    875  6450
 	-1   0    0    -1  
 $EndComp
