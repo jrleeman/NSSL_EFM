@@ -121,22 +121,34 @@ void readandsend()
   if (loop_counter == 0)
   {
     relative_humidity = bme.readHumidity();
+    //debugSerial.print("RH: ");
+    //debugSerial.println(relative_humidity);
   }
 
   if (loop_counter == 25)
   { 
-    pressure_pa = bme.readPressure();
+    pressure_pa = bme.readPressure() / 10;
+    //debugSerial.print("P: ");
+    //debugSerial.println(pressure_pa);
   }
 
   if (loop_counter == 50)
   {
     temperature_degC = bme.readTemperature() * 10;
+    //debugSerial.print("T: ");
+    //debugSerial.println(temperature_degC);
   }
 
   delay(1); // Without the delay we don't have populated things for sending
   
   // Send the data (use write for binary) total of 51 bytes
-  debugSerial.println("Sending new packet");
+  //debugSerial.println("Sending new packet");
+  //debugSerial.println(millis());
+  //debugSerial.print(adc_ready_time);
+  //debugSerial.print(",");
+  //debugSerial.println(adc_reading);
+
+
   Serial.write(0xBE);  // Packet Byte 0
   serialWrite32(adc_ready_time);  // Packet Byte 1-4
   serialWrite32(adc_reading);  // Packet Byte 5-8
