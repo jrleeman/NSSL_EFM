@@ -2190,10 +2190,10 @@ L Device:Resonator_Small Y1
 U 1 1 5FDBCFF2
 P 8825 3675
 F 0 "Y1" V 8520 3625 50  0000 C CNN
-F 1 "16MHz" V 8611 3625 50  0000 C CNN
+F 1 "8MHz" V 8611 3625 50  0000 C CNN
 F 2 "lib_fp:Resonator" H 8800 3675 50  0001 C CNN
 F 3 "~" H 8800 3675 50  0001 C CNN
-F 4 "1-0000569" H 8825 3675 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000721" H 8825 3675 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 8825 3675 50  0001 C CNN "Populated"
 	1    8825 3675
 	0    1    1    0   
@@ -2388,19 +2388,6 @@ Text GLabel 10225 4925 2    50   Input ~ 0
 XBee_to_uC
 Text GLabel 10225 5025 2    50   Output ~ 0
 XBee_from_uC
-$Comp
-L lib_sch:XBee U5
-U 1 1 5FDD2C3A
-P 3775 7050
-F 0 "U5" H 3775 7747 60  0000 C CNN
-F 1 "XBee" H 3775 7641 60  0000 C CNN
-F 2 "lib_fp:XBee" H 3800 7050 60  0001 C CNN
-F 3 "" H 3800 7050 60  0001 C CNN
-F 4 "1-0000785" H 3775 7050 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 3775 7050 50  0001 C CNN "Populated"
-	1    3775 7050
-	1    0    0    -1  
-$EndComp
 $Comp
 L capacitors_0805:1-0000075 C14
 U 1 1 5FDD4840
@@ -3230,7 +3217,7 @@ F 0 "R7" V 2650 1650 50  0000 C CNN
 F 1 "1-0000012" V 2725 1650 50  0001 C CNN
 F 2 "resistors_0603:1-0000012" V 2655 1650 50  0001 C CNN
 F 3 "~" H 2725 1650 50  0001 C CNN
-F 4 "1-0000006" H 2725 1650 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000012" H 2725 1650 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 2725 1650 50  0001 C CNN "Populated"
 F 6 "27" V 2725 1650 50  0000 C CNN "PValue"
 	1    2725 1650
@@ -3244,7 +3231,7 @@ F 0 "R8" V 2650 1750 50  0000 C CNN
 F 1 "1-0000012" V 2725 1750 50  0001 C CNN
 F 2 "resistors_0603:1-0000012" V 2655 1750 50  0001 C CNN
 F 3 "~" H 2725 1750 50  0001 C CNN
-F 4 "1-0000006" H 2725 1750 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000012" H 2725 1750 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 2725 1750 50  0001 C CNN "Populated"
 F 6 "27" V 2725 1750 50  0000 C CNN "PValue"
 	1    2725 1750
@@ -3861,4 +3848,23 @@ F 5 "0" H 6450 6800 50  0001 C CNN "Populated"
 	1    6450 6800
 	1    0    0    -1  
 $EndComp
+Text Notes 3075 7650 0    50   ~ 0
+Optional Socket for XBee 1-0000050
+$Comp
+L lib_sch:XBee U5
+U 1 1 5FDD2C3A
+P 3775 7050
+F 0 "U5" H 3775 7747 60  0000 C CNN
+F 1 "XBee" H 3775 7641 60  0000 C CNN
+F 2 "lib_fp:XBee" H 3800 7050 60  0001 C CNN
+F 3 "" H 3800 7050 60  0001 C CNN
+F 4 "1-0000785" H 3775 7050 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 3775 7050 50  0001 C CNN "Populated"
+	1    3775 7050
+	1    0    0    -1  
+$EndComp
+Text Notes 675  4075 0    50   ~ 0
+Li-Ion Battery Options:\n350mAh 1-0000807\n150mAh 1-0000806\n105 mAh 1-0000805\n
+Text Notes 6425 4100 0    50   ~ 0
+Ext Cutdown Cable 1-0000804
 $EndSCHEMATC

@@ -2383,5 +2383,5 @@ $EndComp
 Wire Wire Line
 	8150 1050 8425 1050
 Text Notes 9100 2050 0    50   ~ 0
-Required mating block\n1-0000784
+Required mating block\n1-0000797
 $EndSCHEMATC
