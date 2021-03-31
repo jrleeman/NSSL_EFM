@@ -52,33 +52,33 @@ uint8_t current_state = S_READ_FIBER_DATA;
 
 // Instance creation
 TinyGPSPlus gps;
-CircularBuffer<DataPacket, 100> DataPacketBuffer;
+//CircularBuffer<DataPacket, 100> DataPacketBuffer;
+CircularBuffer<uint8_t, 500> DataPacketBuffer;
 CircularBuffer<GPSPacket, 10> GPSPacketBuffer;
+
+typedef union {
+ float floatingPoint;
+ byte binary[4];
+} binaryFloat;
+
 
 void GPSReadISR(void)
 {
   /*
    * Reads the GPS data when a PPS is received and logs that PPS Time
    */
-  while(GPSSer.available())
-  {
-    char c = GPSSer.read();
-    if (gps.encode(c))
-    {
-      // New data is ready, break out of the while loop
-      GPSPacket gps_packet;
-      gps_packet.start_byte = 0xFE;
-      gps_packet.millis = millis();
-      gps_packet.lat = gps.location.lat();
-      gps_packet.lon = gps.location.lng();
-      gps_packet.alt = gps.altitude.meters();
-      gps_packet.time = gps.time.value();
-      gps_packet.satellites = gps.satellites.value();
-      gps_packet.end_byte = 0xED;
-      GPSPacketBuffer.push(gps_packet);
-      break;
-    }
-  }
+  digitalWrite(PIN_LED_RUN, HIGH);
+  GPSPacket gps_packet;
+  gps_packet.start_byte = 0xFE;
+  gps_packet.millis = millis();
+  gps_packet.lat = gps.location.lat();
+  gps_packet.lon = gps.location.lng();
+  gps_packet.alt = gps.altitude.meters();
+  gps_packet.time = gps.time.value();
+  gps_packet.satellites = gps.satellites.value();
+  gps_packet.end_byte = 0xED;
+  GPSPacketBuffer.push(gps_packet);
+  digitalWrite(PIN_LED_RUN, LOW);
 }
 
 uint32_t readSerialint32()
@@ -115,40 +115,10 @@ uint8_t readFiberData(void)
    */
 
   // If there's nothing here - go back with the intention of checking again!
-  if (FiberSer.available() < 40)
+  while (FiberSer.available())
   {
-    return S_READ_FIBER_DATA;
-  }
-
-  DataPacket new_fiber_data;
-
-  // Start reading and looking for 0xBE
-  char c = FiberSer.read();
-  
-  if (c == 0xBE)  // Start of packet - read it in!
-  {
-    new_fiber_data.start_byte = c;
-    new_fiber_data.adc_ready_time = readSerialint32();
-    new_fiber_data.adc_reading = readSerialint32();
-    new_fiber_data.acceleration_x = readSerialfloat();
-    new_fiber_data.acceleration_y = readSerialfloat();
-    new_fiber_data.acceleration_z = readSerialfloat();
-    new_fiber_data.magnetometer_x = readSerialfloat();
-    new_fiber_data.magnetometer_y = readSerialfloat();
-    new_fiber_data.magnetometer_z = readSerialfloat();
-    new_fiber_data.gyro_x = readSerialfloat();
-    new_fiber_data.gyro_y = readSerialfloat();
-    new_fiber_data.gyro_z = readSerialfloat();
-    new_fiber_data.temperature = readSerialfloat();
-    new_fiber_data.humidity = readSerialfloat();
-    new_fiber_data.pressure = readSerialfloat();
-  }
-
-  new_fiber_data.end_byte = FiberSer.read();
-
-  if (new_fiber_data.end_byte == 0xEF)
-  {
-    DataPacketBuffer.push(new_fiber_data);
+   char c = FiberSer.read();
+   DataPacketBuffer.push(c);
   }
   return S_SEND_DATA; // Go to the send state
 }
@@ -162,25 +132,26 @@ uint8_t sendData(void)
 
   while(!GPSPacketBuffer.isEmpty())
   {
-    GPSPacket gps_packet = GPSPacketBuffer.pop();
-    DataSer.print("G");
-    DataSer.print(",");
-    DataSer.print(gps_packet.millis);
-    DataSer.print(",");
-    DataSer.print(gps_packet.lat);
-    DataSer.print(",");
-    DataSer.print(gps_packet.lon);
-    DataSer.print(",");
-    DataSer.print(gps_packet.alt);
-    DataSer.print(",");
-    DataSer.print(gps_packet.time);
-    DataSer.print(",");
-    DataSer.println(gps_packet.satellites);
+    binaryFloat binfloat;
+    GPSPacket gps_packet = GPSPacketBuffer.shift();
+    DataSer.write(0x47);
+    DataSer.write(gps_packet.millis);
+    binfloat.floatingPoint = gps_packet.lat;
+    DataSer.write(binfloat.binary, 4);
+    binfloat.floatingPoint = gps_packet.lon;
+    DataSer.write(binfloat.binary, 4);
+    binfloat.floatingPoint = gps_packet.alt;
+    DataSer.write(binfloat.binary, 4);
+    DataSer.write(gps_packet.time);
+    DataSer.write(gps_packet.satellites);
+    DataSer.write(0x48);
   }
 
   while (!DataPacketBuffer.isEmpty())
   {
-    DataPacket data_packet = DataPacketBuffer.pop();
+    //DataPacket data_packet = DataPacketBuffer.pop();
+    DataSer.write(DataPacketBuffer.shift());
+    /*
     DataSer.print("D");
     DataSer.print(",");
     DataSer.print(data_packet.adc_ready_time);
@@ -210,6 +181,7 @@ uint8_t sendData(void)
     DataSer.print(data_packet.humidity);
     DataSer.print(",");
     DataSer.println(data_packet.pressure);
+    */
   }
 
   digitalWrite(PIN_LED_RUN, LOW);
@@ -232,9 +204,9 @@ uint8_t error()
 void setup()
 {
   // Setup the serial ports for everything
-  FiberSer.begin(9600);
+  FiberSer.begin(38400);
   GPSSer.begin(9600);
-  DataSer.begin(115200);
+  DataSer.begin(38400);
 
   // Setup the GPS receiver interrupt
   attachInterrupt(digitalPinToInterrupt(PIN_GPS_PPS), GPSReadISR, FALLING);
@@ -246,9 +218,13 @@ void setup()
 
 void loop()
 {
+  uint8_t fiberbuffer[256];
+  static uint8_t fiberbuffer_index = 0;
+  static uint8_t inside_packet = 0;
   /*
    * Main State Machine Loop
    */
+  /*
   switch (current_state)
   {
     case S_READ_FIBER_DATA:
@@ -262,5 +238,63 @@ void loop()
       break;
     default:
       current_state = error();
+  }
+  */
+ // Encode any available GPS characters
+ if (GPSSer.available())
+ {
+   gps.encode(GPSSer.read());
+ }
+
+ // If there's data on the fiber
+ if (FiberSer.available()>40)
+ {
+    inside_packet = 1;
+    fiberbuffer[fiberbuffer_index] = FiberSer.read();
+    if (fiberbuffer[fiberbuffer_index] == 0xEF)
+    {
+      inside_packet = 0;
+    }
+    fiberbuffer_index += 1;
+ }
+
+
+ // If we're not in a packet, send the last fiber packet and reset the pointer
+ if (inside_packet == 0 && fiberbuffer_index > 0)
+ {
+   DataSer.write(fiberbuffer, fiberbuffer_index);
+   fiberbuffer_index = 0;
+ }
+
+ // If we have items in the GPS buffer, send them
+ while(!GPSPacketBuffer.isEmpty())
+  {
+    GPSPacket gps_packet = GPSPacketBuffer.shift();
+    binaryFloat binfloat;
+    /*
+    DataSer.print("G");
+    DataSer.print(",");
+    DataSer.print(gps_packet.millis);
+    DataSer.print(",");
+    DataSer.print(gps_packet.lat);
+    DataSer.print(",");
+    DataSer.print(gps_packet.lon);
+    DataSer.print(",");
+    DataSer.print(gps_packet.alt);
+    DataSer.print(",");
+    DataSer.print(gps_packet.time);
+    DataSer.print(",");
+    DataSer.println(gps_packet.satellites);*/
+    DataSer.write(0x47);
+    DataSer.write(gps_packet.millis);
+    binfloat.floatingPoint = gps_packet.lat;
+    DataSer.write(binfloat.binary, 4);
+    binfloat.floatingPoint = gps_packet.lon;
+    DataSer.write(binfloat.binary, 4);
+    binfloat.floatingPoint = gps_packet.alt;
+    DataSer.write(binfloat.binary, 4);
+    DataSer.write(gps_packet.time);
+    DataSer.write(gps_packet.satellites);
+    DataSer.write(0x48);
   }
 }

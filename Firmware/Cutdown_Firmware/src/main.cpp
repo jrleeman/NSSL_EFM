@@ -9,10 +9,10 @@
  */ 
 
 // Uncomment the next line to send all messages out via XBee for debugging/testing
-//#define ENABLE_DEBUG
+#define ENABLE_DEBUG
 
 // Uncomment the next line to simulate ascent after boot to arm the system for testing
-//#define FORCE_ARM
+#define FORCE_ARM
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>

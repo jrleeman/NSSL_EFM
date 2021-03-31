@@ -25,7 +25,7 @@ SoftwareSerial debugSerial(PB12, PB13); // RX, TX
 void setup()
 {
   // Setup serial communications
-  Serial.begin(115200);
+  Serial.begin(38400);
   debugSerial.begin(19200);
 
   debugSerial.println("NSSL Rotating Electronics");

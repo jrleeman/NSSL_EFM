@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "NSSL EFM Charge Amplifier"
-Date "2020-12-17"
-Rev "2.0"
+Date "2021-03-25"
+Rev "2.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -368,7 +368,7 @@ Wire Wire Line
 Connection ~ 3425 3250
 Text GLabel 8325 3300 2    50   Output ~ 0
 Out
-Text GLabel 3600 7475 2    50   Output ~ 0
+Text GLabel 3725 6250 2    50   Output ~ 0
 FCLK
 Text GLabel 8275 3500 2    50   Input ~ 0
 FCLK
@@ -2778,14 +2778,14 @@ $EndComp
 $Comp
 L Connector:TestPoint TP5
 U 1 1 5E07AFF7
-P 3525 7425
-F 0 "TP5" H 3475 7625 50  0000 L CNN
-F 1 "TestPoint" H 3583 7452 50  0001 L CNN
-F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3725 7425 50  0001 C CNN
-F 3 "~" H 3725 7425 50  0001 C CNN
-F 4 "0-0000000" H 3525 7425 50  0001 C CNN "Internal Part Number"
-F 5 "0" H 3525 7425 50  0001 C CNN "Populated"
-	1    3525 7425
+P 3650 6200
+F 0 "TP5" H 3600 6400 50  0000 L CNN
+F 1 "TestPoint" H 3708 6227 50  0001 L CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 3850 6200 50  0001 C CNN
+F 3 "~" H 3850 6200 50  0001 C CNN
+F 4 "0-0000000" H 3650 6200 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 3650 6200 50  0001 C CNN "Populated"
+	1    3650 6200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -2912,7 +2912,7 @@ U 1 1 5FDE0456
 P 2500 6750
 F 0 "U3" H 2075 7300 50  0000 R CNN
 F 1 "ATtiny45-20SU" V 2175 7025 50  0000 R CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 2500 6750 50  0001 C CIN
+F 2 "Package_SO:SOIC-8_5.275x5.275mm_P1.27mm" H 2500 6750 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 2500 6750 50  0001 C CNN
 F 4 "1-0000758" H 2500 6750 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 2500 6750 50  0001 C CNN "Populated"
@@ -3023,17 +3023,12 @@ F 3 "" H 3825 7050 50  0001 C CNN
 	0    -1   1    0   
 $EndComp
 Wire Wire Line
-	3100 6950 3275 6950
+	3400 6250 3650 6250
 Wire Wire Line
-	3275 6950 3275 7475
+	3650 6200 3650 6250
+Connection ~ 3650 6250
 Wire Wire Line
-	3275 7475 3525 7475
-Wire Wire Line
-	3525 7425 3525 7475
-Connection ~ 3525 7475
-Wire Wire Line
-	3525 7475 3600 7475
-NoConn ~ 3100 6450
+	3650 6250 3725 6250
 NoConn ~ 3100 6550
 NoConn ~ 3100 6650
 $Comp
@@ -3109,4 +3104,9 @@ F 5 "1" H 10525 6300 50  0001 C CNN "Populated"
 	1    10525 6300
 	1    0    0    -1  
 $EndComp
+NoConn ~ 3100 6950
+Wire Wire Line
+	3100 6450 3400 6450
+Wire Wire Line
+	3400 6450 3400 6250
 $EndSCHEMATC

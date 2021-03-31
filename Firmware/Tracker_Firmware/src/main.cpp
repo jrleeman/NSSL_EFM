@@ -33,7 +33,7 @@ SoftwareSerial gpsSerial(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);
 TinyGPSPlus gps;
 IridiumSBD modem(Serial);
 
-uint8_t unit_id = 1;
+uint8_t unit_id = 2;
 char tx_buffer[55];
 uint8_t rx_buffer[55];
 

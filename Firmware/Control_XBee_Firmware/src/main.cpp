@@ -11,8 +11,8 @@ SoftwareSerial ss(PIN_RADIO_SERIAL_RX, PIN_RADIO_SERIAL_TX);
 
 void setup()
 {
-  Serial.begin(115200);
-  ss.begin(115200);
+  Serial.begin(38400);
+  ss.begin(38400);
   pinMode(PIN_ID_0, INPUT);
   pinMode(PIN_ID_1, INPUT);
   pinMode(PIN_ID_2, INPUT);
