@@ -2,14 +2,14 @@
 <export version="D">
   <design>
     <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Digital_PCB\KiCAD_Project\digital_pcb\digital_pcb.sch</source>
-    <date>12/18/2020 8:16:15 AM</date>
+    <date>3/31/2021 10:04:42 AM</date>
     <tool>Eeschema (5.1.7)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Digital Rotating Electronics - NSSL EFM</title>
         <company>Leeman Geophysical LLC</company>
-        <rev>2.0</rev>
-        <date>2020-12-17</date>
+        <rev>3.0</rev>
+        <date>2020-12-18</date>
         <source>digital_pcb.sch</source>
         <comment number="1" value="(479) 373-3736"/>
         <comment number="2" value="Siloam Springs, AR 72761"/>
@@ -21,8 +21,8 @@
       <title_block>
         <title>Digital Rotating Electronics - NSSL EFM</title>
         <company>Leeman Geophysical LLC</company>
-        <rev>1.0</rev>
-        <date>2019-12-30</date>
+        <rev>3.0</rev>
+        <date>2020-12-18</date>
         <source>Peripherals.sch</source>
         <comment number="1" value="(479) 373-3736"/>
         <comment number="2" value="Siloam Springs, AR 72761"/>
@@ -34,8 +34,8 @@
       <title_block>
         <title>Digital Rotating Electronics - NSSL EFM</title>
         <company>Leeman Geophysical LLC</company>
-        <rev>1.0</rev>
-        <date>2019-12-30</date>
+        <rev>3.0</rev>
+        <date>2020-12-18</date>
         <source>ADC.sch</source>
         <comment number="1" value="(479) 373-3736"/>
         <comment number="2" value="Siloam Springs, AR 72761"/>
@@ -47,8 +47,8 @@
       <title_block>
         <title>Digital Rotating Electronics - NSSL EFM</title>
         <company>Leeman Geophysical LLC</company>
-        <rev>1.0</rev>
-        <date>2019-12-30</date>
+        <rev>3.0</rev>
+        <date>2020-12-18</date>
         <source>Fiber.sch</source>
         <comment number="1" value="(479) 373-3736"/>
         <comment number="2" value="Siloam Springs, AR 72761"/>
@@ -60,8 +60,8 @@
       <title_block>
         <title>Digital Rotating Electronics - NSSL EFM</title>
         <company>Leeman Geophysical LLC</company>
-        <rev>1.0</rev>
-        <date>2019-12-30</date>
+        <rev>3.0</rev>
+        <date>2020-12-18</date>
         <source>Power.sch</source>
         <comment number="1" value="(479) 373-3736"/>
         <comment number="2" value="Siloam Springs, AR 72761"/>
@@ -316,7 +316,7 @@
       <footprint>Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="Internal Part Number">1-0000557</field>
+        <field name="Internal Part Number">1-0000455</field>
         <field name="Populated">1</field>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x10" description="Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"/>

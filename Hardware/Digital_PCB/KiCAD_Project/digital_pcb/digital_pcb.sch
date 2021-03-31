@@ -2681,7 +2681,7 @@ F 0 "J5" H 943 6267 50  0000 C CNN
 F 1 "Board to Board" H 943 6176 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical" H 1025 5650 50  0001 C CNN
 F 3 "~" H 1025 5650 50  0001 C CNN
-F 4 "1-0000557" H 1025 5650 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000455" H 1025 5650 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 1025 5650 50  0001 C CNN "Populated"
 	1    1025 5650
 	-1   0    0    -1  

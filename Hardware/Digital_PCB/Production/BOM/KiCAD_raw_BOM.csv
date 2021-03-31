@@ -19,7 +19,7 @@ Reference, Value, Footprint, Datasheet, Internal Part Number, Populated
 "R1","NP","Resistor_SMD:R_0603_1608Metric","~","0-0000000","0"
 "R2","NP","Resistor_SMD:R_0603_1608Metric","~","0-0000000","0"
 "J4","Spare 1","Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical","~","0-0000000","0"
-"J5","Board to Board","Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical","~","1-0000557","1"
+"J5","Board to Board","Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical","~","1-0000455","1"
 "H1","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
 "H2","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0"
 "FID1","Fiducial","Fiducials:Fiducial_1mm_Dia_2mm_Outer","~","0-0000000","0"
