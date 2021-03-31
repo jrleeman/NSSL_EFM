@@ -3023,4 +3023,17 @@ NoConn ~ 5325 4025
 NoConn ~ 5325 4525
 NoConn ~ 5325 4625
 NoConn ~ 5325 4725
+$Comp
+L lib_sch:barepcb PCB1
+U 1 1 5FF42A98
+P 5750 7200
+F 0 "PCB1" H 5550 7050 50  0000 L CNN
+F 1 "barepcb" H 5600 7200 50  0000 L CNN
+F 2 "lib_fp:barepcb" H 5750 7200 50  0001 C CNN
+F 3 "" H 5750 7200 50  0001 C CNN
+F 4 "3-0000071" H 5750 7200 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 5750 7200 50  0001 C CNN "Populated"
+	1    5750 7200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

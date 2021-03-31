@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Control_PCB\KiCAD_Project\control_pcb\control_pcb.sch</source>
-    <date>12/30/2020 8:06:28 AM</date>
+    <date>3/31/2021 9:19:45 AM</date>
     <tool>Eeschema (5.1.7)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -564,11 +564,11 @@
       <tstamp>5FED41D3</tstamp>
     </comp>
     <comp ref="Y2">
-      <value>16MHz</value>
+      <value>8MHz</value>
       <footprint>lib_fp:Resonator</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="Internal Part Number">1-0000569</field>
+        <field name="Internal Part Number">1-0000721</field>
         <field name="Populated">1</field>
       </fields>
       <libsource lib="Device" part="Resonator_Small" description="Three pin ceramic resonator, small symbol"/>
@@ -907,11 +907,11 @@
       <tstamp>5FF2D763</tstamp>
     </comp>
     <comp ref="Y3">
-      <value>16MHz</value>
+      <value>8MHz</value>
       <footprint>lib_fp:Resonator</footprint>
       <datasheet>~</datasheet>
       <fields>
-        <field name="Internal Part Number">1-0000569</field>
+        <field name="Internal Part Number">1-0000721</field>
         <field name="Populated">1</field>
       </fields>
       <libsource lib="Device" part="Resonator_Small" description="Three pin ceramic resonator, small symbol"/>
@@ -1956,9 +1956,6 @@
     <libpart lib="capacitors_0603" part="1-0000007">
       <description>0.1uF 10% X7R 25V 0603</description>
       <docs>~</docs>
-      <footprints>
-        <fp>C_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">C</field>
         <field name="Value">1-0000007</field>
@@ -1975,9 +1972,6 @@
     <libpart lib="capacitors_0603" part="1-0000018">
       <description>1uF 10% X7R 25V 0603</description>
       <docs>~</docs>
-      <footprints>
-        <fp>C_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">C</field>
         <field name="Value">1-0000018</field>
@@ -1994,9 +1988,6 @@
     <libpart lib="capacitors_0805" part="1-0000075">
       <description>10uF 10% X5R 25V 0805</description>
       <docs>~</docs>
-      <footprints>
-        <fp>C_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">C</field>
         <field name="Value">1-0000075</field>
@@ -2178,9 +2169,6 @@
     <libpart lib="resistors_0603" part="1-0000006">
       <description>0 Ohm Resistor 0603</description>
       <docs>~</docs>
-      <footprints>
-        <fp>R_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">R</field>
         <field name="Value">1-0000006</field>
@@ -2197,9 +2185,6 @@
     <libpart lib="resistors_0603" part="1-0000010">
       <description>10k Ohm Resistor 0603 1%</description>
       <docs>~</docs>
-      <footprints>
-        <fp>R_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">R</field>
         <field name="Value">1-0000010</field>
@@ -2216,9 +2201,6 @@
     <libpart lib="resistors_0603" part="1-0000174">
       <description>Resistor 100k 1% 0603</description>
       <docs>~</docs>
-      <footprints>
-        <fp>R_*</fp>
-      </footprints>
       <fields>
         <field name="Reference">R</field>
         <field name="Value">1-0000174</field>
