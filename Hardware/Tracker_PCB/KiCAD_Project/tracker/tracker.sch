@@ -641,10 +641,10 @@ L Device:Resonator_Small Y1
 U 1 1 60002E21
 P 6125 3325
 F 0 "Y1" V 6100 2925 50  0000 C CNN
-F 1 "16MHz" V 6175 2925 50  0000 C CNN
+F 1 "8MHz" V 6175 2925 50  0000 C CNN
 F 2 "lib_fp:Resonator" H 6100 3325 50  0001 C CNN
 F 3 "~" H 6100 3325 50  0001 C CNN
-F 4 "1-0000569" H 6125 3325 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000721" H 6125 3325 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 6125 3325 50  0001 C CNN "Populated"
 	1    6125 3325
 	0    1    1    0   

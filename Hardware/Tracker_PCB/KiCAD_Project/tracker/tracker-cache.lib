@@ -323,9 +323,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000007" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "0.1uF" 0 0 50 H V C CNN "PValue"
-$FPLIST
- C_*
-$ENDFPLIST
 DRAW
 P 2 0 1 20 -80 -30 80 -30 N
 P 2 0 1 20 -80 30 80 30 N
@@ -344,9 +341,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000018" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "1uF" 0 0 50 H V C CNN "PValue"
-$FPLIST
- C_*
-$ENDFPLIST
 DRAW
 P 2 0 1 20 -80 -30 80 -30 N
 P 2 0 1 20 -80 30 80 30 N
@@ -365,9 +359,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000075" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "10uF" 0 0 50 H V C CNN "PValue"
-$FPLIST
- C_*
-$ENDFPLIST
 DRAW
 P 2 0 1 20 -80 -30 80 -30 N
 P 2 0 1 20 -80 30 80 30 N
@@ -562,9 +553,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000006" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "0R0" 0 0 50 V V C CNN "PValue"
-$FPLIST
- R_*
-$ENDFPLIST
 DRAW
 S -40 -100 40 100 0 1 10 N
 X ~ 1 0 150 50 D 50 50 1 1 P
@@ -582,9 +570,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000008" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "150" 0 0 50 V V C CNN "PValue"
-$FPLIST
- R_*
-$ENDFPLIST
 DRAW
 S -40 -100 40 100 0 1 10 N
 X ~ 1 0 150 50 D 50 50 1 1 P
@@ -602,9 +587,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000010" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "10k" 0 0 50 V V C CNN "PValue"
-$FPLIST
- R_*
-$ENDFPLIST
 DRAW
 S -40 -100 40 100 0 1 10 N
 X ~ 1 0 150 50 D 50 50 1 1 P
@@ -622,9 +604,6 @@ F3 "" 0 0 50 H I C CNN
 F4 "1-0000013" 0 0 50 H I C CNN "Internal Part Number"
 F5 "1" 0 0 50 H I C CNN "Populated"
 F6 "1k" 0 0 50 V V C CNN "PValue"
-$FPLIST
- R_*
-$ENDFPLIST
 DRAW
 S -40 -100 40 100 0 1 10 N
 X ~ 1 0 150 50 D 50 50 1 1 P

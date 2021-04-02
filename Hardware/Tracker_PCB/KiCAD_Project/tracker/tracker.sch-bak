@@ -4224,6 +4224,6 @@ Wire Wire Line
 	1125 6050 1275 6050
 Wire Wire Line
 	1675 6050 1875 6050
-Text Notes 10400 1375 0    50   ~ 0
-Cable 1-0000791
+Text Notes 8750 1225 0    50   ~ 0
+Cable 1-0000791\nNOTE: MUST be repinned
 $EndSCHEMATC
