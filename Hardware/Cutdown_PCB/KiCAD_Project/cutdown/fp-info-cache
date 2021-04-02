@@ -1,4 +1,4 @@
-19374473084366928
+19162981669683997
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -82592,174 +82592,6 @@ varistor SIOV
 0
 2
 2
-ac_dc_converters
-1-0000822
-
-
-0
-4
-4
-adcs
-1-0000042
-24 Bit Analog to Digital Converter 2, 4 Input 1 Sigma-Delta 16-TSSOP
-IC ADC 24BIT SIGMA-DELTA 16TSSOP
-0
-16
-16
-adcs
-1-0000097
-24 Bit Analog to Digital Converter 6 Input 1 Sigma-Delta 24-TSSOP
-IC ADC 24BIT SIGMA-DELTA 24TSSOP
-0
-24
-24
-adcs
-1-0000111
-10 Bit Analog to Digital Converter 4 Input 1 SAR 16-TSSOP
-IC ADC 10BIT SAR 16TSSOP
-0
-16
-16
-amplifiers
-1-0000039
-Instrumentation Amplifier 1 Circuit  8-SOIC
-IC INST AMP 1 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000040
-SOIC, 8 Pin (JEDEC MS-012AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_8.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOIC SO
-0
-8
-8
-amplifiers
-1-0000044
-General Purpose Amplifier 1 Circuit  8-SOIC
-IC OPAMP GP 1 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000061
-J-FET Amplifier 1 Circuit  TSOT-5
-IC OPAMP JFET 1 CIRCUIT TSOT5
-0
-5
-5
-amplifiers
-1-0000062
-J-FET Amplifier 1 Circuit  8-SOIC
-IC OPAMP JFET 1 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000063
-Instrumentation Amplifier 1 Circuit  10-MSOP
-IC INST AMP 1 CIRCUIT 10MSOP
-0
-10
-10
-amplifiers
-1-0000064
-General Purpose Amplifier 2 Circuit Rail-to-Rail 8-SOIC
-IC OPAMP GP 2 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000066
-Zero-Drift Amplifier 1 Circuit Rail-to-Rail 8-SOIC
-IC OPAMP ZERO-DRIFT 1 CIRC 8SOIC
-0
-8
-8
-amplifiers
-1-0000067
-Zero-Drift Amplifier 2 Circuit Rail-to-Rail 8-MSOP
-IC OPAMP ZERO-DRIFT 2 CIRC 8MSOP
-0
-8
-8
-amplifiers
-1-0000076
-General Purpose Amplifier 2 Circuit  8-SOIC
-IC OPAMP GP 2 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000109
-Instrumentation Amplifier 2 Circuit  16-SSOP
-IC INST AMP 2 CIRCUIT 16SSOP
-0
-16
-16
-amplifiers
-1-0000110
-Instrumentation Amplifier 1 Circuit  8-SOIC
-IC INST AMP 1 CIRCUIT 8SOIC
-0
-8
-8
-amplifiers
-1-0000116
-IC OPAMP JFET 1 CIRCUIT 8SOIC
-J-FET Amplifier 1 Circuit  8-SOIC
-0
-8
-8
-amplifiers
-1-0000173
-SOIC, 8 Pin (JEDEC MS-012AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_8.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOIC SO
-0
-8
-8
-amplifiers
-1-0000834
-SOIC, 8 Pin (JEDEC MS-012AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_8.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOIC SO
-0
-8
-8
-batteries
-1-0000131
-Battery Holder (Open) Coin, 16.0mm 1 Cell SMD (SMT) Tab
-BATTERY HOLDER COIN 16MM SMD
-0
-2
-2
-capacitors
-1-0000092
-47µF ±20% 25V Ceramic Capacitor X7R Stacked SMD, 2 J-Lead
-CAP CER 47UF 25V X7R SMD
-0
-2
-2
-capacitors
-1-0000138
-3300µF 50V Aluminum Electrolytic Capacitors Radial, Can  1000 Hrs @ 105°C
-CAP ALUM 3300UF 20% 50V RADIAL
-0
-2
-2
-capacitors
-1-0000169
-
-
-0
-2
-2
-capacitors
-1-0000176
-
-
-0
-2
-2
 capacitors_0603
 1-0000005
 Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
@@ -82928,13 +82760,6 @@ capacitor
 0
 2
 2
-capacitors_0603
-1-0000818
-Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
-capacitor
-0
-2
-2
 capacitors_0805
 1-0000016
 Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal
@@ -82963,83 +82788,6 @@ capacitor
 0
 2
 2
-capacitors_1206
-1-0000004
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1206
-1-0000136
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1206
-1-0000191
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1206
-1-0000843
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1206
-1-0000844
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1206
-1-0000845
-Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1210
-1-0000164
-Capacitor SMD 1210 (3225 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-capacitor
-0
-2
-2
-capacitors_1411
-1-0000128
-10µF Molded Tantalum Capacitors 25V 1411 (3528 Metric), 1210 2.5Ohm
-CAP TANT 10UF 10% 25V 1411
-0
-2
-2
-capacitors_1812
-1-0000093
-22µF ±20% 25V Ceramic Capacitor X7R 1812 (4532 Metric)
-CAP CER 22UF 25V X7R 1812
-0
-2
-2
-capacitors_2917
-1-0000125
-100µF Molded Tantalum Capacitors 25V 2917 (7343 Metric) 300mOhm
-CAP TANT 100UF 20% 25V 2917
-0
-2
-2
-capacitors_2917
-1-0000149
-1000µF Molded Tantalum Capacitors 6.3V 2917 (7343 Metric) 600mOhm
-CAP TANT 1000UF 10% 6.3V 2917
-0
-2
-2
 connectors
 1-0000001
 
@@ -83047,615 +82795,125 @@ connectors
 0
 3
 3
-connectors
-1-0000034
-USB - mini B USB 2.0 Receptacle Connector 5 Position Surface Mount, Right Angle
-CONN RCPT USB2.0 MINI B SMD R/A
-0
-9
-9
-connectors
-1-0000053
-USB Bridge, USB to UART USB 2.0 UART Interface 20-SSOP
-IC USB SERIAL FULL UART 20SSOP
-0
-20
-20
-connectors
-1-0000117
-surface-mounted straight socket strip, 2x10, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
-Surface mounted socket strip SMD 2x10 2.54mm double row
-0
-20
-20
-connectors
-1-0000119
-3 Position Wire to Board Terminal Block Horizontal with Board 0.197" (5.00mm) Through Hole
-TERM BLK 3POS SIDE ENTRY 5MM PCB
-0
-3
-3
-connectors
-1-0000120
-Connector Header Through Hole 2 position 0.100" (2.54mm)
-CONN HEADER VERT 2POS 2.54MM
-0
-2
-2
-connectors
-1-0000126
-Through hole straight socket strip, 2x02, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
-Through hole socket strip THT 2x02 2.54mm double row
-0
-4
-4
-connectors
-1-0000127
-10 (8 + 2) Position Card Connector Secure Digital - microSD™ Surface Mount, Right Angle Gold
-CONN MICRO SD CARD PUSH-PUSH R/A
-0
-14
-14
-connectors
-1-0000129
-Through hole straight pin header, 1x04, 2.54mm pitch, single row
-Through hole pin header THT 1x04 2.54mm single row
-0
-4
-4
-connectors
-1-0000159
-Through hole straight pin header, 1x03, 2.54mm pitch, single row
-Through hole pin header THT 1x03 2.54mm single row
-0
-3
-3
-connectors
-1-0000161
-Through hole straight pin header, 2x06, 2.54mm pitch, double rows
-Through hole pin header THT 2x06 2.54mm double row
-0
-12
-12
-connectors
-1-0000171
+lib_fp
+1-0000526
 
 
-0
-2
-2
-connectors
-1-0000172
-
-
-0
-3
-3
-connectors
-1-0000810
-
-
-0
-14
-7
-connectors
-1-0000836
-
-
-0
-8
-8
-connectors
-1-0000837
-
-
-0
-4
-4
-crystals_resonators
-1-0000041
-16MHz ±30ppm Crystal 20pF 40 Ohms HC-49/US
-CRYSTAL 16.0000MHZ 20PF SMD
-0
-2
-2
-crystals_resonators
-1-0000106
-5MHz ±30ppm Crystal 20pF 80 Ohms HC-49/US
-CRYSTAL 5.0000MHZ 20PF SMD
-0
-2
-2
-crystals_resonators
-1-0000569
-
-
-0
-3
-3
-dc_dc_converters
-1-0000032
-Isolated Module DC DC Converter 2 Output 5V -5V   100mA, 100mA 4.5V - 5.5V Input
-DC DC CONVERTER +/-5V 1W
-0
-6
-6
-dc_dc_converters
-1-0000148
-Isolated Module DC DC Converter 1 Output 5V    200mA 4.5V - 5.5V Input
-DC DC CONVERTER 5V 1W
 0
 5
 5
-diodes
-1-0000003
-SOD-323
-SOD-323
-0
-2
-2
-diodes
-1-0000035
-
-
-0
-6
-6
-diodes
-1-0000082
-Diode Array 1 Pair Series Connection Schottky 30V 200mA (DC) Surface Mount TO-236-3, SC-59, SOT-23-3
-DIODE ARRAY SCHOTTKY 30V SOT23-3
-0
-3
-3
-diodes
-1-0000087
-Diode Standard 75V 200mA Surface Mount SOD-523F
-DIODE GEN PURP 75V 200MA SOD523F
-0
-2
-2
-diodes
-1-0000134
-Diode Schottky 40V 3A Surface Mount SMC (DO-214AB)
-DIODE SCHOTTKY 40V 3A SMC
-0
-2
-2
-diodes
-1-0000143
-Diode Schottky 40V 4A Surface Mount DO-214AB (SMC)
-DIODE SCHOTTKY 40V 4A DO214AB
-0
-2
-2
-diodes
-1-0000151
-Diode Schottky 45V 7.5A Surface Mount D²PAK
-DIODE SCHOTTKY 45V 7.5A D2PAK
-0
-3
-3
-diodes
-1-0000166
-SOT-363, SC-70-6
-SOT-363 SC-70-6
-0
-6
-6
-diodes
-1-0000821
-Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=12.7mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf
-Diode DO-41_SOD81 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm
-0
-2
-2
-displays
-1-0000835
-LCD 16x2 http://www.wincomlcd.com/pdf/WC1602A-SFYLYHTC06.pdf
-LCD 16x2 Alphanumeric 16pin
-0
-20
-16
-eeproms
-1-0000107
-EEPROM Memory IC 1Mb (128K x 8) I²C 1MHz 550ns 8-SOIC
-IC EEPROM 1M I2C 1MHZ 8SOIC
-0
-8
-8
-eeproms
-1-0000157
-EEPROM Memory IC 1Mb (128K x 8) I²C 1MHz 550ns 8-SOIC
-IC EEPROM 1M I2C 1MHZ 8SOIC
-0
-8
-8
-ferrites_0603
-1-0000037
-33 Ohms @ 100MHz 1  Ferrite Bead 0603 (1608 Metric) 1.2A 80mOhm
-FERRITE BEAD 33 OHM 0603 1LN
-0
-2
-2
-fuses
-1-0000002
-Polymeric PTC Resettable Fuse 24V 500mA Ih Surface Mount 1812 (4532 Metric), Concave
-PTC RESET FUSE 24V 500MA 1812
-0
-2
-2
-fuses
-1-0000150
-Fuse Clip 10A  1 Circuit Cartridge Through Hole
-FUSE CLIP CARTRIDGE 10A PCB
-0
-4
-2
-inductors
-1-0000088
-22µH Shielded Wirewound Inductor 4.1A 43mOhm Max Nonstandard 
-FIXED IND 22UH 4.1A 43 MOHM SMD
-0
-2
-2
-inductors
-1-0000142
-8.2µH Shielded Wirewound Inductor 4.6A 15mOhm Nonstandard 
-FIXED IND 8.2UH 4.6A 15 MOHM SMD
-0
-2
-2
-inductors
-1-0000152
-53µH Shielded Toroidal Inductor 3A 80mOhm Nonstandard 
-FIXED IND 53UH 3A 80 MOHM SMD
-0
-2
-2
-inductors_0603
-1-0000033
-Inductor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
-inductor
-0
-2
-2
-leds_0805
-1-0000598
-LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
-diode
-0
-2
-2
-leds_0805
-1-0000599
-LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
-diode
-0
-2
-2
-leds_0805
-1-0000600
-LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
-diode
-0
-2
-2
-leds_0805
-1-0000601
-LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
-diode
-0
-2
-2
-leds_1206
-1-0000156
-Blue 470nm LED Indication - Discrete 3.3V 1206 (3216 Metric)
-LED BLUE CLEAR 1206 SMD
-0
-2
-2
-level_shifting
-1-0000052
-Humidity Temperature Sensor 0 ~ 100% RH I²C, SPI ±3% 1s Surface Mount
-SENSOR PRESSURE HUMIDITY TEMP
-0
-8
-8
-level_shifting
-1-0000160
-16-Lead Plastic Thin Shrink Small Outline (ST)-4.4 mm Body [TSSOP] (see Microchip Packaging Specification 00000049BS.pdf)
-SSOP 0.65
-0
-16
-16
-level_shifting
-1-0000779
-SSOP20: plastic shrink small outline package; 24 leads; body width 3.9 mm; lead pitch 0.635; (see http://www.ftdichip.com/Support/Documents/DataSheets/ICs/DS_FT231X.pdf)
-SSOP 0.635
-0
-20
-20
 lib_fp
-#6Mounting
+1-0000782
 
 
 0
-0
-0
+2
+2
 lib_fp
-#8Mounting
+1-0000783
 
 
 0
-0
-0
+2
+2
 lib_fp
-ALT_1-0000837
+1-0000793
+
+
+0
+5
+5
+lib_fp
+1632_Battery
+
+
+0
+2
+2
+lib_fp
+JST_S2B-PH-SM4-TB(LF)(SN)
 
 
 0
 4
 4
-load_switches
-1-0000162
-SO, 8 Pin (https://www.nxp.com/docs/en/data-sheet/PCF8523.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SO SO
-0
-8
-8
-mechanical
-Fiducial_1mm_Mask2mm
-Circular Fiducial, 1mm bare copper, 2mm soldermask opening (Level A)
-fiducial
-0
-1
-0
-mechanical
-MountingHole_3.2mm_M3_ISO7380
-Mounting Hole 3.2mm, no annular, M3, ISO7380
-mounting hole 3.2mm no annular m3 iso7380
-0
-0
-0
-mechanical
-MountingHole_3.2mm_M3_Pad_Via
-Mounting Hole 3.2mm, M3
-mounting hole 3.2mm m3
+lib_fp
+MiniUSB
+
+
 0
 9
-1
-microcontrollers
-1-0000047
-AVR AVR® ATmega Microcontroller IC 8-Bit 20MHz 128KB (64K x 16) FLASH 44-TQFP (10x10)
-IC MCU 8BIT 128KB FLASH 44TQFP
+9
+lib_fp
+PQFN50P200X200X80-10N
+
+
 0
-44
-44
-microcontrollers
-1-0000105
- Propeller™ Microcontroller IC 32-Bit 80MHz 32KB (32K x 8) ROM 44-LQFP (10x10)
-IC MCU 32BIT 32KB ROM 44LQFP
+10
+10
+lib_fp
+PS1240P02BT
+
+
 0
-44
-44
-microcontrollers
-1-0000719
-32-Lead Plastic Thin Quad Flatpack (PT) - 7x7x1.0 mm Body, 2.00 mm [TQFP] (see Microchip Packaging Specification 00000049BS.pdf)
-QFP 0.8
+2
+2
+lib_fp
+Particle
+
+
 0
-32
-32
-misc
+28
+28
+lib_fp
+Resonator
+
+
+0
+3
+3
+lib_fp
+S8411-45R
+
+
+0
+2
+2
+lib_fp
+SAM-M8Q
+
+
+0
+20
+20
+lib_fp
+SOIC254P1005X390-6N
+
+
+0
+6
+6
+lib_fp
+SW_GF-123-0054
+
+
+0
+2
+2
+lib_fp
+XBee
+Through hole straight pin header, 2x10, 2.00mm pitch, double rows
+Through hole pin header THT 2x10 2.00mm double row
+0
+20
+20
+lib_fp
 barepcb
 
 
 0
 0
 0
-mosfets
-1-0000163
-SOT-23, Standard
-SOT-23
-0
-3
-3
-mosfets
-1-0000780
-SOT-23, Standard
-SOT-23
-0
-3
-3
-mosfets
-1-0000817
-TO-263 / D2PAK / DDPAK SMD package, tab to pin 1, https://www.wolfspeed.com/media/downloads/137/C3D06060G.pdf
-D2PAK DDPAK TO-263 D2PAK-3 TO-263-3 SOT-404 diode
-0
-7
-3
-motor_drivers
-1-0000168
-
-
-0
-9
-9
-np_connectors
-PinHeader_1x02_P2.54mm_Vertical
-Through hole straight pin header, 1x02, 2.54mm pitch, single row
-Through hole pin header THT 1x02 2.54mm single row
-0
-2
-2
-np_connectors
-PinHeader_1x04_P2.54mm_Vertical
-Through hole straight pin header, 1x04, 2.54mm pitch, single row
-Through hole pin header THT 1x04 2.54mm single row
-0
-4
-4
-np_connectors
-PinHeader_1x06_P2.54mm_Vertical
-Through hole straight pin header, 1x06, 2.54mm pitch, single row
-Through hole pin header THT 1x06 2.54mm single row
-0
-6
-6
-np_connectors
-PinHeader_2x03_P2.54mm_Vertical
-Through hole straight pin header, 2x03, 2.54mm pitch, double rows
-Through hole pin header THT 2x03 2.54mm double row
-0
-6
-6
-others
-1-0000086
-LC EMI Filter 5th Order Low Pass 2 Channel C = 10µF 20A 4-SMD, No Lead
-FILTER LC 10UF SMD
-0
-6
-4
-others
-1-0000108
-I/O Expander 8 I²C 100kHz 16-SOIC
-IC I/O EXPANDER I2C 8B 16SOIC
-0
-16
-16
-others
-1-0000121
-Battery Battery Monitor IC Multi-Chemistry 8-DFN (3x3)
-Gas Gauge 8-DFN EP 
-0
-13
-9
-others
-1-0000725
-Capacitance-to-Digital Converter 24 b - Serial 16-TSSOP
-TSSOP SO
-0
-16
-16
-others
-1-0000816
-
-
-0
-10
-10
-references
-1-0000098
-Series Voltage Reference IC  ±0.1%  8-MSOP
-IC VREF SERIES 0.1% 8MSOP
-0
-8
-8
-references
-1-0000099
-Voltage Reference 3.3V, 1.65V 0.0005% 8ppm/C 20mA SMD
-SOT-23-5
-0
-5
-5
-references
-1-0000113
-Series Voltage Reference IC  ±0.04%  8-SOIC
-IC VREF SERIES 0.04% 8SOIC
-0
-8
-8
-regulators
-1-0000030
-
-
-0
-4
-4
-regulators
-1-0000043
-Linear Voltage Regulator IC  1 Output  300mA TSOT-5
-IC REG LINEAR 3.3V 300MA TSOT5
-0
-5
-5
-regulators
-1-0000046
-Linear Voltage Regulator IC  1 Output  500mA 8-LFCSP (2x2)
-IC REG LINEAR -3.3V 500MA 8LFCSP
-0
-9
-9
-regulators
-1-0000083
-6-pin TSOT23 package, http://cds.linear.com/docs/en/packaging/SOT_6_05-08-1636.pdf
-TSOT-23-6 MK06A TSOT-6
-0
-6
-6
-regulators
-1-0000085
-Boost, SEPIC Switching Regulator IC Positive Adjustable 2.5V 1 Output 2A (Switch) 8-TSSOP, 8-MSOP (0.118", 3.00mm Width)
-IC REG BST SEPIC ADJ 2A 8MSOP
-0
-8
-8
-regulators
-1-0000141
-Boost Switching Regulator IC Positive, Isolation Capable Adjustable 2.9V 1 Output 5.25A (Switch) 14-PowerTSSOP (0.173", 4.40mm Width)
-IC REG BOOST ADJ 5.25A 14HTSSOP
-0
-15
-15
-regulators
-1-0000153
-Buck Switching Regulator IC Positive Fixed 5V 1 Output 3A TO-220-5 Formed Leads
-IC REG BUCK 5V 3A TO220-5
-0
-5
-5
-regulators
-1-0000154
-Linear Voltage Regulator IC  1 Output  1.5A
-IC REG LINEAR 3.3V 1.5A 3DDPAK
-0
-8
-4
-regulators
-1-0000158
-Linear Voltage Regulator IC  1 Output  200mA SMV
-IC REG LINEAR 3.3V 200MA SMV
-0
-5
-5
-relays
-1-0000118
-Telecom Relay DPDT (2 Form C) Through Hole
-RELAY TELECOM DPDT 1A 12VDC
-0
-8
-8
-relays
-1-0000124
-Solid State  SPST-NO (1 Form A) 4-SOP (0.150", 3.81mm)
-SSR RELAY SPST-NO 1.2A 0-30V
-0
-4
-4
-relays
-1-0000552
-
-
-0
-8
-8
-resistors
-1-0000170
-Resistor, Axial_DIN0516 series, Axial, Horizontal, pin pitch=30.48mm, 2W, length*diameter=15.5*5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf
-Resistor Axial_DIN0516 series Axial Horizontal pin pitch 30.48mm 2W length 15.5mm diameter 5mm
-0
-2
-2
 resistors_0603
 1-0000006
 Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
@@ -84342,27 +83600,6 @@ resistor
 0
 2
 2
-resistors_0603
-1-0000714
-Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
-resistor
-0
-2
-2
-resistors_0603
-1-0000751
-Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
-resistor
-0
-2
-2
-resistors_0603
-1-0000820
-Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
-resistor
-0
-2
-2
 resistors_0805
 1-0000100
 Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal
@@ -84552,157 +83789,3 @@ resistor
 0
 2
 2
-resistors_1206
-1-0000846
-Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
-resistor
-0
-2
-2
-resistors_1206
-1-0000847
-Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
-resistor
-0
-2
-2
-resistors_1206
-1-0000848
-Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
-resistor
-0
-2
-2
-resistors_1206
-1-0000849
-Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
-resistor
-0
-2
-2
-resistors_1206
-1-0000850
-Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
-resistor
-0
-2
-2
-resistors_2512
-1-0000122
-25 mOhms ±1% 3W Chip Resistor 2512 (6432 Metric) Automotive AEC-Q200, Current Sense, Moisture Resistant Metal Element
-RES 0.025 OHM 1% 3W 2512
-0
-2
-2
-resistors_variable
-1-0000021
-TRIMMER 10KOHM 0.25W J LEAD SIDE
-variable resistor
-0
-3
-3
-resistors_variable
-1-0000114
-Digital Potentiometer 10k Ohm 1 Circuit 257 Taps SPI Interface 8-SOIC
-IC DGTL POT 10KOHM 257TAP 8SOIC
-0
-8
-8
-resistors_variable
-1-0000175
-
-
-0
-3
-3
-rtcs
-1-0000133
-Real Time Clock (RTC) IC Clock/Calendar  I²C, 2-Wire Serial 16-SOIC (0.295", 7.50mm Width)
-IC RTC CLK/CALENDAR I2C 16-SOIC
-0
-16
-16
-sensors
-1-0000130
-Temperature Sensor Digital, Local -55°C ~ 125°C 11 b 8-SO
-SENSOR DIGITAL -55C-125C 8SO
-0
-8
-8
-sensors
-1-0000718
-SOT666
-SOT-666
-0
-6
-6
-sensors
-1-0000833
-SOIC, 8 Pin (JEDEC MS-012AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_narrow-r/r_8.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
-SOIC SO
-0
-8
-8
-switch_mux_demux
-1-0000059
-1 Circuit IC Switch 2:1 2.4Ohm 8-MSOP
-IC SWITCH 2.1OHM SPDT 8MSOP
-0
-8
-8
-switch_mux_demux
-1-0000065
-1 Circuit IC Switch 1:1 190Ohm 16-TSSOP
-IC SWITCH QUAD SPST 16TSSOP
-0
-10
-10
-switches
-1-0000031
-Tactile Switch SPST-NO Side Actuated Surface Mount, Right Angle
-SWITCH TACTILE SPST-NO 0.05A 12V
-0
-5
-5
-switches
-1-0000167
-
-
-0
-3
-3
-test_points
-1-0000135
-Terminal Turret Connector Single End, Hollow 0.156" (3.96mm) Tin
-TERM TURRET HOLLOW L=3.96MM TIN
-0
-1
-1
-transistors
-1-0000036
-SOT-23, Standard
-SOT-23
-0
-3
-3
-transistors
-1-0000115
-Bipolar (BJT) Transistor NPN 160V 15A 50MHz 130W Through Hole TO-3P
-TRANS NPN 160V 15A TO3P
-0
-3
-3
-transistors
-1-0000123
-Bipolar (BJT) Transistor Array 8 NPN Darlington 50V 500mA   Surface Mount 18-SOIC
-TRANS 8NPN DARL 50V 0.5A 18SO
-0
-18
-18
-transistors
-1-0000819
-SOT-23, Standard
-SOT-23
-0
-3
-3
