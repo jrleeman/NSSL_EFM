@@ -10,7 +10,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include "Adafruit_Sensor.h"
-#include "Adafruit_BNO055.h"
+#include <Adafruit_LSM9DS1.h>
 #include <Adafruit_BME280.h>
 #include "ADS1220.h"
 #include "pins.h"
@@ -18,7 +18,7 @@
 #include <SoftwareSerial.h>
 
 Adafruit_BME280 bme;
-Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28);
+Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1();
 ADS1220 adc;
 SoftwareSerial debugSerial(PB12, PB13); // RX, TX
 
@@ -31,9 +31,12 @@ void setup()
   debugSerial.println("NSSL Rotating Electronics");
 
   // Setup the IMU
-  if(!bno.begin())
+  lsm.setupAccel(lsm.LSM9DS1_ACCELRANGE_4G);
+  lsm.setupMag(lsm.LSM9DS1_MAGGAIN_4GAUSS);
+  lsm.setupGyro(lsm.LSM9DS1_GYROSCALE_2000DPS);
+  if(!lsm.begin())
   {
-    debugSerial.println("Error starting BNO055 IMU.");
+    debugSerial.println("Error starting IMU.");
   }
 
   // Setup the Temperature/Humidity sensor
@@ -100,18 +103,8 @@ void readandsend()
   uint32_t adc_ready_time = millis();
 
   // Read the IMU as close to the ADC time as possible
-  sensors_event_t accelerometer_data, magnetometer_data, gyroscope_data;
-
-  // Get the VECTOR_ACCELEROMETER data (m/s/s)
-  bno.getEvent(&accelerometer_data, Adafruit_BNO055::VECTOR_ACCELEROMETER);
-
-  // Get the VECTOR_MAGNETOMETER data (uT)
-  bno.getEvent(&magnetometer_data, Adafruit_BNO055::VECTOR_MAGNETOMETER);
-
-  // Get the VECTOR_GYROSCOPE data(rad/s)
-  bno.getEvent(&gyroscope_data, Adafruit_BNO055::VECTOR_GYROSCOPE);  
-
-  delay(1);
+  sensors_event_t a, m, g, temp;
+  lsm.getEvent(&a, &m, &g, &temp);
 
   // Read the ADC
   uint32_t adc_reading = adc.readADC();
@@ -152,19 +145,40 @@ void readandsend()
   Serial.write(0xBE);  // Packet Byte 0
   serialWrite32(adc_ready_time);  // Packet Byte 1-4
   serialWrite32(adc_reading);  // Packet Byte 5-8
-  serialWriteFloat(accelerometer_data.acceleration.x); // Packet Byte 9-12
-  serialWriteFloat(accelerometer_data.acceleration.y); // Packet Byte 13-16
-  serialWriteFloat(accelerometer_data.acceleration.z); // Packet Byte 17-20
-  serialWriteFloat(magnetometer_data.magnetic.x); // Packet Byte 21-24
-  serialWriteFloat(magnetometer_data.magnetic.y); // Packet Byte 25-28
-  serialWriteFloat(magnetometer_data.magnetic.z); // Packet Byte 29-32
-  serialWriteFloat(gyroscope_data.gyro.x); // Packet Byte 33-36
-  serialWriteFloat(gyroscope_data.gyro.y); // Packet Byte 37-40
-  serialWriteFloat(gyroscope_data.gyro.z); // Packet Byte 41-44
+  serialWriteFloat(a.acceleration.x); // Packet Byte 9-12
+  serialWriteFloat(a.acceleration.y); // Packet Byte 13-16
+  serialWriteFloat(a.acceleration.z); // Packet Byte 17-20
+  serialWriteFloat(m.magnetic.x); // Packet Byte 21-24
+  serialWriteFloat(m.magnetic.y); // Packet Byte 25-28
+  serialWriteFloat(m.magnetic.z); // Packet Byte 29-32
+  serialWriteFloat(g.gyro.x); // Packet Byte 33-36
+  serialWriteFloat(g.gyro.y); // Packet Byte 37-40
+  serialWriteFloat(g.gyro.z); // Packet Byte 41-44
   serialWrite16(temperature_degC);  // Packet Byte 45-46
   serialWrite16(relative_humidity); // Packet Byte 47-48
   serialWrite16(pressure_pa); // Packet Byte 49-50
   Serial.write(0xEF); // Packet Byte 51
+  /*
+  debugSerial.print(a.acceleration.x);
+  debugSerial.print("\t");
+  debugSerial.print(a.acceleration.y);
+  debugSerial.print("\t");
+  debugSerial.print(a.acceleration.z);
+  debugSerial.print("\t");
+  debugSerial.print(m.magnetic.x);
+  debugSerial.print("\t");
+  debugSerial.print(m.magnetic.y);
+  debugSerial.print("\t");
+  debugSerial.print(m.magnetic.z);
+  debugSerial.print("\t");
+  debugSerial.print(g.gyro.x);
+  debugSerial.print("\t");
+  debugSerial.print(g.gyro.y);
+  debugSerial.print("\t");
+  debugSerial.println(g.gyro.z);
+  */
+
+
 
   loop_counter += 1;
   if (loop_counter == 100)
