@@ -662,6 +662,7 @@ F 1 "Board to Board" H 793 6976 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm" H 875 6450 50  0001 C CNN
 F 3 "~" H 875 6450 50  0001 C CNN
 F 4 "1" H 875 6450 50  0001 C CNN "Populated"
+F 5 "0-0000000" H 875 6450 50  0001 C CNN "Internal Part Number"
 	1    875  6450
 	-1   0    0    -1  
 $EndComp
@@ -3109,4 +3110,6 @@ Wire Wire Line
 	3100 6450 3400 6450
 Wire Wire Line
 	3400 6450 3400 6250
+Text Notes 625  7300 0    50   ~ 0
+Populate with standard header\nwith pins pointing downward\nfrom the bottom of the PCBA.
 $EndSCHEMATC

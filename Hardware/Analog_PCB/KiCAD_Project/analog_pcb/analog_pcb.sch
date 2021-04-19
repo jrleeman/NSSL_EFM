@@ -3100,7 +3100,7 @@ F 0 "PCB1" H 10753 6346 50  0000 L CNN
 F 1 "barepcb" H 10375 6300 50  0000 L CNN
 F 2 "misc:barepcb" H 10525 6300 50  0001 C CNN
 F 3 "" H 10525 6300 50  0001 C CNN
-F 4 "3-0000066" H 10525 6300 50  0001 C CNN "Internal Part Number"
+F 4 "3-0000081" H 10525 6300 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 10525 6300 50  0001 C CNN "Populated"
 	1    10525 6300
 	1    0    0    -1  

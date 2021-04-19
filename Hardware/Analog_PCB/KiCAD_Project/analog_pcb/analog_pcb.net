@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Analog_PCB\KiCAD_Project\analog_pcb\analog_pcb.sch)
-    (date "3/31/2021 9:26:34 AM")
+    (date "4/19/2021 8:46:30 AM")
     (tool "Eeschema (5.1.7)-1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -208,6 +208,7 @@
       (footprint Pin_Headers:Pin_Header_Straight_1x10_Pitch2.54mm)
       (datasheet ~)
       (fields
+        (field (name "Internal Part Number") 0-0000000)
         (field (name Populated) 1))
       (libsource (lib Connector_Generic) (part Conn_01x10) (description "Generic connector, single row, 01x10, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
@@ -366,7 +367,7 @@
       (value barepcb)
       (footprint misc:barepcb)
       (fields
-        (field (name "Internal Part Number") 3-0000066)
+        (field (name "Internal Part Number") 3-0000081)
         (field (name Populated) 1))
       (libsource (lib lib_sch) (part barepcb) (description ""))
       (sheetpath (names /) (tstamps /))
