@@ -163,8 +163,21 @@ void cmd_handler()
 
     default:
         // normal character entered. add it to the buffer
-        stream->print(c);
+        //stream->print(c);  // Uncomment for echo
         *msg_ptr++ = c;
+        
+        // Added JRL, keeps the buffer from running off the end
+        if ((msg_ptr - msg) >= (MAX_MSG_SIZE - 1))
+        {
+          stream->print("OVERFLOW - Clearing");
+          *msg_ptr = '\0';
+          stream->print("\r\n");
+          cmd_parse((char *)msg);
+          msg_ptr = msg;
+        }
+        // End Addition
+        
+
         break;
     }
 }

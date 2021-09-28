@@ -9,10 +9,10 @@
  */ 
 
 // Uncomment the next line to send all messages out via XBee for debugging/testing
-#define ENABLE_DEBUG
+//#define ENABLE_DEBUG
 
 // Uncomment the next line to simulate ascent after boot to arm the system for testing
-#define FORCE_ARM
+//#define FORCE_ARM
 
 #include <Arduino.h>
 #include <SoftwareSerial.h>
@@ -31,7 +31,7 @@ const uint8_t EEPROM_BASE_ADDRESS = 0;
 
 // Firmware Version
 const uint8_t FIRMWARE_MAJOR_VERSION = 1;
-const uint8_t FIRMWARE_MINOR_VERSION = 1;
+const uint8_t FIRMWARE_MINOR_VERSION = 2;
 
 struct PersistentData
 {
@@ -50,14 +50,19 @@ PersistentData device_settings;
 
 float GetPressureReading()
 {
-    bmp.performReading();
-    return bmp.pressure / 100;
+    float pressure_avg = 0.0;
+    for (uint8_t i=0; i<3; i++)
+    {
+      bmp.performReading();
+      pressure_avg +=  bmp.pressure / 100;
+    }
+    return pressure_avg / 3;
 }
 
 void SetDefaults()
 {
   PersistentData defaults = {
-    42,
+    FIRMWARE_MAJOR_VERSION | FIRMWARE_MINOR_VERSION,
     10,
     120,
     30,
@@ -78,7 +83,7 @@ uint8_t CheckFirstBoot()
   // appear to be incorrect. Checks for the first boot value and the 
   // firmware version to see if they make sense.
   char first_boot = 0;
-  if ((device_settings.system_first_boot != 42) ||
+  if ((device_settings.system_first_boot != (FIRMWARE_MAJOR_VERSION | FIRMWARE_MINOR_VERSION)) ||
       (device_settings.firmware_major_version != FIRMWARE_MAJOR_VERSION) ||
       (device_settings.firmware_minor_version != FIRMWARE_MINOR_VERSION)
      )
@@ -226,7 +231,7 @@ uint8_t xbee_cutdown()
   while(xbeeSerial.available())
   {
     char c = xbeeSerial.read();
-    if (c == 0x0A)
+    if ((c == 0x0A) || (rx_idx > 20))
     {
       strcmp_res = strcmp(target_chars, rx_chars);
       rx_idx = 0;
@@ -241,9 +246,11 @@ uint8_t xbee_cutdown()
   // If the strings match (result from strcmp of 0), return 1 to do the cutdown
   if (strcmp_res == 0)
   {
+    Serial.println("XBee Command Match");
     return 1;
   }
   // Otherwise return 0
+  Serial.println("XBee Command NO Match");
   return 0;
 }
 
@@ -285,14 +292,7 @@ uint8_t check_conditions()
   {
     lowest_pressure = pressure;
   }
-  if (lowest_pressure < (current_pressure - GetArm() * 2))
-  {
-    #ifdef ENABLE_DEBUG
-    xbeeSerial.println("FLIGHT NATURALLY TERMINATED");
-    #endif
-    Serial.println("FLIGHT NATURALLY TERMINATED");
-    current_flight_state = FLIGHT_COMPLETE;
-  }
+  
   current_pressure = pressure;
 
   // Check if the time limit is reached
@@ -333,6 +333,16 @@ uint8_t check_conditions()
     xbeeSerial.println("External Cutdown Received");
     #endif
     do_cutdown += 1;
+  }
+
+  // Check if we are falling and naturally terminated
+  if (current_pressure > (lowest_pressure + GetArm() * 2))
+  {
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("FLIGHT NATURALLY TERMINATED");
+    #endif
+    Serial.println("FLIGHT NATURALLY TERMINATED");
+    current_flight_state = FLIGHT_COMPLETE;
   }
 
   return do_cutdown;
@@ -376,6 +386,7 @@ void setup()
   cmdAdd("SETDUR", SetDuration);
   cmdAdd("SETID", SetId);
   cmdAdd("SETARM", SetArm);
+  cmdAdd("DEFAULTS", SetDefaults);
   cmdAdd("HELP", Help);
   cmdAdd("SHOW", Show);
 
@@ -440,13 +451,13 @@ void serial_update()
   Serial.print("\t");
   Serial.print(flight_duration_seconds);
   Serial.print("\t");
-  Serial.println(GetPressureReading());
+  Serial.println(current_pressure);
 
   #ifdef ENABLE_DEBUG
   xbeeSerial.print("\t");
   xbeeSerial.print(flight_duration_seconds);
   xbeeSerial.print("\t");
-  xbeeSerial.println(GetPressureReading());
+  xbeeSerial.println(current_pressure);
   #endif
 }
 
@@ -456,7 +467,7 @@ void loop()
   static uint32_t last_check_millis = millis();
   static uint32_t last_serial_millis = millis();
 
-  // Send the serial status of the device and update flight duration every 10 seconds
+  // Send the serial status of the device and update flight duration every 5 seconds
   if ((millis() - last_serial_millis) > 5000)
   {
     flight_duration_seconds += (millis() - last_serial_millis) / 1000;
