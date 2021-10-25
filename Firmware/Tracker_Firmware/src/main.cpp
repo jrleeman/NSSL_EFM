@@ -7,6 +7,8 @@
  * 
  * The unit ID of the tracker is unrelated to the cutdown and is simply for keeping track of
  * the instruments.
+ * 
+ * V1.1 Sept 28 2021
  */
 
 // Uncomment the next line to send all messages out via XBee for debugging/testing
@@ -16,11 +18,11 @@
 // for troubleshooting to save data costs.
 #define ENABLE_IRIDIUM
 
-// Iridium library diagnostic messages - LEAVE ON thanks to a bug in the library
-#define DIAGNOSTICS true
+// Iridium library diagnostic messages
+#define DIAGNOSTICS false
 
 // Set ms to send iridium messages
-#define TELEMETRY_MS 60000//300000
+#define TELEMETRY_MS 120000
 
 #include <Arduino.h>
 #include <TinyGPS++.h>
@@ -34,8 +36,8 @@ TinyGPSPlus gps;
 IridiumSBD modem(Serial);
 
 uint8_t unit_id = 2;
-char tx_buffer[55];
-uint8_t rx_buffer[55];
+char tx_buffer[65];
+uint8_t rx_buffer[65];
 
 void(* resetFunc) (void) = 0; //declare reset function @ address 0
 
@@ -49,11 +51,13 @@ void clear_buffers()
 void update_gps()
 {
   // Read in characters from the GPS and parse into nice objects!
-  while(gpsSerial.available())
+  uint8_t read_cnt = 0;
+  while(gpsSerial.available() && (read_cnt < 245))
   {
     digitalWrite(PIN_LED_ACTIVITY, HIGH);
     char c = gpsSerial.read();
     gps.encode(c);
+    read_cnt += 1;
   }
   digitalWrite(PIN_LED_ACTIVITY, LOW);
 }
@@ -75,7 +79,7 @@ void setup()
 
   // Spin for about 30 seconds to let the GPS get a lock
   uint32_t start_warmup = millis();
-  while ((millis() - start_warmup < 30000))
+  while ((millis() - start_warmup) < 30000)
   {
     update_gps();
   }
@@ -89,14 +93,14 @@ void setup()
   modem.setPowerProfile(IridiumSBD::DEFAULT_POWER_PROFILE); // High current profile - we've got the power
   if (modem.begin() != ISBD_SUCCESS)
   {
-    for (int i=0; i<20; i++)
+    for (int i=0; i<50; i++)
     {
       digitalWrite(PIN_LED_ACTIVITY, HIGH);
       delay(100);
       digitalWrite(PIN_LED_ACTIVITY, LOW);
       delay(100);
     }
-    //resetFunc();
+    resetFunc();
   }
   #endif
   
@@ -119,8 +123,17 @@ void tx_rx_tracking()
   double lat = gps.location.lat();
   double lon = gps.location.lng();
   double alt = gps.altitude.meters();
+  /*
+  char lat_buffer[12];
+  char lon_buffer[12];
+  char alt_buffer[12];
+  dtostrf(lat, 6, 4, lat_buffer);
+  dtostrf(lon, 6, 4, lon_buffer);
+  dtostrf(alt, 5, 1, alt_buffer);
+  */
 
-  sprintf(tx_buffer, "%d,%.4f,%.4f,%.1f\r", unit_id, lat, lon, alt);
+  sprintf(tx_buffer, "%lu,%d,%.4f,%.4f,%.1f\r", millis(), unit_id, lat, lon, alt);
+  //sprintf(tx_buffer, "%lu,%d,%s,%s,%s\r", millis(), unit_id, lat_buffer, lon_buffer, alt_buffer);
   size_t rx_buffer_size = sizeof(rx_buffer);
 
   #ifdef ENABLE_DEBUG
@@ -145,20 +158,46 @@ void tx_rx_tracking()
 
   // Transmit anything that was in the rx buffer via the xBee link - repeat it
   // 3 times to be sure it goes through in a noisy environment.
-  for (int j=0; j<3; j++)
+  uint8_t char_size = 0;
+  for (uint8_t i=0; i < 53; i++)
+  {
+    if (rx_buffer[i] != 0x00)
     {
-      for (size_t i=0; i<rx_buffer_size; i++)
-      {
-        xbeeSerial.write(rx_buffer[i]);
-      }
-      delay(15000);
+      char_size += 1;
     }
+    else
+    {
+      break;
+    }
+  }
+
+  #ifdef ENABLE_DEBUG
+  xbeeSerial.print("Iridium Buffer Length ");
+  xbeeSerial.println(char_size);
+  #endif
+
+  if (char_size > 4)
+  {
+    for (int j=0; j<3; j++)
+      {
+        for (size_t i=0; i<char_size; i++)
+        {
+          xbeeSerial.write(rx_buffer[i]);
+        }
+        delay(30000);
+      }
+  }
+  else
+  {
+    clear_buffers();
+    rx_buffer_size = 0;
+  }
 }
 
 void loop()
 {
 
-  // The main loop updates the GPS and every set interval runs the satelitte modem
+  // The main loop updates the GPS and every set interval runs the satellite modem
   // transmit/receive function to send position and check messages.
   static uint32_t last_tx_millis = 0;
   static char first_tx = 1;
@@ -172,6 +211,9 @@ void loop()
     last_tx_millis = millis();
     first_tx = 0;
     tx_rx_tracking();
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println("Done with telemetry if");
+    #endif
   }
 
 }
