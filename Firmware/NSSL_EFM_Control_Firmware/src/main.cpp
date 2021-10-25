@@ -32,11 +32,10 @@ struct GPSPacket
 {
   uint8_t start_byte;
   uint32_t millis;
-  float lat;
-  float lon;
-  float alt;
+  int32_t lat;
+  int32_t lon;
+  uint16_t alt;
   uint32_t time;
-  uint8_t satellites;
   uint8_t end_byte;
 };
 
@@ -71,11 +70,10 @@ void GPSReadISR(void)
   GPSPacket gps_packet;
   gps_packet.start_byte = 0xFE;
   gps_packet.millis = millis();
-  gps_packet.lat = gps.location.lat();
-  gps_packet.lon = gps.location.lng();
-  gps_packet.alt = gps.altitude.meters();
+  gps_packet.lat = int32_t(gps.location.lat() * 10000);
+  gps_packet.lon = int32_t(gps.location.lng() * 10000);
+  gps_packet.alt = uint16_t(gps.altitude.meters());
   gps_packet.time = gps.time.value();
-  gps_packet.satellites = gps.satellites.value();
   gps_packet.end_byte = 0xED;
   GPSPacketBuffer.push(gps_packet);
   digitalWrite(PIN_LED_RUN, LOW);
@@ -130,23 +128,14 @@ uint8_t sendData(void)
    */
   digitalWrite(PIN_LED_RUN, HIGH);
 
+  /*
   while(!GPSPacketBuffer.isEmpty())
   {
-    binaryFloat binfloat;
-    GPSPacket gps_packet = GPSPacketBuffer.shift();
-    DataSer.write(0x47);
-    DataSer.write(gps_packet.millis);
-    binfloat.floatingPoint = gps_packet.lat;
-    DataSer.write(binfloat.binary, 4);
-    binfloat.floatingPoint = gps_packet.lon;
-    DataSer.write(binfloat.binary, 4);
-    binfloat.floatingPoint = gps_packet.alt;
-    DataSer.write(binfloat.binary, 4);
-    DataSer.write(gps_packet.time);
-    DataSer.write(gps_packet.satellites);
-    DataSer.write(0x48);
-  }
 
+    GPSPacket gps_packet = GPSPacketBuffer.shift();
+    DataSer.write((const char*)&gps_packet, sizeof(gps_packet));
+  }
+  */
   while (!DataPacketBuffer.isEmpty())
   {
     //DataPacket data_packet = DataPacketBuffer.pop();
@@ -206,7 +195,7 @@ void setup()
   // Setup the serial ports for everything
   FiberSer.begin(38400);
   GPSSer.begin(9600);
-  DataSer.begin(38400);
+  DataSer.begin(57600);
 
   // Setup the GPS receiver interrupt
   attachInterrupt(digitalPinToInterrupt(PIN_GPS_PPS), GPSReadISR, FALLING);
@@ -249,6 +238,7 @@ void loop()
  // If there's data on the fiber
  if (FiberSer.available()>40)
  {
+    digitalWrite(PIN_LED_ERROR, HIGH);
     inside_packet = 1;
     fiberbuffer[fiberbuffer_index] = FiberSer.read();
     if (fiberbuffer[fiberbuffer_index] == 0xEF)
@@ -257,6 +247,7 @@ void loop()
     }
     fiberbuffer_index += 1;
  }
+ digitalWrite(PIN_LED_ERROR, LOW);
 
 
  // If we're not in a packet, send the last fiber packet and reset the pointer
@@ -270,31 +261,12 @@ void loop()
  while(!GPSPacketBuffer.isEmpty())
   {
     GPSPacket gps_packet = GPSPacketBuffer.shift();
-    binaryFloat binfloat;
-    /*
-    DataSer.print("G");
-    DataSer.print(",");
-    DataSer.print(gps_packet.millis);
-    DataSer.print(",");
-    DataSer.print(gps_packet.lat);
-    DataSer.print(",");
-    DataSer.print(gps_packet.lon);
-    DataSer.print(",");
-    DataSer.print(gps_packet.alt);
-    DataSer.print(",");
-    DataSer.print(gps_packet.time);
-    DataSer.print(",");
-    DataSer.println(gps_packet.satellites);*/
-    DataSer.write(0x47);
-    DataSer.write(gps_packet.millis);
-    binfloat.floatingPoint = gps_packet.lat;
-    DataSer.write(binfloat.binary, 4);
-    binfloat.floatingPoint = gps_packet.lon;
-    DataSer.write(binfloat.binary, 4);
-    binfloat.floatingPoint = gps_packet.alt;
-    DataSer.write(binfloat.binary, 4);
-    DataSer.write(gps_packet.time);
-    DataSer.write(gps_packet.satellites);
-    DataSer.write(0x48);
+    DataSer.write(gps_packet.start_byte);
+    DataSer.write((byte*)&gps_packet.millis, sizeof(uint32_t));
+    DataSer.write((byte*)&gps_packet.lat, sizeof(int32_t));
+    DataSer.write((byte*)&gps_packet.lon, sizeof(int32_t));
+    DataSer.write((byte*)&gps_packet.alt, sizeof(uint16_t));
+    DataSer.write((byte*)&gps_packet.time, sizeof(uint32_t));
+    DataSer.write(gps_packet.end_byte);
   }
 }
