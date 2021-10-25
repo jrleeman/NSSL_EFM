@@ -25,11 +25,11 @@ char motor_cutoff_enable = 1;
 char tone_system_enable = 1;
 double setpoint = 120; // Target RPM for the motor
 double feedback = 0; // Feedback for the motor PID
-double pwm_output = 175; // Output from the PID
-double pid_kp=0.2;
-double pid_ki=0.05;
+double pwm_output = 110; // Output from the PID
+double pid_kp=1.0;
+double pid_ki=0.1;
 double pid_kd=0.0;
-uint16_t motor_current_limit = 75; // mA limit before motor cutoff
+uint16_t motor_current_limit = 600; // mA limit before motor cutoff
 
 // Instances
 FIR<float, 4> fir;  // Since we are shooting for about 120 RPM this is a 10 second average.
@@ -213,7 +213,7 @@ void setup()
 
   // Motor Controller Setup
   digitalWrite(PIN_MOTOR_DIRECTION, LOW);
-  analogWrite(PIN_MOTOR_PWM, 175); // Start the motor
+  analogWrite(PIN_MOTOR_PWM, 110); // Start the motor
   delay(2000);
 
   // Make sure the current is okay after spinup
