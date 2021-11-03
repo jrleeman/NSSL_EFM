@@ -1,0 +1,75 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Mechanical_MountingHole
+#
+DEF Mechanical_MountingHole H 0 40 Y Y 1 F N
+F0 "H" 0 200 50 H V C CNN
+F1 "Mechanical_MountingHole" 0 125 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ MountingHole*
+$ENDFPLIST
+DRAW
+C 0 0 50 0 1 50 N
+ENDDRAW
+ENDDEF
+#
+# batteries_1-0000782
+#
+DEF batteries_1-0000782 BT 0 0 N N 1 F N
+F0 "BT" 100 100 50 H V L CNN
+F1 "batteries_1-0000782" 350 150 50 H I L CNN
+F2 "batteries:1-0000782" 0 60 50 V I C CNN
+F3 "" 0 60 50 V I C CNN
+F4 "1-0000782" 600 50 50 H I C CNN "Internal Part Number"
+F5 "1" 0 0 50 H I C CNN "Populated"
+F6 "CR123" 0 0 50 H V C CNN "PValue"
+DRAW
+S -90 70 90 60 0 1 0 F
+S -62 47 58 27 0 1 0 F
+P 2 0 1 0 0 30 0 0 N
+P 2 0 1 0 0 70 0 100 N
+P 2 0 1 10 20 135 60 135 N
+P 2 0 1 10 40 155 40 115 N
+X + 1 0 200 100 D 50 50 1 1 P
+X - 2 0 -100 100 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# misc_barepcb
+#
+DEF misc_barepcb PCB 0 40 Y Y 1 F N
+F0 "PCB" -100 150 50 H V C CNN
+F1 "misc_barepcb" 0 0 50 H V C CNN
+F2 "misc:barepcb" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+F4 "0-0000000" 0 0 50 H I C CNN "Internal Part Number"
+F5 "0" 0 0 50 H I C CNN "Populated"
+F6 "Bare PCB" 0 0 50 H I C CNN "PValue"
+DRAW
+S -200 100 200 -100 0 1 0 f
+ENDDRAW
+ENDDEF
+#
+# np_connectors_NP_Conn_01x02_Relief
+#
+DEF np_connectors_NP_Conn_01x02_Relief J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "np_connectors_NP_Conn_01x02_Relief" 0 -200 50 H I C CNN
+F2 "np_connectors:SolderWire_1x02_Relief" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+F4 "0-0000000" 0 0 50 H I C CNN "Internal Part Number"
+F5 "0" 0 0 50 H I C CNN "Populated"
+F6 "NP_Conn_01x02" 0 0 50 H V C CNN "PValue"
+DRAW
+S -50 -95 0 -105 1 1 6 N
+S -50 5 0 -5 1 1 6 N
+S -50 50 50 -150 1 1 10 f
+X Pin_1 1 -200 0 150 R 50 50 1 1 P
+X Pin_2 2 -200 -100 150 R 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+#End Library

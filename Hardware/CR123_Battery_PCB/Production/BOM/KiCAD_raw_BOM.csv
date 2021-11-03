@@ -1,0 +1,11 @@
+Reference, Value, Footprint, Datasheet, Internal Part Number, Populated, PValue
+"H1","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0",""
+"H2","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0",""
+"H3","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0",""
+"H4","MountingHole","Mounting_Holes:MountingHole_3.2mm_M3_ISO7380","~","0-0000000","0",""
+"BT1","1-0000782","batteries:1-0000782","~","1-0000782","1","CR123"
+"BT2","1-0000782","batteries:1-0000782","~","1-0000782","1","CR123"
+"BT3","1-0000782","batteries:1-0000782","~","1-0000782","1","CR123"
+"BT4","1-0000782","batteries:1-0000782","~","1-0000782","1","CR123"
+"J1","NP_Conn_01x02_Relief","np_connectors:SolderWire_1x02_Relief","~","0-0000000","0","Power Out"
+"PCB1","barepcb","misc:barepcb","","3-0000105","1","Bare PCB"

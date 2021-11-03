@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\battery_pack_CR123\battery_pack.sch</source>
+    <date>11/3/2021 3:19:26 PM</date>
+    <tool>Eeschema (5.1.7)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Battery Pack - CR123</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2021-11-01</date>
+        <source>battery_pack.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFA9DBE</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAA833</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAB149</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DFAB151</tstamp>
+    </comp>
+    <comp ref="BT1">
+      <value>1-0000782</value>
+      <footprint>batteries:1-0000782</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000782</field>
+        <field name="PValue">CR123</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="batteries" part="1-0000782" description="Battery Holder (Open) CR123A 1 Cell SMD (SMT) Tab"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6181E10A</tstamp>
+    </comp>
+    <comp ref="BT2">
+      <value>1-0000782</value>
+      <footprint>batteries:1-0000782</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000782</field>
+        <field name="PValue">CR123</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="batteries" part="1-0000782" description="Battery Holder (Open) CR123A 1 Cell SMD (SMT) Tab"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61826E8A</tstamp>
+    </comp>
+    <comp ref="BT3">
+      <value>1-0000782</value>
+      <footprint>batteries:1-0000782</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000782</field>
+        <field name="PValue">CR123</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="batteries" part="1-0000782" description="Battery Holder (Open) CR123A 1 Cell SMD (SMT) Tab"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6182739D</tstamp>
+    </comp>
+    <comp ref="BT4">
+      <value>1-0000782</value>
+      <footprint>batteries:1-0000782</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000782</field>
+        <field name="PValue">CR123</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="batteries" part="1-0000782" description="Battery Holder (Open) CR123A 1 Cell SMD (SMT) Tab"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61827888</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>NP_Conn_01x02_Relief</value>
+      <footprint>np_connectors:SolderWire_1x02_Relief</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="PValue">Power Out</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="np_connectors" part="NP_Conn_01x02_Relief" description="Generic connector, single row, 01x02, Relief"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>61828469</tstamp>
+    </comp>
+    <comp ref="PCB1">
+      <value>barepcb</value>
+      <footprint>misc:barepcb</footprint>
+      <fields>
+        <field name="Internal Part Number">3-0000105</field>
+        <field name="PValue">Bare PCB</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="misc" part="barepcb" description="Bare PCB BOM Item"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>6182FA2C</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="batteries" part="1-0000782">
+      <description>Battery Holder (Open) CR123A 1 Cell SMD (SMT) Tab</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">BT</field>
+        <field name="Value">1-0000782</field>
+        <field name="Footprint">batteries:1-0000782</field>
+        <field name="Internal Part Number">1-0000782</field>
+        <field name="Populated">1</field>
+        <field name="PValue">CR123</field>
+      </fields>
+      <pins>
+        <pin num="1" name="+" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="misc" part="barepcb">
+      <description>Bare PCB BOM Item</description>
+      <fields>
+        <field name="Reference">PCB</field>
+        <field name="Value">barepcb</field>
+        <field name="Footprint">misc:barepcb</field>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+        <field name="PValue">Bare PCB</field>
+      </fields>
+    </libpart>
+    <libpart lib="np_connectors" part="NP_Conn_01x02_Relief">
+      <description>Generic connector, single row, 01x02, Relief</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">NP_Conn_01x02_Relief</field>
+        <field name="Footprint">np_connectors:SolderWire_1x02_Relief</field>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+        <field name="PValue">NP_Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="batteries">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/batteries.lib</uri>
+    </library>
+    <library logical="misc">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/misc.lib</uri>
+    </library>
+    <library logical="np_connectors">
+      <uri>C:\Users\jleeman\git_repos\LGEO_KiCAD_Library/symbols/np_connectors.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(BT2-Pad2)">
+      <node ref="BT3" pin="1"/>
+      <node ref="BT2" pin="2"/>
+    </net>
+    <net code="2" name="Net-(BT4-Pad2)">
+      <node ref="J1" pin="2"/>
+      <node ref="BT4" pin="2"/>
+    </net>
+    <net code="3" name="Net-(BT3-Pad2)">
+      <node ref="BT3" pin="2"/>
+      <node ref="BT4" pin="1"/>
+    </net>
+    <net code="4" name="Net-(BT1-Pad2)">
+      <node ref="BT2" pin="1"/>
+      <node ref="BT1" pin="2"/>
+    </net>
+    <net code="5" name="Net-(BT1-Pad1)">
+      <node ref="BT1" pin="1"/>
+      <node ref="J1" pin="1"/>
+    </net>
+  </nets>
+</export>
