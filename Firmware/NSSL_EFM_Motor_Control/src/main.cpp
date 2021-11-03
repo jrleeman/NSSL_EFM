@@ -25,11 +25,11 @@ char motor_cutoff_enable = 1;
 char tone_system_enable = 1;
 double setpoint = 120; // Target RPM for the motor
 double feedback = 0; // Feedback for the motor PID
-double pwm_output = 110; // Output from the PID
+double pwm_output = 80; // Output from the PID
 double pid_kp=1.0;
 double pid_ki=0.1;
 double pid_kd=0.0;
-uint16_t motor_current_limit = 600; // mA limit before motor cutoff
+uint16_t motor_current_limit = 220; // mA limit before motor cutoff
 
 // Instances
 FIR<float, 4> fir;  // Since we are shooting for about 120 RPM this is a 10 second average.
@@ -78,11 +78,14 @@ void Shutdown()
    */
   analogWrite(PIN_MOTOR_PWM, 255);
   Serial.println("Shutting down.");
-  if (tone_system_enable)
+   while(1)
   {
-    PlayTones();
+    if (tone_system_enable)
+    {
+      PlayTones();
+    }
+    delay(60000);
   }
-  while(1){}
 }
 
 uint16_t CurrentSafetyCheck(uint16_t current_limit_milliamps)
@@ -213,22 +216,22 @@ void setup()
 
   // Motor Controller Setup
   digitalWrite(PIN_MOTOR_DIRECTION, LOW);
-  analogWrite(PIN_MOTOR_PWM, 110); // Start the motor
+  analogWrite(PIN_MOTOR_PWM, 10); // Start the motor
   delay(2000);
 
   // Make sure the current is okay after spinup
   CurrentSafetyCheck(motor_current_limit);
-
-  // Turn on the PID
-  motor_pid.SetMode(AUTOMATIC);
 
   // Get the RPM update method running by calling with a short interval
   RPMCheck(1000);
   delay(1100);
   RPMCheck(1000);
   delay(1100);
+  // Turn on the PID
+  motor_pid.SetMode(AUTOMATIC);
   Serial.println("Startup Complete");
   Serial.println("Milliseconds, Feedback, Setpoint, PWM_Output, Current_mA, Battery_mV");
+
 }
 
 void loop()
