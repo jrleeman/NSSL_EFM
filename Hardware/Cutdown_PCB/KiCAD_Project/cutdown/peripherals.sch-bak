@@ -2255,19 +2255,6 @@ $EndComp
 Wire Wire Line
 	4725 2400 4500 2400
 $Comp
-L Device:Battery_Cell BT1
-U 1 1 5FDAEB8B
-P 8425 1150
-F 0 "BT1" V 8170 1200 50  0000 C CNN
-F 1 "CR123" V 8261 1200 50  0000 C CNN
-F 2 "lib_fp:1-0000782" V 8425 1210 50  0001 C CNN
-F 3 "~" V 8425 1210 50  0001 C CNN
-F 4 "1-0000782" H 8425 1150 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 8425 1150 50  0001 C CNN "Populated"
-	1    8425 1150
-	-1   0    0    1   
-$EndComp
-$Comp
 L resistors_0603:1-0000006 R27
 U 1 1 5FDB2113
 P 7825 2400
@@ -2337,6 +2324,12 @@ F 3 "" H 8050 2775 50  0001 C CNN
 	1    8050 2775
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8425 2200 8425 2025
+Text GLabel 7675 2400 0    50   Input ~ 0
+Cutdown_Command
+Text Notes 9100 2050 0    50   ~ 0
+Required mating block\n1-0000797
 $Comp
 L Connector_Generic:Conn_01x02 J5
 U 1 1 5FDB68FF
@@ -2351,37 +2344,7 @@ F 5 "1" H 8625 1925 50  0001 C CNN "Populated"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8425 2200 8425 2025
-Wire Wire Line
-	8425 1650 8425 1925
-Text GLabel 7675 2400 0    50   Input ~ 0
-Cutdown_Command
-$Comp
-L Device:Battery_Cell BT2
-U 1 1 5FE233BE
-P 8425 1450
-F 0 "BT2" V 8170 1500 50  0000 C CNN
-F 1 "CR123" V 8261 1500 50  0000 C CNN
-F 2 "lib_fp:1-0000782" V 8425 1510 50  0001 C CNN
-F 3 "~" V 8425 1510 50  0001 C CNN
-F 4 "1-0000782" H 8425 1450 50  0001 C CNN "Internal Part Number"
-F 5 "1" H 8425 1450 50  0001 C CNN "Populated"
-	1    8425 1450
-	-1   0    0    1   
-$EndComp
-$Comp
-L power:GND #PWR047
-U 1 1 5FE23F21
-P 8150 1050
-F 0 "#PWR047" H 8150 800 50  0001 C CNN
-F 1 "GND" H 8150 900 50  0000 C CNN
-F 2 "" H 8150 1050 50  0001 C CNN
-F 3 "" H 8150 1050 50  0001 C CNN
-	1    8150 1050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	8150 1050 8425 1050
-Text Notes 9100 2050 0    50   ~ 0
-Required mating block\n1-0000797
+	8425 1750 8425 1925
+Text GLabel 8425 1750 1    50   UnSpc ~ 0
+SW_PWR
 $EndSCHEMATC
