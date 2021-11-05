@@ -752,4 +752,20 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# test_points_1-0000952
+#
+DEF test_points_1-0000952 TP 0 30 N N 1 F N
+F0 "TP" 0 100 50 H V C CNN
+F1 "test_points_1-0000952" -150 50 50 H I C CNN
+F2 "test_points:1-0000952" 50 -50 50 H I C CNN
+F3 "" 50 -50 50 H I C CNN
+F4 "1-0000952" -150 -50 50 H I C CNN "Internal Part Number"
+F5 "1" 0 150 50 H I C CNN "Populated"
+F6 "RCW" 0 0 50 H V C CNN "PValue"
+DRAW
+S -100 50 100 -50 0 1 0 f
+X ~ 1 0 -150 100 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 #End Library

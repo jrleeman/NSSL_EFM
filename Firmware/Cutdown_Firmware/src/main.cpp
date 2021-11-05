@@ -31,7 +31,7 @@ const uint8_t EEPROM_BASE_ADDRESS = 0;
 
 // Firmware Version
 const uint8_t FIRMWARE_MAJOR_VERSION = 1;
-const uint8_t FIRMWARE_MINOR_VERSION = 2;
+const uint8_t FIRMWARE_MINOR_VERSION = 3;
 
 struct PersistentData
 {
@@ -67,7 +67,7 @@ void SetDefaults()
     120,
     30,
     255,
-    10,
+    25,
     FIRMWARE_MAJOR_VERSION,
     FIRMWARE_MINOR_VERSION
   };
@@ -336,7 +336,14 @@ uint8_t check_conditions()
   }
 
   // Check if we are falling and naturally terminated
-  if (current_pressure > (lowest_pressure + GetArm() * 2))
+  uint16_t fall_hpa = GetArm();
+  // If we are at an arming of 0hPa (force arm) make sure we're falling at least 200 hPa
+  // before we disarm the system.
+  if (fall_hpa == 0)
+  {
+    fall_hpa = 100;
+  }
+  if (current_pressure > (lowest_pressure + fall_hpa * 2))
   {
     #ifdef ENABLE_DEBUG
     xbeeSerial.println("FLIGHT NATURALLY TERMINATED");
@@ -372,6 +379,7 @@ void setup()
   pinMode(PIN_LED_ERROR, OUTPUT);
   pinMode(PIN_EXT_CUTDOWN, INPUT);
   pinMode(PIN_HOTWIRE, OUTPUT);
+  pinMode(PIN_LED_ARM, OUTPUT);
 
   // Pressure sensor
   bmp.begin_I2C(0x76);
@@ -397,7 +405,7 @@ void setup()
   }
   starting_pressure /= 10;
   current_pressure = starting_pressure;
-  
+  lowest_pressure = starting_pressure;
   #ifdef FORCE_ARM
   Serial.println("TESTING PRESSURE OFFSET APPLIED - NOT FOR FLIGHT!");
   starting_pressure += 12 + GetArm();
@@ -406,6 +414,12 @@ void setup()
 
   Serial.print("Starting pressure (hPa): ");
   Serial.println(starting_pressure);
+  
+  // If the arming pressure is set to 0 we want to force arming when the unit turns on.
+  if (GetArm() == 0)
+  {
+    current_flight_state = FLIGHT_ASCENDING;
+  }
 }
 
 void execute_cutdown()
@@ -497,6 +511,7 @@ void loop()
       if ((starting_pressure - GetPressureReading()) > GetArm())
       {
         current_flight_state = FLIGHT_ASCENDING;
+        digitalWrite(PIN_LED_ARM, HIGH);
       }
       break;
 
