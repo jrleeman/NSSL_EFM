@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 2
 Title "Cutdown Module - NSSL EFM"
-Date "2020-12-22"
-Rev "3.0"
+Date "2021-11-09"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -3426,7 +3426,7 @@ F 0 "PCB1" H 7403 6421 50  0000 L CNN
 F 1 "barepcb" H 7025 6375 50  0000 L CNN
 F 2 "lib_fp:barepcb" H 7175 6375 50  0001 C CNN
 F 3 "" H 7175 6375 50  0001 C CNN
-F 4 "3-0000070" H 7175 6375 50  0001 C CNN "Internal Part Number"
+F 4 "3-0000106" H 7175 6375 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 7175 6375 50  0001 C CNN "Populated"
 	1    7175 6375
 	1    0    0    -1  
@@ -3869,4 +3869,46 @@ NoConn ~ 8875 1250
 Wire Wire Line
 	10225 5425 10225 5825
 NoConn ~ 10225 3925
+$Comp
+L mechanical:M3_ISO_7380 H3
+U 1 1 6185DBF3
+P 6450 7325
+F 0 "H3" H 6550 7325 50  0000 L CNN
+F 1 "M3_ISO_7380" H 6450 7450 50  0001 C CNN
+F 2 "mechanical:MountingHole_3.2mm_M3_ISO7380" H 6450 7325 50  0001 C CNN
+F 3 "None" H 6450 7325 50  0001 C CNN
+F 4 "0-0000000" H 6450 7325 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6450 7325 50  0001 C CNN "Populated"
+F 6 "M3" H 6450 7325 50  0001 C CNN "PValue"
+	1    6450 7325
+	1    0    0    -1  
+$EndComp
+$Comp
+L mechanical:M3_ISO_7380 H4
+U 1 1 6185E088
+P 6450 7500
+F 0 "H4" H 6550 7500 50  0000 L CNN
+F 1 "M3_ISO_7380" H 6450 7625 50  0001 C CNN
+F 2 "mechanical:MountingHole_3.2mm_M3_ISO7380" H 6450 7500 50  0001 C CNN
+F 3 "None" H 6450 7500 50  0001 C CNN
+F 4 "0-0000000" H 6450 7500 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6450 7500 50  0001 C CNN "Populated"
+F 6 "M3" H 6450 7500 50  0001 C CNN "PValue"
+	1    6450 7500
+	1    0    0    -1  
+$EndComp
+$Comp
+L mechanical:M3_ISO_7380 H5
+U 1 1 61879283
+P 6450 7675
+F 0 "H5" H 6550 7675 50  0000 L CNN
+F 1 "M3_ISO_7380" H 6450 7800 50  0001 C CNN
+F 2 "mechanical:MountingHole_3.2mm_M3_ISO7380" H 6450 7675 50  0001 C CNN
+F 3 "None" H 6450 7675 50  0001 C CNN
+F 4 "0-0000000" H 6450 7675 50  0001 C CNN "Internal Part Number"
+F 5 "0" H 6450 7675 50  0001 C CNN "Populated"
+F 6 "M3" H 6450 7675 50  0001 C CNN "PValue"
+	1    6450 7675
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

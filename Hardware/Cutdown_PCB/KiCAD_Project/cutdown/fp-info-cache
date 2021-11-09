@@ -1,4 +1,4 @@
-19589730083428502
+19597911003437521
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -83454,6 +83454,13 @@ TH 8-SIP Module, 7 Leads
 7
 7
 dc_dc_converters
+1-0000607
+RECOM,R78EXX,https://www.recom-power.com/pdf/Innoline/R-78Exx-0.5.pdf
+SIP3 Regulator Module
+0
+3
+3
+dc_dc_converters
 1-0000608
 TH 3-SIP Module
 TH 3-SIP Module
@@ -83569,6 +83576,13 @@ diodes
 1-0000821
 Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=12.7mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf
 Diode DO-41_SOD81 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm
+0
+2
+2
+diodes
+1-0000951
+
+
 0
 2
 2
@@ -84021,6 +84035,13 @@ SOT-23
 3
 3
 mosfets
+1-0000408
+Through Hole TO-220AB TO-220-3
+Through Hole TO-220AB TO-220-3
+0
+3
+3
+mosfets
 1-0000500
 SOT-23, Standard
 SOT-23
@@ -84118,6 +84139,13 @@ connector wire 0.5sqmm strain-relief
 0
 2
 2
+np_connectors
+SolderWire_1x03_Relief
+
+
+0
+3
+3
 np_connectors
 SolderWire_1x04_Relief
 
@@ -85601,6 +85629,13 @@ Terminal Turret Connector Single End, Hollow 0.156" (3.96mm) Tin
 TERM TURRET HOLLOW L=3.96MM TIN
 0
 1
+1
+test_points
+1-0000952
+SMD 0.126" L x 0.063" W (3.20mm x 1.60mm)
+SMD 0.126" L x 0.063" W (3.20mm x 1.60mm)
+0
+2
 1
 transistors
 1-0000036

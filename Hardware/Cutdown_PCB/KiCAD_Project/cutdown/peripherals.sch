@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 2
 Title "Cutdown Module - NSSL EFM"
-Date "2020-12-22"
-Rev "3.0"
+Date "2021-11-09"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
