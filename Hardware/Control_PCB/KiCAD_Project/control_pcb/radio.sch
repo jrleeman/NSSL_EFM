@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 6
 Title "Control Paddle Electronics - NSSL EFM"
-Date "2020-12-30"
-Rev "3.0"
+Date "2021-11-22"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -2562,7 +2562,7 @@ AR Path="/5DED0CD0/5FFFBB12" Ref="D4"  Part="1"
 AR Path="/5DEDFC42/5FFFBB12" Ref="D?"  Part="1" 
 F 0 "D4" H 5018 4670 50  0000 C CNN
 F 1 "Activity" H 5018 4761 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" H 5025 4925 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm_Clear" H 5025 4925 50  0001 C CNN
 F 3 "~" H 5025 4925 50  0001 C CNN
 F 4 "1-0000599" H 5025 4925 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 5025 4925 50  0001 C CNN "Populated"
@@ -2606,7 +2606,7 @@ AR Path="/5FFFBB28" Ref="D?"  Part="1"
 AR Path="/5DED0CD0/5FFFBB28" Ref="D5"  Part="1" 
 F 0 "D5" H 5025 5350 50  0000 C CNN
 F 1 "Error" H 5025 5250 50  0000 C CNN
-F 2 "LED_SMD:LED_0805_2012Metric" H 5025 5150 50  0001 C CNN
+F 2 "LED_THT:LED_D3.0mm_Horizontal_O1.27mm_Z2.0mm_Clear" H 5025 5150 50  0001 C CNN
 F 3 "~" H 5025 5150 50  0001 C CNN
 F 4 "1-0000600" H 5025 5150 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 5025 5150 50  0001 C CNN "Populated"

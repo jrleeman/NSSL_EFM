@@ -557,6 +557,33 @@ X ~ 2 0 -150 110 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# dc_dc_converters_1-0000946
+#
+DEF dc_dc_converters_1-0000946 U 0 40 Y Y 3 L N
+F0 "U" 0 400 50 H V C CNN
+F1 "dc_dc_converters_1-0000946" 0 750 50 H I C CNN
+F2 "dc_dc_converters:1-0000946" 0 400 50 H I C CNN
+F3 "" 0 400 50 H I C CNN
+F4 "1-0000946" 0 550 50 H I C CNN "Internal Part Number"
+F5 "1" 0 650 50 H I C CNN "Populated"
+F6 "TMR 6" 0 300 50 H V C CNN "PValue"
+DRAW
+S -350 250 350 -250 1 1 0 f
+S 0 -150 0 -200 1 1 0 N
+S 0 -50 0 -100 1 1 0 N
+S 0 50 0 0 1 1 0 N
+S 0 150 0 100 1 1 0 N
+S 0 250 0 200 1 1 0 N
+X GND 1 -450 -150 100 R 50 50 1 1 W
+X Vcc 2 -450 0 100 R 50 50 1 1 W
+X On/Off 3 -450 150 100 R 50 50 1 1 I
+X NC 5 -100 -350 100 L 50 50 1 1 N N
+X +Vout 6 450 150 100 L 50 50 1 1 w
+X -Vout 7 450 -150 100 L 50 50 1 1 w
+X NC 8 -100 -450 100 L 50 50 1 1 N N
+ENDDRAW
+ENDDEF
+#
 # lib_sch_ATmega328P-AU
 #
 DEF lib_sch_ATmega328P-AU U 0 20 Y Y 1 F N
