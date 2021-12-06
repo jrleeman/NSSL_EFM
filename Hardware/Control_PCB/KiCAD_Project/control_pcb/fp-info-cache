@@ -1,4 +1,4 @@
-19529868505930401
+19601214233568589
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -82788,6 +82788,34 @@ IC OPAMP GP 2 CIRCUIT 8SOIC
 0
 8
 8
+amplifiers
+1-0000936
+5-pin TSOT23 
+TSOT-23-5
+0
+5
+5
+amplifiers
+1-0000937
+MSOP, 8 Pin
+MSOP SO
+0
+8
+8
+amplifiers
+1-0000939
+General Purpose Amplifier 1 Circuit  8-SOIC
+IC INST AMP 1 CIRCUIT 8SOIC
+0
+8
+8
+amplifiers
+1-0000947
+General Purpose Amplifier 1 Circuit  8-SOIC
+IC OPAMP 1 CIRCUIT 8SOIC
+0
+8
+8
 batteries
 1-0000131
 Battery Holder (Open) Coin, 16.0mm 1 Cell SMD (SMT) Tab
@@ -82799,6 +82827,13 @@ batteries
 1-0000494
 Battery Holder Coin, 16.0mm 1 Cell SMD
 CR2032
+0
+2
+2
+batteries
+1-0000782
+CR123 SMD Battery Holder
+CR123 SMD Battery Holder
 0
 2
 2
@@ -82848,6 +82883,20 @@ capacitors
 1-0000538
 Aluminum Cap SMD
 Aluminum Cap SMD
+0
+2
+2
+capacitors
+1-0000943
+Surface Mount 0.327" L x 0.327" W (8.30mm x 8.30mm) Dia 0.315" (8.00mm)
+Surface Mount 0.327" L x 0.327" W (8.30mm x 8.30mm) Dia 0.315" (8.00mm)
+0
+2
+2
+capacitors
+1-0000944
+Surface Mount 0.327" L x 0.327" W (8.30mm x 8.30mm) Dia 0.315" (8.00mm)
+Surface Mount 0.327" L x 0.327" W (8.30mm x 8.30mm) Dia 0.315" (8.00mm)
 0
 2
 2
@@ -83258,6 +83307,13 @@ TH 1x3 Terminal Block
 3
 3
 connectors
+1-0000283
+Through Hole, Right Angle 96 pin
+Through Hole, Right Angle 96 pin
+0
+96
+96
+connectors
 1-0000461
 SMA Connector Receptacle, Female Socket 50Ohm Through Hole Solder
 CONN SMA RCPT STR 50 OHM PCB
@@ -83271,6 +83327,13 @@ SMD FlatFlex Connector
 0
 10
 10
+connectors
+1-0000783
+Through Hole 90°, Right Angle Header, Male Pins, Shrouded (4 Side)
+Through Hole 90°, Right Angle Header, Male Pins, Shrouded (4 Side)
+0
+2
+2
 connectors
 1-0000810
 SMD 6 pos Terminal Block
@@ -83320,6 +83383,13 @@ connectors
 0
 6
 6
+connectors
+1-0000938
+Through hole Regular mount SMPW series 
+Through hole Regular mount SMPW series 
+0
+4
+3
 crystals_resonators
 1-0000041
 16MHz ±30ppm Crystal 20pF 40 Ohms HC-49/US
@@ -83384,6 +83454,13 @@ TH 8-SIP Module, 7 Leads
 7
 7
 dc_dc_converters
+1-0000607
+RECOM,R78EXX,https://www.recom-power.com/pdf/Innoline/R-78Exx-0.5.pdf
+SIP3 Regulator Module
+0
+3
+3
+dc_dc_converters
 1-0000608
 TH 3-SIP Module
 TH 3-SIP Module
@@ -83404,6 +83481,13 @@ TH DC DC Converter Footprint
 0
 3
 3
+dc_dc_converters
+1-0000946
+TH 8-SIP Module, 7 Leads
+TH 8-SIP Module, 7 Leads
+0
+7
+7
 diodes
 1-0000003
 SOD-323
@@ -83492,6 +83576,13 @@ diodes
 1-0000821
 Diode, DO-41_SOD81 series, Axial, Horizontal, pin pitch=12.7mm, , length*diameter=5.2*2.7mm^2, , http://www.diodes.com/_files/packages/DO-41%20(Plastic).pdf
 Diode DO-41_SOD81 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm
+0
+2
+2
+diodes
+1-0000951
+
+
 0
 2
 2
@@ -83600,6 +83691,13 @@ Unsheilded Custom Inductor Footprint
 0
 2
 2
+inductors
+1-0000961
+Custom Inductor SMD Footprint 0.228" L x 0.228" W (5.80mm x 5.80mm)
+Custom Inductor SMD Footprint 0.228" L x 0.228" W (5.80mm x 5.80mm)
+0
+2
+2
 inductors_0603
 1-0000033
 Inductor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator
@@ -83621,6 +83719,13 @@ inductor
 0
 2
 2
+isolators
+1-0000950
+SOIC, 8 Pin 
+SOIC SO
+0
+8
+8
 leds_0805
 1-0000598
 LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator
@@ -83726,6 +83831,97 @@ SSOP 0.635
 0
 20
 20
+lib_fp
+HRS_DM3CS-SF
+
+
+0
+13
+13
+lib_fp
+IF-D96F
+
+
+0
+3
+3
+lib_fp
+KAE03TGGR
+
+
+0
+6
+6
+lib_fp
+RGEF250
+
+
+0
+2
+2
+lib_fp
+Resonator
+
+
+0
+3
+3
+lib_fp
+S8411-45R
+
+
+0
+2
+2
+lib_fp
+SMA
+
+
+0
+5
+2
+lib_fp
+SN74LVC1G18DCKR
+
+
+0
+6
+6
+lib_fp
+SOT753
+
+
+0
+5
+5
+lib_fp
+TX2M
+
+
+0
+15
+15
+lib_fp
+XCVR_MAX-M8C-0-10
+
+
+0
+18
+18
+lib_fp
+XTend
+
+
+0
+38
+38
+lib_fp
+barepcb
+
+
+0
+0
+0
 load_switches
 1-0000162
 SO, 8 Pin (https://www.nxp.com/docs/en/data-sheet/PCF8523.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
@@ -83733,6 +83929,34 @@ SO SO
 0
 8
 8
+logic_gates
+1-0000336
+SOIC, 14 Pin
+SOIC SO
+0
+14
+14
+logic_gates
+1-0000949
+SOIC, 20 Pin
+SOIC SO
+0
+20
+20
+mechanical
+1591XXBSFLBK
+Box 4.481L x 2.493W
+Box 4.481L x 2.493W
+0
+0
+0
+mechanical
+Box_3.150L_x_1.575W
+
+
+0
+0
+0
 mechanical
 Fiducial_1mm_Mask2mm
 Circular Fiducial, 1mm bare copper, 2mm soldermask opening (Level A)
@@ -83811,6 +84035,13 @@ SOT-23
 3
 3
 mosfets
+1-0000408
+Through Hole TO-220AB TO-220-3
+Through Hole TO-220AB TO-220-3
+0
+3
+3
+mosfets
 1-0000500
 SOT-23, Standard
 SOT-23
@@ -83852,6 +84083,13 @@ Through hole pin header THT 1x02 2.54mm single row
 0
 2
 2
+np_connectors
+PinHeader_1x03_P2.54mm_Vertical
+Through hole straight pin header, 1x03, 2.54mm pitch, single row
+Through hole pin header THT 1x03 2.54mm single row
+0
+3
+3
 np_connectors
 PinHeader_1x04_P2.54mm_Vertical
 Through hole straight pin header, 1x04, 2.54mm pitch, single row
@@ -83901,6 +84139,13 @@ connector wire 0.5sqmm strain-relief
 0
 2
 2
+np_connectors
+SolderWire_1x03_Relief
+
+
+0
+3
+3
 np_connectors
 SolderWire_1x04_Relief
 
@@ -84055,6 +84300,13 @@ IC VREF SERIES 0.1% 8MSOP
 0
 8
 8
+references
+1-0000940
+TO-236-3, SC-59, SOT-23-3 Shunt Voltage Reference
+TO-236-3, SC-59, SOT-23-3
+0
+3
+3
 regulators
 1-0000030
 SMD SOT-223-3
@@ -84930,6 +85182,13 @@ resistor
 0
 2
 2
+resistors_0603
+1-0000960
+Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal
+resistor
+0
+2
+2
 resistors_0805
 1-0000100
 Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal
@@ -85126,6 +85385,13 @@ resistor
 0
 2
 2
+resistors_0805
+1-0000953
+Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal
+resistor
+0
+2
+2
 resistors_1206
 1-0000846
 Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
@@ -85170,6 +85436,20 @@ resistor
 2
 resistors_1206
 1-0000876
+Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor
+0
+2
+2
+resistors_1206
+1-0000941
+Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
+resistor
+0
+2
+2
+resistors_1206
+1-0000942
 Resistor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator
 resistor
 0
@@ -85235,6 +85515,27 @@ resistors_variable
 1-0000872
 SMD Rectangular - 0.270" x 0.197" Face x 0.270" H
 SMD Rectangular - 0.270" x 0.197" Face x 0.270" H
+0
+3
+3
+resistors_variable
+1-0000934
+Rectangular - 0.250" x 0.190" Face x 0.750" L (6.35mm x 4.83mm x 19.05mm)
+Rectangular - 0.250" x 0.190" Face x 0.750" L (6.35mm x 4.83mm x 19.05mm)
+0
+3
+3
+resistors_variable
+1-0000935
+Rectangular - 0.250" x 0.190" Face x 0.750" L (6.35mm x 4.83mm x 19.05mm)
+Rectangular - 0.250" x 0.190" Face x 0.750" L (6.35mm x 4.83mm x 19.05mm)
+0
+3
+3
+resistors_variable
+1-0000945
+Potentiometer Through Hole Rectangular - 0.250" x 0.174" Face x 0.174" H 
+Potentiometer Through Hole Rectangular - 0.250" x 0.174" Face x 0.174" H 
 0
 3
 3
@@ -85342,6 +85643,13 @@ Terminal Turret Connector Single End, Hollow 0.156" (3.96mm) Tin
 TERM TURRET HOLLOW L=3.96MM TIN
 0
 1
+1
+test_points
+1-0000952
+SMD 0.126" L x 0.063" W (3.20mm x 1.60mm)
+SMD 0.126" L x 0.063" W (3.20mm x 1.60mm)
+0
+2
 1
 transistors
 1-0000036

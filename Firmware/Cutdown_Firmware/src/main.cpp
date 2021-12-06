@@ -484,7 +484,6 @@ void loop()
   // Send the serial status of the device and update flight duration every 5 seconds
   if ((millis() - last_serial_millis) > 5000)
   {
-    digitalWrite(PIN_LED_ERROR, HIGH);
     flight_duration_seconds += (millis() - last_serial_millis) / 1000;
 
     // If the state is not armed (start of flight only) then we keep duration at zero
@@ -496,7 +495,6 @@ void loop()
 
     last_serial_millis = millis();
     serial_update();
-    digitalWrite(PIN_LED_ERROR, LOW);
   }
 
   // Check for serial commands and handle them
@@ -517,6 +515,8 @@ void loop()
 
     // If we are armed then we run the normal procedure
     case FLIGHT_ASCENDING:
+      digitalWrite(PIN_LED_ARM, HIGH);
+
       // Every 10 seconds
       if ((millis() - last_check_millis) > 10000)
       {

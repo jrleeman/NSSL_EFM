@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 5 6
 Title "Control Paddle Electronics - NSSL EFM"
-Date "2020-12-30"
-Rev "3.0"
+Date "2021-11-22"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"

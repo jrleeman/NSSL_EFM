@@ -12,7 +12,7 @@
  */
 
 // Uncomment the next line to send all messages out via XBee for debugging/testing
-//#define ENABLE_DEBUG
+// #define ENABLE_DEBUG
 
 // This line should be uncomments for flight as it enables iridium, but can be disabled
 // for troubleshooting to save data costs.
@@ -35,11 +35,126 @@ SoftwareSerial gpsSerial(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);
 TinyGPSPlus gps;
 IridiumSBD modem(Serial);
 
-uint8_t unit_id = 2;
+uint8_t unit_id = 3;
 char tx_buffer[65];
 uint8_t rx_buffer[65];
 
 void(* resetFunc) (void) = 0; //declare reset function @ address 0
+
+void sendUBX(uint8_t *MSG, uint8_t len)
+{
+  /*
+   * Send a byte array of UBX protocol to the GPS.
+   */
+  #ifdef ENABLE_DEBUG
+  xbeeSerial.println("Sending UBX Message");
+  #endif
+  for(int i=0; i<len; i++)
+  {
+    gpsSerial.write(MSG[i]);
+    #ifdef ENABLE_DEBUG
+    xbeeSerial.println(MSG[i], HEX);
+    #endif
+  }
+  gpsSerial.println();
+}
+ 
+boolean getUBX_ACK(uint8_t *MSG)
+{
+  /*
+   * Calculate expected UBX ACK packet and parse UBX response from GPS.
+   */
+  uint8_t b;
+  uint8_t ackByteID = 0;
+  uint8_t ackPacket[10];
+  unsigned long startTime = millis();
+  #ifdef ENABLE_DEBUG
+  xbeeSerial.println("Reading GPS ACK response");
+  #endif
+ 
+  // Construct the expected ACK packet    
+  ackPacket[0] = 0xB5;	// header
+  ackPacket[1] = 0x62;	// header
+  ackPacket[2] = 0x05;	// class
+  ackPacket[3] = 0x01;	// id
+  ackPacket[4] = 0x02;	// length
+  ackPacket[5] = 0x00;
+  ackPacket[6] = MSG[2];	// ACK class
+  ackPacket[7] = MSG[3];	// ACK id
+  ackPacket[8] = 0;		// CK_A
+  ackPacket[9] = 0;		// CK_B
+ 
+  // Calculate the checksums
+  for (uint8_t i=2; i<8; i++) {
+    ackPacket[8] = ackPacket[8] + ackPacket[i];
+    ackPacket[9] = ackPacket[9] + ackPacket[8];
+  }
+ 
+  while (1) {
+ 
+    // Test for success
+    if (ackByteID > 9) {
+      // All packets in order!
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.println("ACK Good");
+      #endif
+      return true;
+    }
+ 
+    // Timeout if no valid response in 3 seconds
+    if (millis() - startTime > 3000) { 
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.println("ACK Timeout");
+      #endif
+      return false;
+    }
+ 
+    // Make sure data is available to read
+    if (gpsSerial.available())
+    {
+      b = gpsSerial.read();
+      #ifdef ENABLE_DEBUG
+      xbeeSerial.println(b, HEX);
+      #endif
+ 
+      // Check that bytes arrive in sequence as per expected ACK packet
+      if (b == ackPacket[ackByteID])
+      { 
+        ackByteID++;
+      } 
+      else
+      {
+        ackByteID = 0;	// Reset and look again, invalid order
+      }
+ 
+    }
+  }
+}
+
+bool setDynamicMode6()
+{
+  /*
+   * Sets up the GPS in high altitude dynamic mode 6.
+   */
+  static byte gps_set_sucess = 0 ;
+  uint8_t setNav[] = {0xB5, 0x62, 0x06, 0x24, 0x24, 0x00, 0xFF, 0xFF, 0x06, 0x03, 0x00,
+                      0x00, 0x00, 0x00, 0x10, 0x27, 0x00, 0x00, 0x05, 0x00, 0xFA, 0x00,
+                      0xFA, 0x00, 0x64, 0x00, 0x2C, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
+                      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0xDC };
+  uint32_t start_millis = millis();
+  while(!gps_set_sucess)
+  {
+    sendUBX(setNav, sizeof(setNav)/sizeof(uint8_t));
+    gps_set_sucess = getUBX_ACK(setNav);
+    // Timeout after 10 seconds
+    if ((millis() - start_millis) > 10000)
+    {
+      return false;
+    }
+  }
+  gps_set_sucess=0;
+  return gps_set_sucess;
+}
 
 void clear_buffers()
 {
@@ -70,12 +185,18 @@ void setup()
   pinMode(PIN_RB_NETWORK, INPUT);
 
   // Turn activity on to show we're booting
-  digitalWrite(PIN_LED_ACTIVITY, HIGH);
+  //digitalWrite(PIN_LED_ACTIVITY, HIGH);
 
   // Serial
   Serial.begin(19200);
   xbeeSerial.begin(9600);
   gpsSerial.begin(9600);
+  delay(1000);
+  xbeeSerial.println("HELLO WORLD");
+  // Make sure the GPS is in high altitude mode - Normally we'd look for the ACK, but we're
+  // missing it with SoftwareSerial I think - same code works on the control paddle. Until
+  // shown to be wrong, we'll asssume this is setting things to high altitude mode.
+  setDynamicMode6(); 
 
   // Spin for about 30 seconds to let the GPS get a lock
   uint32_t start_warmup = millis();
