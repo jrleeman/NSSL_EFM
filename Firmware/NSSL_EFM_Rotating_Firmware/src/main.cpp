@@ -93,7 +93,7 @@ void serialWrite16(uint16_t data)
 void readandsend()
 {
   static uint8_t loop_counter = 0;
-  static uint16_t temperature_degC = 0;
+  static int16_t temperature_degC = 0;
   static uint16_t relative_humidity = 0;
   static uint16_t pressure_pa = 0;
 
