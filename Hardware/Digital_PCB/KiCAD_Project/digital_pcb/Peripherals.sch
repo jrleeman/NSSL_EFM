@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 5
 Title "Digital Rotating Electronics - NSSL EFM"
-Date "2020-12-18"
-Rev "3.0"
+Date "2022-02-25"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"

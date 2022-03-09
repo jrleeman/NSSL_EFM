@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 5
 Title "Digital Rotating Electronics - NSSL EFM"
-Date "2020-12-18"
-Rev "3.0"
+Date "2022-02-25"
+Rev "3.1"
 Comp "Leeman Geophysical LLC"
 Comment1 "(479) 373-3736"
 Comment2 "Siloam Springs, AR 72761"
@@ -3073,7 +3073,7 @@ F 0 "PCB1" H 7453 6446 50  0000 L CNN
 F 1 "barepcb" H 7075 6425 50  0000 L CNN
 F 2 "lib_fp:barepcb" H 7225 6400 50  0001 C CNN
 F 3 "" H 7225 6400 50  0001 C CNN
-F 4 "3-0000069" H 7225 6400 50  0001 C CNN "Internal Part Number"
+F 4 "3-0000129" H 7225 6400 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 7225 6400 50  0001 C CNN "Populated"
 	1    7225 6400
 	1    0    0    -1  
