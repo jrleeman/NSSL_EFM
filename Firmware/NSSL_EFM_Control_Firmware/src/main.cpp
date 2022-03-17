@@ -48,6 +48,7 @@ enum states{S_READ_FIBER_DATA, S_SEND_DATA, S_ERROR};
 
 // Global variables
 uint8_t current_state = S_READ_FIBER_DATA;
+uint32_t last_pps = 0;
 
 // Instance creation
 TinyGPSPlus gps;
@@ -66,17 +67,16 @@ void GPSReadISR(void)
   /*
    * Reads the GPS data when a PPS is received and logs that PPS Time
    */
-  digitalWrite(PIN_LED_RUN, HIGH);
   GPSPacket gps_packet;
+  last_pps = millis();
   gps_packet.start_byte = 0xFE;
-  gps_packet.millis = millis();
+  gps_packet.millis = last_pps;
   gps_packet.lat = int32_t(gps.location.lat() * 10000);
   gps_packet.lon = int32_t(gps.location.lng() * 10000);
   gps_packet.alt = uint16_t(gps.altitude.meters());
   gps_packet.time = gps.time.value();
   gps_packet.end_byte = 0xED;
   GPSPacketBuffer.push(gps_packet);
-  digitalWrite(PIN_LED_RUN, LOW);
 }
 
 uint32_t readSerialint32()
@@ -115,9 +115,11 @@ uint8_t readFiberData(void)
   // If there's nothing here - go back with the intention of checking again!
   while (FiberSer.available())
   {
+   digitalWrite(PIN_LED_RUN, HIGH);
    char c = FiberSer.read();
    DataPacketBuffer.push(c);
   }
+  digitalWrite(PIN_LED_RUN, LOW);
   return S_SEND_DATA; // Go to the send state
 }
 
@@ -126,7 +128,7 @@ uint8_t sendData(void)
   /*
    * Send data to the other microcontrollers via serial
    */
-  digitalWrite(PIN_LED_RUN, HIGH);
+
 
   /*
   while(!GPSPacketBuffer.isEmpty())
@@ -173,20 +175,12 @@ uint8_t sendData(void)
     */
   }
 
-  digitalWrite(PIN_LED_RUN, LOW);
   return S_READ_FIBER_DATA; 
 }
 
 uint8_t error()
 {
   // Something has gone wrong, spin and blink the error light! The restart
- for (int i=0; i<10; i++)
-  {
-    digitalWrite(PIN_LED_ERROR, HIGH);
-    delay(250);
-    digitalWrite(PIN_LED_ERROR, LOW);
-    delay(250);
-  }
   return S_READ_FIBER_DATA;
 }
 
@@ -295,7 +289,7 @@ void setup()
 {
   // Pin setup
   pinMode(PIN_LED_RUN, OUTPUT);
-  pinMode(PIN_LED_ERROR, OUTPUT);
+  pinMode(PIN_LED_GPS, OUTPUT);
 
   // Setup the serial ports for everything
   FiberSer.begin(38400);
@@ -304,8 +298,10 @@ void setup()
 
   delay(5000);
   digitalWrite(PIN_LED_RUN, HIGH);
+  digitalWrite(PIN_LED_GPS, HIGH);
   delay(1000);
   digitalWrite(PIN_LED_RUN, LOW);
+  digitalWrite(PIN_LED_GPS, LOW);
   delay(1000);
 
   setDynamicMode6();
@@ -326,17 +322,31 @@ void loop()
   static uint8_t fiberbuffer_index = 0;
   static uint8_t inside_packet = 0;
 
+ /*
+ if ((millis() - last_pps) > 2000)
+ {
+   digitalWrite(PIN_LED_GPS, LOW);
+ }
+ else
+ {
+   digitalWrite(PIN_LED_GPS, HIGH);
+ }
+ */
+ //digitalWrite(PIN_LED_GPS, digitalRead(PIN_GPS_PPS));
+
  // Encode any available GPS characters
  if (GPSSer.available())
  {
    char c = GPSSer.read();
-   gps.encode(c);
+   if (gps.encode(c))
+   {
+     digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
+   }
  }
 
  // If there's data on the fiber
  if (FiberSer.available()>40)
  {
-    digitalWrite(PIN_LED_ERROR, HIGH);
     inside_packet = 1;
     fiberbuffer[fiberbuffer_index] = FiberSer.read();
     if (fiberbuffer[fiberbuffer_index] == 0xEF)
@@ -345,14 +355,15 @@ void loop()
     }
     fiberbuffer_index += 1;
  }
- digitalWrite(PIN_LED_ERROR, LOW);
 
 
  // If we're not in a packet, send the last fiber packet and reset the pointer
  if (inside_packet == 0 && fiberbuffer_index > 0)
  {
+   digitalWrite(PIN_LED_RUN, HIGH);
    DataSer.write(fiberbuffer, fiberbuffer_index);
    fiberbuffer_index = 0;
+   digitalWrite(PIN_LED_RUN, LOW);
  }
 
  // If we have items in the GPS buffer, send them
