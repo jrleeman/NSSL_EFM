@@ -2,7 +2,6 @@
  * Control PCB SD Processor
  * Writes incoming data to the SD card and manages the file names.
  */
-
 #include <Arduino.h>
 #include <CircularBuffer.h>
 #include "pins.h"
@@ -76,16 +75,14 @@ void setup()
 void loop()
 {
   static uint8_t file_is_open = 1;
-  static uint32_t write_cycles = 100000;
+  static uint32_t write_cycles = 0;
 
- while(Serial.available())
+  while(Serial.available())
   {   
-    //digitalWrite(PIN_LED_ERROR, HIGH);
     CharBuffer.push(Serial.read());
-    //digitalWrite(PIN_LED_ERROR, LOW);
   }
 
-  if (write_cycles > 335000)
+  if (write_cycles > 200000)
   {
     dataFile.close();
     setLogFileName();
@@ -98,7 +95,7 @@ void loop()
     digitalWrite(PIN_LED_ERROR, HIGH);
   }
 
-  if (CharBuffer.size() >= 100)
+  if (CharBuffer.size() >= 30)
   {
     digitalWrite(PIN_LED_ACTIVITY, HIGH);
     for (int j=0; j<CharBuffer.size(); j++)
