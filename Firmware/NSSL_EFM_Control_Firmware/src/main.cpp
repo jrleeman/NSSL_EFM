@@ -1,3 +1,5 @@
+#define CIRCULAR_BUFFER_INT_SAFE // Keep this first!
+
 #include <Arduino.h>
 #include <HardwareSerial.h>
 #include <TinyGPS++.h>
@@ -6,27 +8,9 @@
 #include <SDFat.h>
 #include <CircularBuffer.h>
 
-
-// Data packet
-struct DataPacket
-{
-  uint8_t start_byte;
-  uint32_t adc_ready_time;
-  uint32_t adc_reading;
-  float acceleration_x;
-  float acceleration_y;
-  float acceleration_z;
-  float magnetometer_x;
-  float magnetometer_y;
-  float magnetometer_z;
-  float gyro_x;
-  float gyro_y;
-  float gyro_z;
-  uint16_t temperature;
-  uint16_t humidity;
-  uint16_t pressure;
-  uint8_t end_byte;
-};
+HardwareSerial FiberSer(PIN_FIBER_SERIAL_RX, PIN_FIBER_SERIAL_TX);  // RX, TX
+HardwareSerial GPSSer(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);  // RX, TX
+HardwareSerial DataSer(PIN_DATA_SERIAL_RX, PIN_DATA_SERIAL_TX);  // RX, TX
 
 struct GPSPacket
 {
@@ -39,27 +23,13 @@ struct GPSPacket
   uint8_t end_byte;
 };
 
-HardwareSerial FiberSer(PIN_FIBER_SERIAL_RX, PIN_FIBER_SERIAL_TX);  // RX, TX
-HardwareSerial GPSSer(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);  // RX, TX
-HardwareSerial DataSer(PIN_DATA_SERIAL_RX, PIN_DATA_SERIAL_TX);  // RX, TX
-
-// State machine states
-enum states{S_READ_FIBER_DATA, S_SEND_DATA, S_ERROR};
-
 // Global variables
-uint8_t current_state = S_READ_FIBER_DATA;
 uint32_t last_pps = 0;
 
 // Instance creation
 TinyGPSPlus gps;
-//CircularBuffer<DataPacket, 100> DataPacketBuffer;
-CircularBuffer<uint8_t, 500> DataPacketBuffer;
+CircularBuffer<uint8_t, 500> DataBuffer;
 CircularBuffer<GPSPacket, 10> GPSPacketBuffer;
-
-typedef union {
- float floatingPoint;
- byte binary[4];
-} binaryFloat;
 
 
 void GPSReadISR(void)
@@ -79,125 +49,19 @@ void GPSReadISR(void)
   GPSPacketBuffer.push(gps_packet);
 }
 
-uint32_t readSerialint32()
-{
-  uint32_t result = 0;
-  result = FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  return result;
-}
-
-float readSerialfloat()
-{
-  uint32_t result = 0;
-  result = FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  result = (result << 8) | FiberSer.read();
-  return float(result);
-}
-
-uint8_t readFiberData(void)
-{
-  /*
-   * Read the data from the fiber-optic cable.
-   * 
-   * Operation:
-   * - Read until we get a 0xBE (start packet) throwing awaying everything until then
-   * - Read the next 49 bytes
-   * - If we got 50 bytes total, ending in 0xEF, we'll assume it's a good packet and
-   *   add it to the buffer of packets to write to card
-   * - If it is a packet to be transmitted, add it to that buffer as well
-   */
-
-  // If there's nothing here - go back with the intention of checking again!
-  while (FiberSer.available())
-  {
-   digitalWrite(PIN_LED_RUN, HIGH);
-   char c = FiberSer.read();
-   DataPacketBuffer.push(c);
-  }
-  digitalWrite(PIN_LED_RUN, LOW);
-  return S_SEND_DATA; // Go to the send state
-}
-
-uint8_t sendData(void)
-{
-  /*
-   * Send data to the other microcontrollers via serial
-   */
-
-
-  /*
-  while(!GPSPacketBuffer.isEmpty())
-  {
-
-    GPSPacket gps_packet = GPSPacketBuffer.shift();
-    DataSer.write((const char*)&gps_packet, sizeof(gps_packet));
-  }
-  */
-  while (!DataPacketBuffer.isEmpty())
-  {
-    //DataPacket data_packet = DataPacketBuffer.pop();
-    DataSer.write(DataPacketBuffer.shift());
-    /*
-    DataSer.print("D");
-    DataSer.print(",");
-    DataSer.print(data_packet.adc_ready_time);
-    DataSer.print(",");
-    DataSer.print(data_packet.adc_reading);
-    DataSer.print(",");
-    DataSer.print(data_packet.acceleration_x);
-    DataSer.print(",");
-    DataSer.print(data_packet.acceleration_y);
-    DataSer.print(",");
-    DataSer.print(data_packet.acceleration_z);
-    DataSer.print(",");
-    DataSer.print(data_packet.magnetometer_x);
-    DataSer.print(",");
-    DataSer.print(data_packet.magnetometer_y);
-    DataSer.print(",");
-    DataSer.print(data_packet.magnetometer_z);
-    DataSer.print(",");
-    DataSer.print(data_packet.gyro_x);
-    DataSer.print(",");
-    DataSer.print(data_packet.gyro_y);
-    DataSer.print(",");
-    DataSer.print(data_packet.gyro_z);
-    DataSer.print(",");
-    DataSer.print(data_packet.temperature);
-    DataSer.print(",");
-    DataSer.print(data_packet.humidity);
-    DataSer.print(",");
-    DataSer.println(data_packet.pressure);
-    */
-  }
-
-  return S_READ_FIBER_DATA; 
-}
-
-uint8_t error()
-{
-  // Something has gone wrong, spin and blink the error light! The restart
-  return S_READ_FIBER_DATA;
-}
 
 void sendUBX(uint8_t *MSG, uint8_t len)
 {
   /*
    * Send a byte array of UBX protocol to the GPS.
    */
-  //DataSer.println("SENDING:");
   for(int i=0; i<len; i++) {
     GPSSer.write(MSG[i]);
-   // DataSer.println(MSG[i], HEX);
   }
-  //DataSer.println("COMPLETE");
   GPSSer.println();
 }
  
+
 boolean getUBX_ACK(uint8_t *MSG)
 {
   /*
@@ -207,7 +71,6 @@ boolean getUBX_ACK(uint8_t *MSG)
   uint8_t ackByteID = 0;
   uint8_t ackPacket[10];
   unsigned long startTime = millis();
-  //DataSer.print(" * Reading ACK response: ");
  
   // Construct the expected ACK packet    
   ackPacket[0] = 0xB5;	// header
@@ -232,13 +95,11 @@ boolean getUBX_ACK(uint8_t *MSG)
     // Test for success
     if (ackByteID > 9) {
       // All packets in order!
-      //DataSer.println(" (SUCCESS!)");
       return true;
     }
  
     // Timeout if no valid response in 3 seconds
     if (millis() - startTime > 3000) { 
-      //DataSer.println(" (FAILED!)");
       return false;
     }
  
@@ -246,12 +107,10 @@ boolean getUBX_ACK(uint8_t *MSG)
     //DataSer.println("GETTING ACK");
     if (GPSSer.available()) {
       b = GPSSer.read();
-      //DataSer.println(b, HEX);
  
       // Check that bytes arrive in sequence as per expected ACK packet
       if (b == ackPacket[ackByteID]) { 
         ackByteID++;
-        //DataSer.print(b, HEX);
       } 
       else {
         ackByteID = 0;	// Reset and look again, invalid order
@@ -260,6 +119,7 @@ boolean getUBX_ACK(uint8_t *MSG)
     }
   }
 }
+
 
 bool setDynamicMode6()
 {
@@ -285,6 +145,8 @@ bool setDynamicMode6()
   gps_set_sucess=0;
   return gps_set_sucess;
 }
+
+
 void setup()
 {
   // Pin setup
@@ -313,7 +175,6 @@ void setup()
 
   // Setup the GPS receiver interrupt
   attachInterrupt(digitalPinToInterrupt(PIN_GPS_PPS), GPSReadISR, FALLING);
-
 }
 
 void loop()
@@ -322,53 +183,33 @@ void loop()
   static uint8_t fiberbuffer_index = 0;
   static uint8_t inside_packet = 0;
 
- /*
- if ((millis() - last_pps) > 2000)
+ // If there's data on the fiber
+ while (FiberSer.available())
  {
-   digitalWrite(PIN_LED_GPS, LOW);
+    DataBuffer.push(FiberSer.read());
  }
- else
- {
-   digitalWrite(PIN_LED_GPS, HIGH);
- }
- */
- //digitalWrite(PIN_LED_GPS, digitalRead(PIN_GPS_PPS));
 
  // Encode any available GPS characters
- if (GPSSer.available())
+ 
+ while (GPSSer.available())
  {
    char c = GPSSer.read();
-   if (gps.encode(c))
-   {
-     digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
-   }
- }
-
- // If there's data on the fiber
- if (FiberSer.available()>40)
- {
-    inside_packet = 1;
-    fiberbuffer[fiberbuffer_index] = FiberSer.read();
-    if (fiberbuffer[fiberbuffer_index] == 0xEF)
-    {
-      inside_packet = 0;
-    }
-    fiberbuffer_index += 1;
+   gps.encode(c);
  }
 
 
- // If we're not in a packet, send the last fiber packet and reset the pointer
- if (inside_packet == 0 && fiberbuffer_index > 0)
+ // Dump the data buffer
+ while(!DataBuffer.isEmpty())
  {
    digitalWrite(PIN_LED_RUN, HIGH);
-   DataSer.write(fiberbuffer, fiberbuffer_index);
-   fiberbuffer_index = 0;
-   digitalWrite(PIN_LED_RUN, LOW);
+   DataSer.write(DataBuffer.shift());
  }
+ digitalWrite(PIN_LED_RUN, LOW);
 
  // If we have items in the GPS buffer, send them
  while(!GPSPacketBuffer.isEmpty())
   {
+    digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
     GPSPacket gps_packet = GPSPacketBuffer.shift();
     DataSer.write(gps_packet.start_byte);
     DataSer.write((byte*)&gps_packet.millis, sizeof(uint32_t));
