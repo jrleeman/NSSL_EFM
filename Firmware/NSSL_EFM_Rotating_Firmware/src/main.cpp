@@ -65,13 +65,6 @@ void setup()
   adc.setPGAbypass(1);
 }
 
-void serialWriteFloat(float val)
-{
-  // Write a floating point value out as binary
-  byte * b = (byte *) &val;
-  Serial.write(b, 4);
-}
-
 void serialWrite32(uint32_t data)
 {
   byte buf[4];
@@ -82,7 +75,7 @@ void serialWrite32(uint32_t data)
   Serial.write(buf, sizeof(buf));
 }
 
-void serialWrite16(uint16_t data)
+void serialWriteuint16(uint16_t data)
 {
   byte buf[2];
   buf[0] = data & 255;
@@ -90,7 +83,15 @@ void serialWrite16(uint16_t data)
   Serial.write(buf, sizeof(buf));
 }
 
-void readandsend()
+void serialWriteint16(int16_t data)
+{
+  byte buf[2];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  Serial.write(buf, sizeof(buf));
+}
+
+void loop()
 {
   static uint8_t loop_counter = 0;
   static int16_t temperature_degC = 0;
@@ -103,8 +104,7 @@ void readandsend()
   uint32_t adc_ready_time = millis();
 
   // Read the IMU as close to the ADC time as possible
-  sensors_event_t a, m, g, temp;
-  lsm.getEvent(&a, &m, &g, &temp);
+  lsm.read();
 
   // Read the ADC
   uint32_t adc_reading = adc.readADC();
@@ -114,70 +114,43 @@ void readandsend()
   if (loop_counter == 0)
   {
     relative_humidity = bme.readHumidity();
-    //debugSerial.print("RH: ");
-    //debugSerial.println(relative_humidity);
   }
 
   if (loop_counter == 25)
   { 
     pressure_pa = bme.readPressure() / 10;
-    //debugSerial.print("P: ");
-    //debugSerial.println(pressure_pa);
   }
 
   if (loop_counter == 50)
   {
     temperature_degC = bme.readTemperature() * 10;
-    //debugSerial.print("T: ");
-    //debugSerial.println(temperature_degC);
   }
 
-  delay(1); // Without the delay we don't have populated things for sending
+  //delay(1); // Without the delay we don't have populated things for sending
   
-  // Send the data (use write for binary) total of 51 bytes
-  //debugSerial.println("Sending new packet");
-  //debugSerial.println(millis());
-  //debugSerial.print(adc_ready_time);
-  //debugSerial.print(",");
-  //debugSerial.println(adc_reading);
-
-
   Serial.write(0xBE);  // Packet Byte 0
   serialWrite32(adc_ready_time);  // Packet Byte 1-4
   serialWrite32(adc_reading);  // Packet Byte 5-8
-  serialWriteFloat(a.acceleration.x); // Packet Byte 9-12
-  serialWriteFloat(a.acceleration.y); // Packet Byte 13-16
-  serialWriteFloat(a.acceleration.z); // Packet Byte 17-20
-  serialWriteFloat(m.magnetic.x); // Packet Byte 21-24
-  serialWriteFloat(m.magnetic.y); // Packet Byte 25-28
-  serialWriteFloat(m.magnetic.z); // Packet Byte 29-32
-  serialWriteFloat(g.gyro.x); // Packet Byte 33-36
-  serialWriteFloat(g.gyro.y); // Packet Byte 37-40
-  serialWriteFloat(g.gyro.z); // Packet Byte 41-44
-  serialWrite16(temperature_degC);  // Packet Byte 45-46
-  serialWrite16(relative_humidity); // Packet Byte 47-48
-  serialWrite16(pressure_pa); // Packet Byte 49-50
-  Serial.write(0xEF); // Packet Byte 51
+  serialWriteint16(lsm.magData.x);  // Packet Byte 9-10
+  serialWriteint16(lsm.magData.y);  // Packet Byte 11-12
+  serialWriteint16(lsm.magData.z);  // Packet Byte 13-14
+  serialWriteint16(lsm.gyroData.x);  // Packet Byte 15-16
+  serialWriteint16(lsm.gyroData.y);  // Packet Byte 17-18
+  serialWriteint16(lsm.gyroData.z);  // Packet Byte 19-20
+  serialWriteint16(lsm.accelData.x);  // Packet Byte 21-22  
+  serialWriteint16(lsm.accelData.y);  // Packet Byte 23-24
+  serialWriteint16(lsm.accelData.z);  // Packet Byte 25-26
+  serialWriteint16(temperature_degC);  // Packet Byte 27-28
+  serialWriteuint16(relative_humidity); // Packet Byte 29-30
+  serialWriteuint16(pressure_pa); // Packet Byte 31-32
+  Serial.write(0xEF); // Packet Byte 33
   /*
-  debugSerial.print(a.acceleration.x);
-  debugSerial.print("\t");
-  debugSerial.print(a.acceleration.y);
-  debugSerial.print("\t");
-  debugSerial.print(a.acceleration.z);
-  debugSerial.print("\t");
-  debugSerial.print(m.magnetic.x);
-  debugSerial.print("\t");
-  debugSerial.print(m.magnetic.y);
-  debugSerial.print("\t");
-  debugSerial.print(m.magnetic.z);
-  debugSerial.print("\t");
-  debugSerial.print(g.gyro.x);
-  debugSerial.print("\t");
-  debugSerial.print(g.gyro.y);
-  debugSerial.print("\t");
-  debugSerial.println(g.gyro.z);
+  debugSerial.print(lsm.accelData.x);
+  debugSerial.print(",");
+  debugSerial.print(lsm.accelData.y);
+  debugSerial.print(",");
+  debugSerial.println(lsm.accelData.z);
   */
-
 
 
   loop_counter += 1;
@@ -185,11 +158,4 @@ void readandsend()
   {
     loop_counter = 0;
   }
-}
-
-
-void loop()
-{
-  // Really quite simple - just keep reading and sending as fast as we can!
-  readandsend();
 }
