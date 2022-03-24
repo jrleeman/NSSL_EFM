@@ -20,15 +20,15 @@
 Adafruit_BME280 bme;
 Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1();
 ADS1220 adc;
-SoftwareSerial debugSerial(PB12, PB13); // RX, TX
+//SoftwareSerial debugSerial(PB12, PB13); // RX, TX
 
 void setup()
 {
   // Setup serial communications
   Serial.begin(38400);
-  debugSerial.begin(19200);
+  //debugSerial.begin(19200);
 
-  debugSerial.println("NSSL Rotating Electronics");
+  //debugSerial.println("NSSL Rotating Electronics");
 
   // Setup the IMU
   lsm.setupAccel(lsm.LSM9DS1_ACCELRANGE_4G);
@@ -36,13 +36,13 @@ void setup()
   lsm.setupGyro(lsm.LSM9DS1_GYROSCALE_2000DPS);
   if(!lsm.begin())
   {
-    debugSerial.println("Error starting IMU.");
+    //debugSerial.println("Error starting IMU.");
   }
 
   // Setup the Temperature/Humidity sensor
   if(!bme.begin(0x76, &Wire))
   {
-    debugSerial.println("Error starting BME280 sensor.");
+    //debugSerial.println("Error starting BME280 sensor.");
   }
 
   // Setup the ADC
@@ -125,8 +125,6 @@ void loop()
   {
     temperature_degC = bme.readTemperature() * 10;
   }
-
-  //delay(1); // Without the delay we don't have populated things for sending
   
   Serial.write(0xBE);  // Packet Byte 0
   serialWrite32(adc_ready_time);  // Packet Byte 1-4
@@ -144,14 +142,6 @@ void loop()
   serialWriteuint16(relative_humidity); // Packet Byte 29-30
   serialWriteuint16(pressure_pa); // Packet Byte 31-32
   Serial.write(0xEF); // Packet Byte 33
-  /*
-  debugSerial.print(lsm.accelData.x);
-  debugSerial.print(",");
-  debugSerial.print(lsm.accelData.y);
-  debugSerial.print(",");
-  debugSerial.println(lsm.accelData.z);
-  */
-
 
   loop_counter += 1;
   if (loop_counter == 100)

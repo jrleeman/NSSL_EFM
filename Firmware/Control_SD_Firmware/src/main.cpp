@@ -15,7 +15,7 @@
 
 
 char log_file_name[] = "EFM00.TXT";
-CircularBuffer<char, 500> CharBuffer;
+CircularBuffer<char, 512> CharBuffer;
 File dataFile;
 SdFat sd;
 uint32_t last_write = 0;
@@ -68,13 +68,13 @@ void setup()
   {
     error();
   }
-
   setLogFileName();
+  dataFile = sd.open(log_file_name, FILE_WRITE);
 }
 
 void loop()
 {
-  static uint8_t file_is_open = 1;
+  uint32_t max_write_cycles = 200000;
   static uint32_t write_cycles = 0;
 
   while(Serial.available())
@@ -82,7 +82,7 @@ void loop()
     CharBuffer.push(Serial.read());
   }
 
-  if (write_cycles > 200000)
+  if (write_cycles > max_write_cycles)
   {
     dataFile.close();
     setLogFileName();
@@ -95,7 +95,7 @@ void loop()
     digitalWrite(PIN_LED_ERROR, HIGH);
   }
 
-  if (CharBuffer.size() >= 30)
+  if (CharBuffer.size() > 64)
   {
     digitalWrite(PIN_LED_ACTIVITY, HIGH);
     for (int j=0; j<CharBuffer.size(); j++)

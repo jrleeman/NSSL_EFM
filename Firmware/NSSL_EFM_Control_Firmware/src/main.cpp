@@ -7,6 +7,7 @@
 #include <SPI.h>
 #include <SDFat.h>
 #include <CircularBuffer.h>
+#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
 
 HardwareSerial FiberSer(PIN_FIBER_SERIAL_RX, PIN_FIBER_SERIAL_TX);  // RX, TX
 HardwareSerial GPSSer(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);  // RX, TX
@@ -30,6 +31,7 @@ uint32_t last_pps = 0;
 TinyGPSPlus gps;
 CircularBuffer<uint8_t, 500> DataBuffer;
 CircularBuffer<GPSPacket, 10> GPSPacketBuffer;
+SFE_UBLOX_GNSS GNSS;
 
 
 void GPSReadISR(void)
@@ -50,113 +52,36 @@ void GPSReadISR(void)
 }
 
 
-void sendUBX(uint8_t *MSG, uint8_t len)
-{
-  /*
-   * Send a byte array of UBX protocol to the GPS.
-   */
-  for(int i=0; i<len; i++) {
-    GPSSer.write(MSG[i]);
-  }
-  GPSSer.println();
-}
- 
-
-boolean getUBX_ACK(uint8_t *MSG)
-{
-  /*
-   * Calculate expected UBX ACK packet and parse UBX response from GPS.
-   */
-  uint8_t b;
-  uint8_t ackByteID = 0;
-  uint8_t ackPacket[10];
-  unsigned long startTime = millis();
- 
-  // Construct the expected ACK packet    
-  ackPacket[0] = 0xB5;	// header
-  ackPacket[1] = 0x62;	// header
-  ackPacket[2] = 0x05;	// class
-  ackPacket[3] = 0x01;	// id
-  ackPacket[4] = 0x02;	// length
-  ackPacket[5] = 0x00;
-  ackPacket[6] = MSG[2];	// ACK class
-  ackPacket[7] = MSG[3];	// ACK id
-  ackPacket[8] = 0;		// CK_A
-  ackPacket[9] = 0;		// CK_B
- 
-  // Calculate the checksums
-  for (uint8_t i=2; i<8; i++) {
-    ackPacket[8] = ackPacket[8] + ackPacket[i];
-    ackPacket[9] = ackPacket[9] + ackPacket[8];
-  }
- 
-  while (1) {
- 
-    // Test for success
-    if (ackByteID > 9) {
-      // All packets in order!
-      return true;
-    }
- 
-    // Timeout if no valid response in 3 seconds
-    if (millis() - startTime > 3000) { 
-      return false;
-    }
- 
-    // Make sure data is available to read
-    //DataSer.println("GETTING ACK");
-    if (GPSSer.available()) {
-      b = GPSSer.read();
- 
-      // Check that bytes arrive in sequence as per expected ACK packet
-      if (b == ackPacket[ackByteID]) { 
-        ackByteID++;
-      } 
-      else {
-        ackByteID = 0;	// Reset and look again, invalid order
-      }
- 
-    }
-  }
-}
-
-
-bool setDynamicMode6()
-{
-  /*
-   * Sets up the GPS in high altitude dynamic mode 6.
-   */
-  static byte gps_set_sucess = 0 ;
-  uint8_t setNav[] = {0xB5, 0x62, 0x06, 0x24, 0x24, 0x00, 0xFF, 0xFF, 0x06, 0x03, 0x00,
-                      0x00, 0x00, 0x00, 0x10, 0x27, 0x00, 0x00, 0x05, 0x00, 0xFA, 0x00,
-                      0xFA, 0x00, 0x64, 0x00, 0x2C, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
-                      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x16, 0xDC };
-  uint32_t start_millis = millis();
-  while(!gps_set_sucess)
-  {
-    sendUBX(setNav, sizeof(setNav)/sizeof(uint8_t));
-    gps_set_sucess = getUBX_ACK(setNav);
-    // Timeout after 10 seconds
-    if ((millis() - start_millis) > 10000)
-    {
-      return false;
-    }
-  }
-  gps_set_sucess=0;
-  return gps_set_sucess;
-}
-
-
 void setup()
 {
   // Pin setup
   pinMode(PIN_LED_RUN, OUTPUT);
   pinMode(PIN_LED_GPS, OUTPUT);
+  digitalWrite(PIN_LED_RUN, LOW);
+  digitalWrite(PIN_LED_GPS, LOW);
 
   // Setup the serial ports for everything
   FiberSer.begin(38400);
   GPSSer.begin(9600);
   DataSer.begin(57600);
+
+  // Setup the GNSS
+  
+  if (!GNSS.begin(GPSSer))
+  {
+    while(1);
+  }
+  GNSS.disableNMEAMessage(UBX_NMEA_GLL, COM_PORT_UART1); //Several of these are on by default on ublox board so let's disable them
+  GNSS.disableNMEAMessage(UBX_NMEA_GSA, COM_PORT_UART1);
+  GNSS.disableNMEAMessage(UBX_NMEA_GSV, COM_PORT_UART1);
+  GNSS.disableNMEAMessage(UBX_NMEA_RMC, COM_PORT_UART1);
+  GNSS.enableNMEAMessage(UBX_NMEA_GGA, COM_PORT_UART1); //Only leaving GGA & VTG enabled at current navigation rate
+  GNSS.disableNMEAMessage(UBX_NMEA_VTG, COM_PORT_UART1);
+  if (!GNSS.setDynamicModel(DYN_MODEL_AIRBORNE2g))
+  {
+    while(1);
+  }
+  
 
   delay(5000);
   digitalWrite(PIN_LED_RUN, HIGH);
@@ -165,8 +90,6 @@ void setup()
   digitalWrite(PIN_LED_RUN, LOW);
   digitalWrite(PIN_LED_GPS, LOW);
   delay(1000);
-
-  setDynamicMode6();
 
   digitalWrite(PIN_LED_RUN, HIGH);
   delay(1000);
@@ -194,7 +117,10 @@ void loop()
  while (GPSSer.available())
  {
    char c = GPSSer.read();
-   gps.encode(c);
+   if (gps.encode(c))
+   {
+     //digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
+   }
  }
 
 
