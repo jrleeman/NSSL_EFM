@@ -2,6 +2,8 @@
  * Control PCB SD Processor
  * Writes incoming data to the SD card and manages the file names.
  */
+#define CIRCULAR_BUFFER_INT_SAFE // Keep this first!
+
 #include <Arduino.h>
 #include <CircularBuffer.h>
 #include "pins.h"
