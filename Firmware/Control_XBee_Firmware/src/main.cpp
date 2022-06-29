@@ -18,6 +18,26 @@ void setup()
   pinMode(PIN_ID_2, INPUT);
   pinMode(PIN_LED_ACTIVITY, OUTPUT);
   pinMode(PIN_LED_ERROR, OUTPUT);
+  digitalWrite(PIN_LED_ERROR, HIGH);
+  delay(100);
+  if(digitalRead(PIN_ID_0) == LOW)
+  {
+    delay(60000);
+  }
+  else if (digitalRead(PIN_ID_1) == LOW)
+  {
+    delay(120000);
+  }
+  else if (digitalRead(PIN_ID_2) == LOW)
+  {
+    delay(240000);
+  }
+  else
+  {
+    delay(10000);
+  }
+  digitalWrite(PIN_LED_ERROR, LOW);
+  Serial.flush();
 }
 
 void loop()
