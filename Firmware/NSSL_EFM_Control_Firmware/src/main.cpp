@@ -26,6 +26,7 @@ struct GPSPacket
 
 // Global variables
 uint32_t last_pps = 0;
+char intermediate_buffer[55];
 
 // Instance creation
 TinyGPSPlus gps;
@@ -106,10 +107,48 @@ void loop()
   static uint8_t fiberbuffer_index = 0;
   static uint8_t inside_packet = 0;
 
- // If there's data on the fiber
+ // If there's data on the fiber - read it in packet form
+ static bool in_packet = false;
+ static uint8_t i = 0;
  while (FiberSer.available())
  {
-    DataBuffer.push(FiberSer.read());
+   // Always read the byte
+   byte c = FiberSer.read();
+
+   // If we are not in a packet and we hit a 0xBE we likley are at the packet start
+   if ((!in_packet) && (c == 0xBE))
+   {
+     in_packet = true;
+     i = 0;
+     intermediate_buffer[i] = c;
+     i += 1;
+   }
+
+   // We are in a packet, but about to over-run
+   if (i > 53)
+   {
+     in_packet=false;
+     i = 0;
+   }
+
+   // We are in a packet and just reading, looking for the end
+   if (in_packet)
+   {
+     intermediate_buffer[i] = c;
+     i += 1;
+
+     // If it's the end, bounce out
+     if ((c == 0xEF) && (i = 34))
+     {
+       in_packet = false;
+       //digitalWrite(PIN_LED_RUN, LOW);
+       for (int j=0; j <= i; j++)
+       {
+         DataBuffer.push(intermediate_buffer[j]);
+       }
+       break;
+     }
+   }
  }
 
  // Encode any available GPS characters
