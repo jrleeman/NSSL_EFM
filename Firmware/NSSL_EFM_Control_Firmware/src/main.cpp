@@ -1,3 +1,5 @@
+#define CIRCULAR_BUFFER_INT_SAFE // Keep this first!
+
 #include <Arduino.h>
 #include <HardwareSerial.h>
 #include <TinyGPS++.h>
@@ -5,183 +7,181 @@
 #include <SPI.h>
 #include <SDFat.h>
 #include <CircularBuffer.h>
-
-
-// Data packet
-struct DataPacket
-{
-  uint8_t start_byte;
-  uint32_t adc_ready_time;
-  uint32_t adc_reading;
-  float acceleration_x;
-  float acceleration_Y;
-  float acceleration_Z;
-  float magnetometer_x;
-  float magnetometer_y;
-  float magnetometer_z;
-  float gyro_x;
-  float gyro_y;
-  float gyro_z;
-  float gps_lat;
-  float gps_lon;
-  float gps_alt;
-  uint16_t temperature;
-  uint16_t humidity;
-  uint8_t gps_hour;
-  uint8_t gps_minute;
-  uint8_t gps_second;
-  uint8_t gps_centisecond;
-  uint8_t end_byte;
-};
-
+#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
 
 HardwareSerial FiberSer(PIN_FIBER_SERIAL_RX, PIN_FIBER_SERIAL_TX);  // RX, TX
 HardwareSerial GPSSer(PIN_GPS_SERIAL_RX, PIN_GPS_SERIAL_TX);  // RX, TX
-HardwareSerial RadioSer(PIN_RADIO_SERIAL_RX, PIN_RADIO_SERIAL_TX);  // RX, TX
+HardwareSerial DataSer(PIN_DATA_SERIAL_RX, PIN_DATA_SERIAL_TX);  // RX, TX
 
-// State machine states
-enum states{S_READ_FIBER_DATA, S_LOG_DATA, S_TX_DATA};
+struct GPSPacket
+{
+  uint8_t start_byte;
+  uint32_t millis;
+  int32_t lat;
+  int32_t lon;
+  uint16_t alt;
+  uint32_t time;
+  uint8_t end_byte;
+};
 
 // Global variables
-uint32_t last_pps_time = 0;
-uint8_t current_state = S_READ_FIBER_DATA;
+uint32_t last_pps = 0;
+char intermediate_buffer[55];
 
 // Instance creation
 TinyGPSPlus gps;
-SdFat SD;
-File logFile;
-CircularBuffer<DataPacket, 20> DataPacketBuffer;
-char log_file_name[] = "EFM00.BIN";
+CircularBuffer<uint8_t, 500> DataBuffer;
+CircularBuffer<GPSPacket, 10> GPSPacketBuffer;
+SFE_UBLOX_GNSS GNSS;
 
-void setLogFileName(void)
-{
-  /*
-   * Look on the SD card and find the next available file name. Set the global.
-   * If allowed to run on it will overwite the 99th file over and over.
-   */
-  for (uint8_t i = 0; i < 100; i++)
-  {
-    log_file_name[3] = i/10 + '0';
-    log_file_name[4] = i%10 + '0';
-    if (! SD.exists(log_file_name))
-    {
-      break; // leave the loop!
-    }
-  }
-}
 
 void GPSReadISR(void)
 {
   /*
    * Reads the GPS data when a PPS is received and logs that PPS Time
    */
-  last_pps_time = millis();
-  while(GPSSer.available())
-  {
-    char c = GPSSer.read();
-    if (gps.encode(c))
-    {
-      // New data is ready, break out of the while loop
-      break;
-    }
-  }
+  GPSPacket gps_packet;
+  last_pps = millis();
+  gps_packet.start_byte = 0xFE;
+  gps_packet.millis = last_pps;
+  gps_packet.lat = int32_t(gps.location.lat() * 10000);
+  gps_packet.lon = int32_t(gps.location.lng() * 10000);
+  gps_packet.alt = uint16_t(gps.altitude.meters());
+  gps_packet.time = gps.time.value();
+  gps_packet.end_byte = 0xED;
+  GPSPacketBuffer.push(gps_packet);
 }
 
-
-uint8_t readFiberData(void)
-{
-  /*
-   * Read the data from the fiber-optic cable.
-   */
-  byte buffer[55];
-  uint8_t serial_buffer_length = FiberSer.readBytes(buffer, 54);
-  //DataPacket rx_data_packet = *buffer;
-  DataPacket rx_data_packet;
-  DataPacketBuffer.push(rx_data_packet);
-  
-  
-  return S_LOG_DATA; // Go to the log state
-}
-
-uint8_t logData(void)
-{
-  /*
-   * Log the data to the SD card
-   */
-  static uint8_t tx_data_counter = 0; // Counts how many packets to decimate the transmit
-  uint8_t tx_decimate_factor = 20;
-  
-  
-
-  // Write the packet
-  while (DataPacketBuffer.available() > 0)
-  {
-    DataPacket pp;
-    char buffer[55];
-    logFile.write(buffer, 55);
-  }
-
-
-  // Close the log file - only if necessary to prevent corruption
-  // logFile.close()
-
-  // If it's time to transmit, we go there, otherwise go get more data
-  if (tx_data_counter%tx_decimate_factor == 0)
-  {
-    tx_data_counter = 0;
-    return S_TX_DATA;
-  }
-  else
-  {
-    return S_READ_FIBER_DATA; 
-  }
-}
-
-uint8_t transmitData(void)
-{
-  /*
-   * Transmit data to the ground for tracking and analysis.
-   */
-  return S_READ_FIBER_DATA;
-}
 
 void setup()
 {
+  // Pin setup
+  pinMode(PIN_LED_RUN, OUTPUT);
+  pinMode(PIN_LED_GPS, OUTPUT);
+  digitalWrite(PIN_LED_RUN, LOW);
+  digitalWrite(PIN_LED_GPS, LOW);
+
   // Setup the serial ports for everything
-  FiberSer.begin(115200); // SET A TIMEOUT!
+  FiberSer.begin(38400);
   GPSSer.begin(9600);
-  RadioSer.begin(1200);
+  DataSer.begin(57600);
 
-  // Setup the SD Card
-  // Startup SD Card
-  SD.begin(PIN_SD_CS, SD_SCK_MHZ(18));
+  // Setup the GNSS
+  
+  if (!GNSS.begin(GPSSer))
+  {
+    while(1);
+  }
+  GNSS.disableNMEAMessage(UBX_NMEA_GLL, COM_PORT_UART1); //Several of these are on by default on ublox board so let's disable them
+  GNSS.disableNMEAMessage(UBX_NMEA_GSA, COM_PORT_UART1);
+  GNSS.disableNMEAMessage(UBX_NMEA_GSV, COM_PORT_UART1);
+  GNSS.disableNMEAMessage(UBX_NMEA_RMC, COM_PORT_UART1);
+  GNSS.enableNMEAMessage(UBX_NMEA_GGA, COM_PORT_UART1); //Only leaving GGA & VTG enabled at current navigation rate
+  GNSS.disableNMEAMessage(UBX_NMEA_VTG, COM_PORT_UART1);
+  if (!GNSS.setDynamicModel(DYN_MODEL_AIRBORNE2g))
+  {
+    while(1);
+  }
+  
 
-  // Setup the GPS receiver - Nothing necessary!
+  delay(5000);
+  digitalWrite(PIN_LED_RUN, HIGH);
+  digitalWrite(PIN_LED_GPS, HIGH);
+  delay(1000);
+  digitalWrite(PIN_LED_RUN, LOW);
+  digitalWrite(PIN_LED_GPS, LOW);
+  delay(1000);
 
-  // Configure the radio
+  digitalWrite(PIN_LED_RUN, HIGH);
+  delay(1000);
+  digitalWrite(PIN_LED_RUN, LOW);
+  delay(1000);
 
-  // Get a file name for writing and open
-  setLogFileName();
-  logFile = SD.open(log_file_name, FILE_WRITE);
+  // Setup the GPS receiver interrupt
+  attachInterrupt(digitalPinToInterrupt(PIN_GPS_PPS), GPSReadISR, FALLING);
 }
 
 void loop()
 {
-  /*
-   * Main State Machine Loop
-   */
-  switch (current_state)
+  uint8_t fiberbuffer[256];
+  static uint8_t fiberbuffer_index = 0;
+  static uint8_t inside_packet = 0;
+
+ // If there's data on the fiber - read it in packet form
+ static bool in_packet = false;
+ static uint8_t i = 0;
+ while (FiberSer.available())
+ {
+   // Always read the byte
+   byte c = FiberSer.read();
+
+   // If we are not in a packet and we hit a 0xBE we likley are at the packet start
+   if ((!in_packet) && (c == 0xBE))
+   {
+     in_packet = true;
+     i = 0;
+     intermediate_buffer[i] = c;
+     i += 1;
+   }
+
+   // We are in a packet, but about to over-run
+   if (i > 53)
+   {
+     in_packet=false;
+     i = 0;
+   }
+
+   // We are in a packet and just reading, looking for the end
+   if (in_packet)
+   {
+     intermediate_buffer[i] = c;
+     i += 1;
+
+     // If it's the end, bounce out
+     if ((c == 0xEF) && (i = 34))
+     {
+       in_packet = false;
+       //digitalWrite(PIN_LED_RUN, LOW);
+       for (int j=0; j <= i; j++)
+       {
+         DataBuffer.push(intermediate_buffer[j]);
+       }
+       break;
+     }
+   }
+ }
+
+ // Encode any available GPS characters
+ 
+ while (GPSSer.available())
+ {
+   char c = GPSSer.read();
+   if (gps.encode(c))
+   {
+     //digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
+   }
+ }
+
+
+ // Dump the data buffer
+ while(!DataBuffer.isEmpty())
+ {
+   digitalWrite(PIN_LED_RUN, HIGH);
+   DataSer.write(DataBuffer.shift());
+ }
+ digitalWrite(PIN_LED_RUN, LOW);
+
+ // If we have items in the GPS buffer, send them
+ while(!GPSPacketBuffer.isEmpty())
   {
-    case S_READ_FIBER_DATA:
-      current_state = readFiberData();
-      break;
-    case S_LOG_DATA:
-      current_state = logData();
-      break;
-    case S_TX_DATA:
-      current_state = transmitData();
-      break;
-    default:
-      while(1){}
+    digitalWrite(PIN_LED_GPS, !digitalRead(PIN_LED_GPS));
+    GPSPacket gps_packet = GPSPacketBuffer.shift();
+    DataSer.write(gps_packet.start_byte);
+    DataSer.write((byte*)&gps_packet.millis, sizeof(uint32_t));
+    DataSer.write((byte*)&gps_packet.lat, sizeof(int32_t));
+    DataSer.write((byte*)&gps_packet.lon, sizeof(int32_t));
+    DataSer.write((byte*)&gps_packet.alt, sizeof(uint16_t));
+    DataSer.write((byte*)&gps_packet.time, sizeof(uint32_t));
+    DataSer.write(gps_packet.end_byte);
   }
 }

@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Motor_Control_PCB\KiCAD_Project\motor_control\motor_control.sch</source>
+    <date>12/18/2020 8:38:50 AM</date>
+    <tool>Eeschema (5.1.7)-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Motor Paddle Electronics - NSSL EFM</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2019-12-03</date>
+        <source>motor_control.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/microcontroller/" tstamps="/5DDD7A28/">
+      <title_block>
+        <title>Motor Paddle Electronics - NSSL EFM</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2019-12-03</date>
+        <source>microcontroller.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/Power/" tstamps="/5DE47B35/">
+      <title_block>
+        <title>Motor Paddle Electronics - NSSL EFM</title>
+        <company>Leeman Geophysical LLC</company>
+        <rev>1.0</rev>
+        <date>2019-12-03</date>
+        <source>Power.sch</source>
+        <comment number="1" value="(479) 373-3736"/>
+        <comment number="2" value="Siloam Springs, AR 72761"/>
+        <comment number="3" value="850 South Lincoln St."/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>Motor</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x05" description="Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDA5EFD</tstamp>
+    </comp>
+    <comp ref="BZ1">
+      <value>Piezo</value>
+      <footprint>lib_fp:PS1240P02BT</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000443</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Buzzer" description="Buzzer, polarized"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDA638E</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>INA169</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23-5_HandSoldering</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000452</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="INA169" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDA7032</tstamp>
+    </comp>
+    <comp ref="C1">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDA8634</tstamp>
+    </comp>
+    <comp ref="R2">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDA943C</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>1</value>
+      <footprint>Resistors_THT:R_Axial_DIN0614_L14.3mm_D5.7mm_P20.32mm_Horizontal</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000453</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDAA4FB</tstamp>
+    </comp>
+    <comp ref="R7">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDADF7A</tstamp>
+    </comp>
+    <comp ref="R6">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000013</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDAEB4B</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>MMBT3904</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23</footprint>
+      <datasheet>https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000036</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Transistor_BJT" part="MMBT3904" description="0.2A Ic, 40V Vce, Small Signal NPN Transistor, SOT-23"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DDAF02A</tstamp>
+    </comp>
+    <comp ref="C2">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE61FAF</tstamp>
+    </comp>
+    <comp ref="R3">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000009</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE65296</tstamp>
+    </comp>
+    <comp ref="R10">
+      <value>NP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE66201</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>Configuration</value>
+      <footprint>lib_fp:KAE02LGGR</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000454</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Switch" part="SW_DIP_x02" description="2x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE67F11</tstamp>
+    </comp>
+    <comp ref="R4">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE68E06</tstamp>
+    </comp>
+    <comp ref="R5">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE698D4</tstamp>
+    </comp>
+    <comp ref="R8">
+      <value>27k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000078</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE6E027</tstamp>
+    </comp>
+    <comp ref="R9">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE6E3BD</tstamp>
+    </comp>
+    <comp ref="H1">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE832E7</tstamp>
+    </comp>
+    <comp ref="H2">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE83AD1</tstamp>
+    </comp>
+    <comp ref="H3">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE83DCD</tstamp>
+    </comp>
+    <comp ref="H4">
+      <value>MountingHole</value>
+      <footprint>Mounting_Holes:MountingHole_3.2mm_M3_ISO7380</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE84193</tstamp>
+    </comp>
+    <comp ref="FID1">
+      <value>Fiducial</value>
+      <footprint>Fiducials:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE84D5B</tstamp>
+    </comp>
+    <comp ref="FID2">
+      <value>Fiducial</value>
+      <footprint>Fiducials:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE8539C</tstamp>
+    </comp>
+    <comp ref="FID3">
+      <value>Fiducial</value>
+      <footprint>Fiducials:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE856A2</tstamp>
+    </comp>
+    <comp ref="FID4">
+      <value>Fiducial</value>
+      <footprint>Fiducials:Fiducial_1mm_Dia_2.54mm_Outer_CopperTop</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Mechanical" part="Fiducial" description="Fiducial Marker"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5DE85942</tstamp>
+    </comp>
+    <comp ref="PCB1">
+      <value>barepcb</value>
+      <footprint>lib_fp:barepcb</footprint>
+      <fields>
+        <field name="Internal Part Number">3-0000021</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="barepcb" description=""/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5FDCD5DA</tstamp>
+    </comp>
+    <comp ref="U2">
+      <value>STM32F103CBT6</value>
+      <footprint>Housings_QFP:LQFP-48_7x7mm_Pitch0.5mm</footprint>
+      <datasheet>http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00161566.pdf</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000207</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="MCU_ST_STM32F1" part="STM32F103CBTx" description="ARM Cortex-M3 MCU, 128KB flash, 20KB RAM, 72MHz, 2-3.6V, 37 GPIO, LQFP-48"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDD7E32</tstamp>
+    </comp>
+    <comp ref="C7">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDD99CE</tstamp>
+    </comp>
+    <comp ref="C6">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDDACA6</tstamp>
+    </comp>
+    <comp ref="C9">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDDDEB2</tstamp>
+    </comp>
+    <comp ref="C8">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDDDEBA</tstamp>
+    </comp>
+    <comp ref="R18">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000009</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDE193D</tstamp>
+    </comp>
+    <comp ref="Y1">
+      <value>8MHz</value>
+      <footprint>Crystals:Crystal_SMD_HC49-SD_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000206</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Crystal" description="Two pin crystal"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDE247D</tstamp>
+    </comp>
+    <comp ref="C4">
+      <value>20pF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000204</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDE2C89</tstamp>
+    </comp>
+    <comp ref="C5">
+      <value>20pF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000204</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDE32D4</tstamp>
+    </comp>
+    <comp ref="J2">
+      <value>Conn_01x02</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE04B0C</tstamp>
+    </comp>
+    <comp ref="J6">
+      <value>UART1</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE05300</tstamp>
+    </comp>
+    <comp ref="J3">
+      <value>ISP</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE056D2</tstamp>
+    </comp>
+    <comp ref="J4">
+      <value>Spares 2</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDF7690</tstamp>
+    </comp>
+    <comp ref="J5">
+      <value>Spares 1</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x04_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DDF56FB</tstamp>
+    </comp>
+    <comp ref="R12">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000174</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2BF18</tstamp>
+    </comp>
+    <comp ref="R11">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000174</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2C2FD</tstamp>
+    </comp>
+    <comp ref="R14">
+      <value>0R0</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2CD8B</tstamp>
+    </comp>
+    <comp ref="R17">
+      <value>0R0</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000006</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2D008</tstamp>
+    </comp>
+    <comp ref="R13">
+      <value>NP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2D5D6</tstamp>
+    </comp>
+    <comp ref="R16">
+      <value>NP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE2D7F7</tstamp>
+    </comp>
+    <comp ref="R15">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000010</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE3617B</tstamp>
+    </comp>
+    <comp ref="C3">
+      <value>1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000018</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/microcontroller/" tstamps="/5DDD7A28/"/>
+      <tstamp>5DE365D3</tstamp>
+    </comp>
+    <comp ref="C10">
+      <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000005</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE4E3F1</tstamp>
+    </comp>
+    <comp ref="C11">
+      <value>1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000018</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE4E545</tstamp>
+    </comp>
+    <comp ref="C12">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE4E891</tstamp>
+    </comp>
+    <comp ref="U3">
+      <value>LT1521-3.3</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-223-3_TabPin2</footprint>
+      <fields>
+        <field name="Internal Part Number">1-0000196</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="lib_sch" part="LT1521-3.3" description=""/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE50F5E</tstamp>
+    </comp>
+    <comp ref="C13">
+      <value>10u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000005</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE5924C</tstamp>
+    </comp>
+    <comp ref="C14">
+      <value>1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000018</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE59254</tstamp>
+    </comp>
+    <comp ref="C15">
+      <value>0.1u</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000007</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE5925C</tstamp>
+    </comp>
+    <comp ref="J7">
+      <value>Battery</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE5B079</tstamp>
+    </comp>
+    <comp ref="F1">
+      <value>Polyfuse</value>
+      <footprint>lib_fp:RGEF250</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">1-0000269</field>
+        <field name="Populated">1</field>
+      </fields>
+      <libsource lib="Device" part="Polyfuse" description="Resettable fuse, polymeric positive temperature coefficient"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE5BC5B</tstamp>
+    </comp>
+    <comp ref="J8">
+      <value>External Power Switch</value>
+      <footprint>Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Internal Part Number">0-0000000</field>
+        <field name="Populated">0</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Power/" tstamps="/5DE47B35/"/>
+      <tstamp>5DE71610</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x05">
+      <description>Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x05</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+        <pin num="5" name="Pin_5" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Buzzer">
+      <description>Buzzer, polarized</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*Buzzer*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">BZ</field>
+        <field name="Value">Buzzer</field>
+      </fields>
+      <pins>
+        <pin num="1" name="-" type="passive"/>
+        <pin num="2" name="+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C">
+      <description>Unpolarized capacitor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal">
+      <description>Two pin crystal</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Polyfuse">
+      <description>Resettable fuse, polymeric positive temperature coefficient</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>*polyfuse*</fp>
+        <fp>*PTC*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">F</field>
+        <field name="Value">Polyfuse</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R">
+      <description>Resistor</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_ST_STM32F1" part="STM32F103C8Tx">
+      <aliases>
+        <alias>STM32F103CBTx</alias>
+      </aliases>
+      <description>ARM Cortex-M3 MCU, 64KB flash, 20KB RAM, 72MHz, 2-3.6V, 37 GPIO, LQFP-48</description>
+      <docs>http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00161566.pdf</docs>
+      <footprints>
+        <fp>LQFP*7x7mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">STM32F103C8Tx</field>
+        <field name="Footprint">Package_QFP:LQFP-48_7x7mm_P0.5mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBAT" type="power_in"/>
+        <pin num="2" name="PC13" type="BiDi"/>
+        <pin num="3" name="PC14" type="BiDi"/>
+        <pin num="4" name="PC15" type="BiDi"/>
+        <pin num="5" name="PD0" type="input"/>
+        <pin num="6" name="PD1" type="input"/>
+        <pin num="7" name="NRST" type="input"/>
+        <pin num="8" name="VSSA" type="power_in"/>
+        <pin num="9" name="VDDA" type="power_in"/>
+        <pin num="10" name="PA0" type="BiDi"/>
+        <pin num="11" name="PA1" type="BiDi"/>
+        <pin num="12" name="PA2" type="BiDi"/>
+        <pin num="13" name="PA3" type="BiDi"/>
+        <pin num="14" name="PA4" type="BiDi"/>
+        <pin num="15" name="PA5" type="BiDi"/>
+        <pin num="16" name="PA6" type="BiDi"/>
+        <pin num="17" name="PA7" type="BiDi"/>
+        <pin num="18" name="PB0" type="BiDi"/>
+        <pin num="19" name="PB1" type="BiDi"/>
+        <pin num="20" name="PB2" type="BiDi"/>
+        <pin num="21" name="PB10" type="BiDi"/>
+        <pin num="22" name="PB11" type="BiDi"/>
+        <pin num="23" name="VSS" type="power_in"/>
+        <pin num="24" name="VDD" type="power_in"/>
+        <pin num="25" name="PB12" type="BiDi"/>
+        <pin num="26" name="PB13" type="BiDi"/>
+        <pin num="27" name="PB14" type="BiDi"/>
+        <pin num="28" name="PB15" type="BiDi"/>
+        <pin num="29" name="PA8" type="BiDi"/>
+        <pin num="30" name="PA9" type="BiDi"/>
+        <pin num="31" name="PA10" type="BiDi"/>
+        <pin num="32" name="PA11" type="BiDi"/>
+        <pin num="33" name="PA12" type="BiDi"/>
+        <pin num="34" name="PA13" type="BiDi"/>
+        <pin num="35" name="VSS" type="power_in"/>
+        <pin num="36" name="VDD" type="power_in"/>
+        <pin num="37" name="PA14" type="BiDi"/>
+        <pin num="38" name="PA15" type="BiDi"/>
+        <pin num="39" name="PB3" type="BiDi"/>
+        <pin num="40" name="PB4" type="BiDi"/>
+        <pin num="41" name="PB5" type="BiDi"/>
+        <pin num="42" name="PB6" type="BiDi"/>
+        <pin num="43" name="PB7" type="BiDi"/>
+        <pin num="44" name="BOOT0" type="input"/>
+        <pin num="45" name="PB8" type="BiDi"/>
+        <pin num="46" name="PB9" type="BiDi"/>
+        <pin num="47" name="VSS" type="power_in"/>
+        <pin num="48" name="VDD" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="Mechanical" part="Fiducial">
+      <description>Fiducial Marker</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Fiducial*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">FID</field>
+        <field name="Value">Fiducial</field>
+      </fields>
+    </libpart>
+    <libpart lib="Mechanical" part="MountingHole">
+      <description>Mounting Hole without connection</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>MountingHole*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">H</field>
+        <field name="Value">MountingHole</field>
+      </fields>
+    </libpart>
+    <libpart lib="Switch" part="SW_DIP_x02">
+      <description>2x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SW?DIP?x2*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_DIP_x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+        <pin num="4" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_BJT" part="BC817">
+      <aliases>
+        <alias>BC818</alias>
+        <alias>BC846</alias>
+        <alias>BC847</alias>
+        <alias>BC848</alias>
+        <alias>BC849</alias>
+        <alias>BC850</alias>
+        <alias>MMBT3904</alias>
+        <alias>MMBT5550L</alias>
+        <alias>MMBT5551L</alias>
+      </aliases>
+      <description>0.8A Ic, 45V Vce, NPN Transistor, SOT-23</description>
+      <docs>https://www.onsemi.com/pub/Collateral/BC818-D.pdf</docs>
+      <footprints>
+        <fp>SOT?23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BC817</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="input"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="INA169">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">INA169</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Out" type="output"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="Vin+" type="power_in"/>
+        <pin num="4" name="Vin-" type="power_out"/>
+        <pin num="5" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="LT1521-3.3">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">LT1521-3.3</field>
+      </fields>
+      <pins>
+        <pin num="1" name="IN" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="OUT" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="lib_sch" part="barepcb">
+      <fields>
+        <field name="Reference">PCB</field>
+        <field name="Value">barepcb</field>
+      </fields>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector_Generic">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="MCU_ST_STM32F1">
+      <uri>C:\Program Files\KiCad\share\kicad\library/MCU_ST_STM32F1.lib</uri>
+    </library>
+    <library logical="Mechanical">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Mechanical.lib</uri>
+    </library>
+    <library logical="Switch">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Switch.lib</uri>
+    </library>
+    <library logical="Transistor_BJT">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Transistor_BJT.lib</uri>
+    </library>
+    <library logical="lib_sch">
+      <uri>C:\Users\jleeman\git_repos\NSSL_EFM\Hardware\Motor_Control_PCB\KiCAD_Project\motor_control/lib_sch.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Motor_Cutoff_Enable">
+      <node ref="SW1" pin="4"/>
+      <node ref="U2" pin="40"/>
+      <node ref="R4" pin="2"/>
+    </net>
+    <net code="2" name="Current_Sense">
+      <node ref="R3" pin="2"/>
+      <node ref="C2" pin="2"/>
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="3" name="+3V3">
+      <node ref="U2" pin="9"/>
+      <node ref="U2" pin="24"/>
+      <node ref="R16" pin="2"/>
+      <node ref="U2" pin="48"/>
+      <node ref="U2" pin="36"/>
+      <node ref="C7" pin="1"/>
+      <node ref="R13" pin="2"/>
+      <node ref="C8" pin="1"/>
+      <node ref="U1" pin="5"/>
+      <node ref="R7" pin="1"/>
+      <node ref="J3" pin="1"/>
+      <node ref="R15" pin="2"/>
+      <node ref="U3" pin="3"/>
+      <node ref="C13" pin="1"/>
+      <node ref="C15" pin="1"/>
+      <node ref="C14" pin="1"/>
+      <node ref="C9" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="R10" pin="1"/>
+      <node ref="R5" pin="1"/>
+      <node ref="R4" pin="1"/>
+      <node ref="BZ1" pin="1"/>
+      <node ref="C1" pin="2"/>
+    </net>
+    <net code="4" name="Motor_Encoder">
+      <node ref="U2" pin="13"/>
+      <node ref="R10" pin="2"/>
+      <node ref="J1" pin="2"/>
+    </net>
+    <net code="5" name="GND">
+      <node ref="C9" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="C2" pin="1"/>
+      <node ref="J2" pin="2"/>
+      <node ref="C3" pin="1"/>
+      <node ref="R9" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="U2" pin="47"/>
+      <node ref="U2" pin="35"/>
+      <node ref="U2" pin="23"/>
+      <node ref="U2" pin="8"/>
+      <node ref="C7" pin="2"/>
+      <node ref="R17" pin="1"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C4" pin="2"/>
+      <node ref="U1" pin="2"/>
+      <node ref="R14" pin="1"/>
+      <node ref="SW1" pin="2"/>
+      <node ref="J1" pin="4"/>
+      <node ref="J7" pin="2"/>
+      <node ref="C14" pin="2"/>
+      <node ref="C15" pin="2"/>
+      <node ref="Q1" pin="2"/>
+      <node ref="SW1" pin="1"/>
+      <node ref="C13" pin="2"/>
+      <node ref="J3" pin="4"/>
+      <node ref="R2" pin="2"/>
+      <node ref="U3" pin="2"/>
+      <node ref="C12" pin="2"/>
+      <node ref="C11" pin="2"/>
+      <node ref="C10" pin="2"/>
+      <node ref="C1" pin="1"/>
+      <node ref="J6" pin="1"/>
+    </net>
+    <net code="6" name="VBAT_Sense">
+      <node ref="R8" pin="2"/>
+      <node ref="U2" pin="11"/>
+      <node ref="R9" pin="1"/>
+    </net>
+    <net code="7" name="+BATT">
+      <node ref="R8" pin="1"/>
+      <node ref="R1" pin="2"/>
+      <node ref="U1" pin="3"/>
+      <node ref="C10" pin="1"/>
+      <node ref="F1" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="C12" pin="1"/>
+    </net>
+    <net code="8" name="Tone_System_Enable">
+      <node ref="R5" pin="2"/>
+      <node ref="U2" pin="41"/>
+      <node ref="SW1" pin="3"/>
+    </net>
+    <net code="9" name="Net-(R2-Pad1)">
+      <node ref="R3" pin="1"/>
+      <node ref="U1" pin="1"/>
+      <node ref="R2" pin="1"/>
+    </net>
+    <net code="10" name="Motor_Direction">
+      <node ref="U2" pin="45"/>
+      <node ref="J1" pin="3"/>
+    </net>
+    <net code="11" name="Motor_PWM">
+      <node ref="J1" pin="5"/>
+      <node ref="U2" pin="46"/>
+    </net>
+    <net code="12" name="Net-(BZ1-Pad2)">
+      <node ref="R7" pin="2"/>
+      <node ref="Q1" pin="3"/>
+      <node ref="BZ1" pin="2"/>
+    </net>
+    <net code="13" name="Net-(J1-Pad1)">
+      <node ref="R1" pin="1"/>
+      <node ref="U1" pin="4"/>
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="14" name="Net-(Q1-Pad1)">
+      <node ref="R6" pin="1"/>
+      <node ref="Q1" pin="1"/>
+    </net>
+    <net code="15" name="Piezo">
+      <node ref="R6" pin="2"/>
+      <node ref="U2" pin="29"/>
+    </net>
+    <net code="16" name="Net-(J6-Pad2)">
+      <node ref="J6" pin="2"/>
+    </net>
+    <net code="17" name="Net-(J4-Pad1)">
+      <node ref="J4" pin="1"/>
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="18" name="Net-(J4-Pad2)">
+      <node ref="J4" pin="2"/>
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="19" name="Net-(J4-Pad3)">
+      <node ref="U2" pin="26"/>
+      <node ref="J4" pin="3"/>
+    </net>
+    <net code="20" name="Net-(J4-Pad4)">
+      <node ref="U2" pin="25"/>
+      <node ref="J4" pin="4"/>
+    </net>
+    <net code="21" name="Net-(J5-Pad4)">
+      <node ref="J5" pin="4"/>
+      <node ref="U2" pin="17"/>
+    </net>
+    <net code="22" name="Net-(J5-Pad3)">
+      <node ref="J5" pin="3"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="23" name="Net-(J5-Pad2)">
+      <node ref="J5" pin="2"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="24" name="Net-(J5-Pad1)">
+      <node ref="J5" pin="1"/>
+      <node ref="U2" pin="14"/>
+    </net>
+    <net code="25" name="Net-(U2-Pad4)">
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="26" name="Net-(U2-Pad3)">
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="27" name="Net-(U2-Pad2)">
+      <node ref="U2" pin="2"/>
+    </net>
+    <net code="28" name="Net-(U2-Pad10)">
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="29" name="Net-(U2-Pad32)">
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="30" name="Net-(U2-Pad22)">
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="31" name="Net-(U2-Pad21)">
+      <node ref="U2" pin="21"/>
+    </net>
+    <net code="32" name="Net-(U2-Pad43)">
+      <node ref="U2" pin="43"/>
+    </net>
+    <net code="33" name="Net-(U2-Pad42)">
+      <node ref="U2" pin="42"/>
+    </net>
+    <net code="34" name="Net-(U2-Pad39)">
+      <node ref="U2" pin="39"/>
+    </net>
+    <net code="35" name="Net-(U2-Pad20)">
+      <node ref="U2" pin="20"/>
+    </net>
+    <net code="36" name="Net-(U2-Pad18)">
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="37" name="/microcontroller/Reset">
+      <node ref="J2" pin="1"/>
+      <node ref="C3" pin="2"/>
+      <node ref="R15" pin="1"/>
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="38" name="Net-(R12-Pad1)">
+      <node ref="R16" pin="1"/>
+      <node ref="R17" pin="2"/>
+      <node ref="R12" pin="1"/>
+    </net>
+    <net code="39" name="Net-(R11-Pad1)">
+      <node ref="R11" pin="1"/>
+      <node ref="R13" pin="1"/>
+      <node ref="R14" pin="2"/>
+    </net>
+    <net code="40" name="/microcontroller/Boot1">
+      <node ref="U2" pin="19"/>
+      <node ref="R12" pin="2"/>
+    </net>
+    <net code="41" name="Net-(U2-Pad38)">
+      <node ref="U2" pin="38"/>
+    </net>
+    <net code="42" name="Net-(U2-Pad33)">
+      <node ref="U2" pin="33"/>
+    </net>
+    <net code="43" name="/microcontroller/Boot0">
+      <node ref="U2" pin="44"/>
+      <node ref="R11" pin="2"/>
+    </net>
+    <net code="44" name="Net-(U2-Pad1)">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="45" name="Net-(C4-Pad1)">
+      <node ref="C4" pin="1"/>
+      <node ref="Y1" pin="1"/>
+      <node ref="R18" pin="1"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="46" name="/microcontroller/SWDIO">
+      <node ref="J3" pin="2"/>
+      <node ref="U2" pin="34"/>
+    </net>
+    <net code="47" name="/microcontroller/SWCLK">
+      <node ref="J3" pin="3"/>
+      <node ref="U2" pin="37"/>
+    </net>
+    <net code="48" name="UART1_RX">
+      <node ref="J6" pin="3"/>
+      <node ref="U2" pin="31"/>
+    </net>
+    <net code="49" name="UART1_TX">
+      <node ref="J6" pin="4"/>
+      <node ref="U2" pin="30"/>
+    </net>
+    <net code="50" name="Net-(C5-Pad1)">
+      <node ref="C5" pin="1"/>
+      <node ref="Y1" pin="2"/>
+      <node ref="R18" pin="2"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="51" name="Net-(J7-Pad1)">
+      <node ref="J8" pin="2"/>
+      <node ref="J7" pin="1"/>
+    </net>
+    <net code="52" name="Net-(F1-Pad2)">
+      <node ref="F1" pin="2"/>
+      <node ref="J8" pin="1"/>
+    </net>
+  </nets>
+</export>

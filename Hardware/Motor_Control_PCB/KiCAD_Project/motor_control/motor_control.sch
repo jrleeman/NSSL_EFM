@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:motor_control-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -18,8 +17,8 @@ $Comp
 L Connector_Generic:Conn_01x05 J1
 U 1 1 5DDA5EFD
 P 4175 2200
-F 0 "J1" H 4255 2242 50  0000 L CNN
-F 1 "Motor" H 4255 2151 50  0000 L CNN
+F 0 "J1" H 4125 1825 50  0000 L CNN
+F 1 "Motor" H 4050 1900 50  0000 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 4175 2200 50  0001 C CNN
 F 3 "~" H 4175 2200 50  0001 C CNN
 F 4 "0-0000000" H 4175 2200 50  0001 C CNN "Internal Part Number"
@@ -2703,5 +2702,28 @@ F 2 "" H -1475 1575 50  0001 C CNN
 F 3 "~" H -1475 1575 50  0001 C CNN
 	1    -1475 1575
 	-1   0    0    1   
+$EndComp
+Text Notes 4250 2425 0    50   ~ 0
+PWM (Blue)
+Text Notes 4250 2325 0    50   ~ 0
+Gnd (Black)
+Text Notes 4250 2225 0    50   ~ 0
+Dir (Yellow)
+Text Notes 4250 2125 0    50   ~ 0
+FG (Green)
+Text Notes 4250 2025 0    50   ~ 0
+Power (Red)
+$Comp
+L lib_sch:barepcb PCB1
+U 1 1 5FDCD5DA
+P 7175 6400
+F 0 "PCB1" H 7403 6446 50  0000 L CNN
+F 1 "barepcb" H 7025 6400 50  0000 L CNN
+F 2 "lib_fp:barepcb" H 7175 6400 50  0001 C CNN
+F 3 "" H 7175 6400 50  0001 C CNN
+F 4 "3-0000021" H 7175 6400 50  0001 C CNN "Internal Part Number"
+F 5 "1" H 7175 6400 50  0001 C CNN "Populated"
+	1    7175 6400
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

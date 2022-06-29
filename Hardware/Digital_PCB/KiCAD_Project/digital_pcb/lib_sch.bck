@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BNO055
+D Intelligent 9-axis absolute orientation sensor, LGA-28
+K IMU, Sensor Fusion, I2C, UART
+F https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST_BNO055_DS000_14.pdf
+$ENDCMP
+#
+#End Doc Library

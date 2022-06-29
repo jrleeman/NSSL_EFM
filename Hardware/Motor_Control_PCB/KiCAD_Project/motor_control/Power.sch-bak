@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:motor_control-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -22,7 +21,7 @@ F 0 "C10" H 4540 3421 50  0000 L CNN
 F 1 "10u" H 4540 3330 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603_HandSoldering" H 4463 3225 50  0001 C CNN
 F 3 "~" H 4425 3375 50  0001 C CNN
-F 4 "1-0000075" H 4425 3375 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000005" H 4425 3375 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 4425 3375 50  0001 C CNN "Populated"
 	1    4425 3375
 	1    0    0    -1  
@@ -132,7 +131,7 @@ F 0 "C13" H 6640 3421 50  0000 L CNN
 F 1 "10u" H 6640 3330 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0603_HandSoldering" H 6563 3225 50  0001 C CNN
 F 3 "~" H 6525 3375 50  0001 C CNN
-F 4 "1-0000075" H 6525 3375 50  0001 C CNN "Internal Part Number"
+F 4 "1-0000005" H 6525 3375 50  0001 C CNN "Internal Part Number"
 F 5 "1" H 6525 3375 50  0001 C CNN "Populated"
 	1    6525 3375
 	1    0    0    -1  

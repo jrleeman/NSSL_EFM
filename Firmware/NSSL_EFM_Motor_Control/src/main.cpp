@@ -17,19 +17,20 @@
 #include <Arduino.h>
 #include <FIR.h>
 #include <PID_v1.h>
+#include <IWatchdog.h>
 #include "pins.h"
 
 // Globals
-uint16_t encoder_pulses = 0; // Counts pulses for the encoder 
+volatile uint16_t encoder_pulses = 0; // Counts pulses for the encoder 
 char motor_cutoff_enable = 1;
 char tone_system_enable = 1;
 double setpoint = 120; // Target RPM for the motor
 double feedback = 0; // Feedback for the motor PID
-double pwm_output = 175; // Output from the PID
-double pid_kp=0.2;
-double pid_ki=0.05;
+double pwm_output = 80; // Output from the PID
+double pid_kp=1.0;
+double pid_ki=0.1;
 double pid_kd=0.0;
-uint16_t motor_current_limit = 70; // mA limit before motor cutoff
+uint16_t motor_current_limit = 300; // mA limit before motor cutoff
 
 // Instances
 FIR<float, 4> fir;  // Since we are shooting for about 120 RPM this is a 10 second average.
@@ -52,8 +53,6 @@ void PlayTones()
    * 
    * Play tones to aid in location of the instrument.
    */
-  while(1)
-  {
     tone(PIN_BUZZER, 1000);
     delay(1000);
     tone(PIN_BUZZER, 2000);
@@ -65,8 +64,6 @@ void PlayTones()
     tone(PIN_BUZZER, 5000);
     delay(1000);
     noTone(PIN_BUZZER);
-    delay(30000);
-  }
 }
 
 void Shutdown()
@@ -74,7 +71,7 @@ void Shutdown()
   /*
    * Shutdown
    * 
-   * Turns off the motor and goes into an infinite loop with long sleeps.
+   * Turns off the motor, plays tones, then tries a restart of everything after ~1 minute.
    */
   analogWrite(PIN_MOTOR_PWM, 255);
   Serial.println("Shutting down.");
@@ -82,7 +79,13 @@ void Shutdown()
   {
     PlayTones();
   }
-  while(1){}
+  for (uint8_t i=0; i<2; i++)
+  {
+    IWatchdog.reload();
+    delay(20000);
+  }
+  IWatchdog.reload();
+  while(1){} // Spin until the watchdog catches us!
 }
 
 uint16_t CurrentSafetyCheck(uint16_t current_limit_milliamps)
@@ -91,7 +94,7 @@ uint16_t CurrentSafetyCheck(uint16_t current_limit_milliamps)
    * Current Safety Check
    * 
    * Checks the current draw of the motor and if it is over the given threshold we
-   * go to the shutdown state (an infinite trap) if enabled. Otherwise return to where we were.
+   * go to the shutdown state if enabled. Otherwise return to where we were.
    */
   uint16_t voltage = 0;
   for (int i=0; i<10; i++)
@@ -177,6 +180,21 @@ float RPMCheck(uint32_t count_interval_ms)
   return -1;
 }
 
+void VerifyRotation()
+{
+  // Verify that the motor is rotating at least a little (1 pulse/100ms). Blocking.
+  if (motor_cutoff_enable)
+  {
+   uint16_t encoder_initial = encoder_pulses;
+   delay(100);
+   uint16_t encoder_final = encoder_pulses;
+   if ((encoder_final - encoder_initial) <= 0)
+   {
+     Shutdown();
+   }
+  }
+}
+
 void setup()
 {
   /*
@@ -184,6 +202,8 @@ void setup()
    * 
    * This runs once at boot and sets up all of the pin states, classes we'll need, etc.
    */
+
+  IWatchdog.begin(26000000); //max 26208000
 
   delay(2000);  // Wait incase a user is starting a terminal
   Serial.begin(115200); // Start a serial port
@@ -213,22 +233,24 @@ void setup()
 
   // Motor Controller Setup
   digitalWrite(PIN_MOTOR_DIRECTION, LOW);
-  analogWrite(PIN_MOTOR_PWM, 175); // Start the motor
-  delay(200);
+  analogWrite(PIN_MOTOR_PWM, 10); // Start the motor
+  delay(2000);
 
-  // Make sure the current is okay
+  // Make sure the current is okay after spinup
   CurrentSafetyCheck(motor_current_limit);
 
-  // Turn on the PID
-  motor_pid.SetMode(AUTOMATIC);
+  IWatchdog.reload();
 
   // Get the RPM update method running by calling with a short interval
   RPMCheck(1000);
   delay(1100);
   RPMCheck(1000);
   delay(1100);
+  // Turn on the PID
+  motor_pid.SetMode(AUTOMATIC);
   Serial.println("Startup Complete");
   Serial.println("Milliseconds, Feedback, Setpoint, PWM_Output, Current_mA, Battery_mV");
+
 }
 
 void loop()
@@ -243,11 +265,16 @@ void loop()
    * threshold, we turn off the motor.
    */
 
+  IWatchdog.reload();
+
   // Check the current draw
   uint16_t current_milliamps = CurrentSafetyCheck(motor_current_limit);
 
   // Check the battery voltage
   uint16_t battery_voltage = ReadBatteryVoltage();
+
+  // Check that in 100ms we at least get 1 encoder pulse - otherwise stop!
+  VerifyRotation();
 
   // Check if there is an update to the motor RPM
   feedback = RPMCheck(10000);
@@ -269,5 +296,4 @@ void loop()
     Serial.print(",");
     Serial.println(battery_voltage);
   }
-  delay(50);
 }

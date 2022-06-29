@@ -9,35 +9,40 @@
 
 #include <Arduino.h>
 #include <Wire.h>
-#include "Lgeo_HTU21D.h"
 #include "Adafruit_Sensor.h"
-#include "Adafruit_BNO055.h"
+#include <Adafruit_LSM9DS1.h>
+#include <Adafruit_BME280.h>
 #include "ADS1220.h"
 #include "pins.h"
 #include "utility/imumaths.h"
 #include <SoftwareSerial.h>
 
-Lgeo_HTU21D htu = Lgeo_HTU21D();
-Adafruit_BNO055 bno = Adafruit_BNO055(-1, 0x28);
+Adafruit_BME280 bme;
+Adafruit_LSM9DS1 lsm = Adafruit_LSM9DS1();
 ADS1220 adc;
-SoftwareSerial debugSerial(PB12, PB13); // RX, TX
+//SoftwareSerial debugSerial(PB12, PB13); // RX, TX
 
 void setup()
 {
   // Setup serial communications
-  Serial.begin(115200);
-  debugSerial.begin(19200);
+  Serial.begin(38400);
+  //debugSerial.begin(19200);
+
+  //debugSerial.println("NSSL Rotating Electronics");
 
   // Setup the IMU
-  if(!bno.begin())
+  lsm.setupAccel(lsm.LSM9DS1_ACCELRANGE_4G);
+  lsm.setupMag(lsm.LSM9DS1_MAGGAIN_4GAUSS);
+  lsm.setupGyro(lsm.LSM9DS1_GYROSCALE_2000DPS);
+  if(!lsm.begin())
   {
-    Serial.print("Error starting BNO055 IMU.");
+    //debugSerial.println("Error starting IMU.");
   }
 
   // Setup the Temperature/Humidity sensor
-  if(!htu.begin())
+  if(!bme.begin(0x76, &Wire))
   {
-    Serial.print("Error starting HTU21D sensor.");
+    //debugSerial.println("Error starting BME280 sensor.");
   }
 
   // Setup the ADC
@@ -60,19 +65,38 @@ void setup()
   adc.setPGAbypass(1);
 }
 
-
-void serialWriteFloat(float val)
+void serialWrite32(uint32_t data)
 {
-  // Write a floating point value out as binary
-  byte * b = (byte *) &val;
-  Serial.write(b, 4);
+  byte buf[4];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  buf[2] = (data >> 16) & 255;
+  buf[3] = (data >> 24) & 255;
+  Serial.write(buf, sizeof(buf));
 }
 
-void readandsend()
+void serialWriteuint16(uint16_t data)
+{
+  byte buf[2];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  Serial.write(buf, sizeof(buf));
+}
+
+void serialWriteint16(int16_t data)
+{
+  byte buf[2];
+  buf[0] = data & 255;
+  buf[1] = (data >> 8) & 255;
+  Serial.write(buf, sizeof(buf));
+}
+
+void loop()
 {
   static uint8_t loop_counter = 0;
-  static uint16_t temperature_degC = 0;
+  static int16_t temperature_degC = 0;
   static uint16_t relative_humidity = 0;
+  static uint16_t pressure_pa = 0;
 
   while (!adc.isDataReady()){} // Spin until we have new data
 
@@ -80,71 +104,48 @@ void readandsend()
   uint32_t adc_ready_time = millis();
 
   // Read the IMU as close to the ADC time as possible
-  sensors_event_t accelerometer_data, magnetometer_data, gyroscope_data;
-
-  // Get the VECTOR_ACCELEROMETER data (m/s/s)
-  bno.getEvent(&accelerometer_data, Adafruit_BNO055::VECTOR_ACCELEROMETER);
-
-  // Get the VECTOR_MAGNETOMETER data (uT)
-  bno.getEvent(&magnetometer_data, Adafruit_BNO055::VECTOR_MAGNETOMETER);
-
-  // Get the VECTOR_GYROSCOPE data(rad/s)
-  bno.getEvent(&gyroscope_data, Adafruit_BNO055::VECTOR_GYROSCOPE);  
-
-  delay(1);
+  lsm.read();
 
   // Read the ADC
   uint32_t adc_reading = adc.readADC();
 
-  // Read the temperature or humidity
+  // Read the temperature or humidity - this is a very primitive scheduler that keeps things
+  // fast enough that we can sample as fast as we want.
   if (loop_counter == 0)
   {
-    htu.startTemperatureConversion();
-  }
-  if (loop_counter == 50)
-  { 
-    htu.startHumidityConversion();
+    relative_humidity = bme.readHumidity();
   }
 
   if (loop_counter == 25)
+  { 
+    pressure_pa = bme.readPressure() / 10;
+  }
+
+  if (loop_counter == 50)
   {
-    temperature_degC = htu.readTemperature();
+    temperature_degC = bme.readTemperature() * 10;
   }
-  if (loop_counter == 75)
-  {  
-    relative_humidity = htu.readHumidity();
-  }
- 
   
-  delay(1); // Without the delay we don't have populated things for sending
-  
-  // Send the data (use write for binary)
-  Serial.write(0xBE);
-  Serial.write(adc_ready_time);
-  Serial.write(adc_reading);
-  Serial.write(temperature_degC);
-  Serial.write(relative_humidity);
-  serialWriteFloat(accelerometer_data.acceleration.x);
-  serialWriteFloat(accelerometer_data.acceleration.y);
-  serialWriteFloat(accelerometer_data.acceleration.z);
-  serialWriteFloat(magnetometer_data.magnetic.x);
-  serialWriteFloat(magnetometer_data.magnetic.y);
-  serialWriteFloat(magnetometer_data.magnetic.z);
-  serialWriteFloat(gyroscope_data.gyro.x);
-  serialWriteFloat(gyroscope_data.gyro.y);
-  serialWriteFloat(gyroscope_data.gyro.z);
-  Serial.write(0xEF);
+  Serial.write(0xBE);  // Packet Byte 0
+  serialWrite32(adc_ready_time);  // Packet Byte 1-4
+  serialWrite32(adc_reading);  // Packet Byte 5-8
+  serialWriteint16((int16_t)lsm.magData.x);  // Packet Byte 9-10
+  serialWriteint16((int16_t)lsm.magData.y);  // Packet Byte 11-12
+  serialWriteint16((int16_t)lsm.magData.z);  // Packet Byte 13-14
+  serialWriteint16((int16_t)lsm.gyroData.x);  // Packet Byte 15-16
+  serialWriteint16((int16_t)lsm.gyroData.y);  // Packet Byte 17-18
+  serialWriteint16((int16_t)lsm.gyroData.z);  // Packet Byte 19-20
+  serialWriteint16((int16_t)lsm.accelData.x);  // Packet Byte 21-22  
+  serialWriteint16((int16_t)lsm.accelData.y);  // Packet Byte 23-24
+  serialWriteint16((int16_t)lsm.accelData.z);  // Packet Byte 25-26
+  serialWriteint16(temperature_degC);  // Packet Byte 27-28
+  serialWriteuint16(relative_humidity); // Packet Byte 29-30
+  serialWriteuint16(pressure_pa); // Packet Byte 31-32
+  Serial.write(0xEF); // Packet Byte 33
 
   loop_counter += 1;
   if (loop_counter == 100)
   {
     loop_counter = 0;
   }
-}
-
-
-void loop()
-{
-  // Really quite simple - just keep reading and sending as fast as we can!
-  readandsend();
 }
