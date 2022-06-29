@@ -129,15 +129,15 @@ void loop()
   Serial.write(0xBE);  // Packet Byte 0
   serialWrite32(adc_ready_time);  // Packet Byte 1-4
   serialWrite32(adc_reading);  // Packet Byte 5-8
-  serialWriteint16(lsm.magData.x);  // Packet Byte 9-10
-  serialWriteint16(lsm.magData.y);  // Packet Byte 11-12
-  serialWriteint16(lsm.magData.z);  // Packet Byte 13-14
-  serialWriteint16(lsm.gyroData.x);  // Packet Byte 15-16
-  serialWriteint16(lsm.gyroData.y);  // Packet Byte 17-18
-  serialWriteint16(lsm.gyroData.z);  // Packet Byte 19-20
-  serialWriteint16(lsm.accelData.x);  // Packet Byte 21-22  
-  serialWriteint16(lsm.accelData.y);  // Packet Byte 23-24
-  serialWriteint16(lsm.accelData.z);  // Packet Byte 25-26
+  serialWriteint16((int16_t)lsm.magData.x);  // Packet Byte 9-10
+  serialWriteint16((int16_t)lsm.magData.y);  // Packet Byte 11-12
+  serialWriteint16((int16_t)lsm.magData.z);  // Packet Byte 13-14
+  serialWriteint16((int16_t)lsm.gyroData.x);  // Packet Byte 15-16
+  serialWriteint16((int16_t)lsm.gyroData.y);  // Packet Byte 17-18
+  serialWriteint16((int16_t)lsm.gyroData.z);  // Packet Byte 19-20
+  serialWriteint16((int16_t)lsm.accelData.x);  // Packet Byte 21-22  
+  serialWriteint16((int16_t)lsm.accelData.y);  // Packet Byte 23-24
+  serialWriteint16((int16_t)lsm.accelData.z);  // Packet Byte 25-26
   serialWriteint16(temperature_degC);  // Packet Byte 27-28
   serialWriteuint16(relative_humidity); // Packet Byte 29-30
   serialWriteuint16(pressure_pa); // Packet Byte 31-32
