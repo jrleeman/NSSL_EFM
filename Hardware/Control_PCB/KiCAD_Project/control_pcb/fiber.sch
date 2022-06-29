@@ -2342,4 +2342,6 @@ Wire Wire Line
 	4975 3225 4550 3225
 Text Notes 7600 750  0    50   ~ 0
 Receives the fiber optic signal, buffers, and creates a level shifted serial output of the\nsignal. Optionally can invert the signal if the transmitter is ever changed.
+Text Notes 4100 4725 0    50   ~ 0
+For unit #3, produced in 2022 we learned that IF-D96F was made\nobsolete with no direct replacement. We found that IF-D95T works\nwith R37 removed, R41 populated, and R40 not populated.
 $EndSCHEMATC
